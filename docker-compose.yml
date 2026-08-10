@@ -1,0 +1,71 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: stampz
+      POSTGRES_PASSWORD: stampz
+      POSTGRES_DB: stampz
+    ports:
+      - "5432:5432"
+    volumes:
+      - stampz_pg:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U stampz -d stampz"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  redis:
+    image: redis:7-alpine
+    restart: unless-stopped
+    ports:
+      - "6379:6379"
+    volumes:
+      - stampz_redis:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+  api:
+    build:
+      context: .
+      dockerfile: apps/api/Dockerfile
+    profiles: ["staging"]
+    restart: unless-stopped
+    environment:
+      NODE_ENV: production
+      PORT: 4000
+      DATABASE_URL: postgresql://stampz:stampz@postgres:5432/stampz?schema=public
+      REDIS_URL: redis://redis:6379
+      JWT_SECRET: stampz-staging-jwt-secret-change-in-prod
+      JWT_EXPIRES_IN: 7d
+      APP_URL: http://localhost:3000
+      CORS_ORIGINS: http://localhost:3000,http://localhost:8081
+    ports:
+      - "4000:4000"
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+
+  web:
+    build:
+      context: .
+      dockerfile: apps/web/Dockerfile
+    profiles: ["staging"]
+    restart: unless-stopped
+    environment:
+      NODE_ENV: production
+      NEXT_PUBLIC_API_URL: http://localhost:4000
+    ports:
+      - "3000:3000"
+    depends_on:
+      - api
+
+volumes:
+  stampz_pg:
+  stampz_redis:

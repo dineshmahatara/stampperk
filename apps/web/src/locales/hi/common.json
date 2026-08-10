@@ -1,0 +1,397 @@
+{
+  "preferences": "प्रदर्शन",
+  "theme": "थीम",
+  "language": "भाषा",
+  "textSize": "फ़ॉन्ट आकार",
+  "light": "लाइट",
+  "dark": "डार्क",
+  "soft": "सॉफ्ट",
+  "sizeDefault": "सामान्य",
+  "sizeLarge": "बड़ा",
+  "sizeXLarge": "और बड़ा",
+  "product": "उत्पाद",
+  "howItWorks": "कैसे काम करता है",
+  "pricing": "मूल्य",
+  "guides": "गाइड",
+  "faq": "प्रश्न",
+  "customerLogin": "ग्राहक लॉगिन",
+  "businessLogin": "बिज़नेस लॉगिन",
+  "builtFor": "व्यवसायों के लिए बना",
+  "heroTitleBefore": "डिजिटल लॉयल्टी कार्ड जो विज़िट को बनाते हैं",
+  "heroTitleAccent": "स्थायी वफादारी।",
+  "heroBody": "डिजिटल पंच कार्ड बनाएं, दोबारा आने वाले ग्राहकों को पुरस्कृत करें, और मोबाइल व डेस्कटॉप से अपना लॉयल्टी प्रोग्राम चलाएं। एक अकाउंट। सब सिंक।",
+  "startHere": "यहाँ शुरू करें",
+  "seeHow": "Stampz कैसे काम करता है देखें",
+  "noCard": "क्रेडिट कार्ड नहीं",
+  "mobileDesktop": "मोबाइल + डेस्कटॉप",
+  "easySetup": "आसान सेटअप",
+  "howLabel": "कैसे काम करता है",
+  "howTitle": "Stampz कैसे काम करता है देखें",
+  "howBody": "देखें कि व्यापारी डिजिटल कार्ड कैसे बनाते हैं, ग्राहकों को आमंत्रित करते हैं, सुरक्षित स्टैम्प देते हैं और पुरस्कार रिडीम करते हैं।",
+  "steps": [
+    "कार्ड बनाएं",
+    "ग्राहक आमंत्रित करें",
+    "स्टैम्प दें",
+    "पुरस्कार रिडीम"
+  ],
+  "startCreating": "अपना लॉयल्टी कार्ड बनाना शुरू करें",
+  "syncNote": "एक अकाउंट · मोबाइल और डेस्कटॉप सिंक रहते हैं।",
+  "features": [
+    {
+      "title": "सुरक्षित QR सत्यापन",
+      "body": "हर स्टैम्प और रिडेम्प्शन सुरक्षित QR से सत्यापित करें।"
+    },
+    {
+      "title": "ग्राहकों को वापस लाएं",
+      "body": "समय पर ऑफ़र और रिमाइंडर भेजें।"
+    },
+    {
+      "title": "आसान स्टाफ़ प्रबंधन",
+      "body": "टीम को स्पष्ट भूमिका और नियंत्रित पहुँच दें।"
+    },
+    {
+      "title": "मानचित्र पर खोजें",
+      "body": "पास के ग्राहकों को अपना व्यवसाय खोजने में मदद करें।"
+    },
+    {
+      "title": "उन्नत एनालिटिक्स",
+      "body": "विज़िट, स्टैम्प और पुरस्कार एक डैशबोर्ड में ट्रैक करें।"
+    },
+    {
+      "title": "मज़बूत बिज़नेस उपस्थिति",
+      "body": "मोबाइल और डेस्कटॉप पर भरोसेमंद प्रोफ़ाइल दिखाएं।"
+    }
+  ],
+  "pills": [
+    "एक अकाउंट",
+    "मोबाइल + डेस्कटॉप",
+    "हमेशा सिंक"
+  ],
+  "pricingLabel": "सरल मूल्य",
+  "pricingTitle": "छोटे से शुरू करें। तैयार होने पर बढ़ें।",
+  "pricingBody": "बिना कार्ड मुफ़्त शुरू करें, प्रीमियम आज़माएं, या सालाना बिलिंग से बचत करें।",
+  "free": "मुफ़्त",
+  "monthly": "मासिक",
+  "yearly": "वार्षिक",
+  "mostPopular": "सबसे लोकप्रिय",
+  "bestValue": "बेस्ट वैल्यू · 33% छूट",
+  "enterFree": "मुफ़्त शुरू करें",
+  "startMonthly": "मासिक शुरू करें",
+  "continueYearly": "वार्षिक जारी रखें",
+  "freeItems": [
+    "1 लॉयल्टी कार्ड",
+    "सीमित स्टैम्प",
+    "1 ग्राहक ऑफ़र"
+  ],
+  "monthlyItems": [
+    "असीमित कार्ड, स्टैम्प और ऑफ़र",
+    "स्टाफ़ भूमिका और एनालिटिक्स",
+    "कभी भी रद्द करें"
+  ],
+  "yearlyItems": [
+    "मासिक की सभी सुविधाएँ",
+    "लंबी अवधि का एनालिटिक्स",
+    "प्राथमिकता सपोर्ट"
+  ],
+  "pricingFooter": "सुरक्षित भुगतान · मासिक रद्द · कोई सरप्राइज़ शुल्क नहीं",
+  "reviewsTitle": "दुनिया भर के व्यवसायों को पसंद",
+  "appStore": "App Store पर डाउनलोड करें",
+  "playStore": "Google Play पर पाएं",
+  "resourcesLabel": "लॉयल्टी संसाधन",
+  "resourcesTitle": "हर पुरस्कार निर्णय आत्मविश्वास से लें।",
+  "readGuide": "गाइड पढ़ें",
+  "faqLabel": "अक्सर पूछे जाने वाले",
+  "faqTitle": "डिजिटल लॉयल्टी के जवाब।",
+  "ctaTitle": "विज़िट को स्थायी वफादारी में बदलने के लिए तैयार?",
+  "ctaBody": "मिनटों में डिजिटल पंच कार्ड बनाएं। मोबाइल और डेस्कटॉप सिंक रहते हैं।",
+  "footerTag": "दुनिया भर के बढ़ते व्यवसायों के लिए डिजिटल लॉयल्टी कार्ड।",
+  "discover": "खोजें",
+  "privacy": "गोपनीयता",
+  "terms": "शर्तें",
+  "faqs": [
+    {
+      "q": "डिजिटल पंच कार्ड क्या है?",
+      "a": "यह कागज़ी स्टैम्प कार्ड की जगह ऐप या ऑनलाइन अकाउंट में रिकॉर्ड रखता है।"
+    },
+    {
+      "q": "डिजिटल लॉयल्टी कार्ड कैसे बनाएं?",
+      "a": "कार्रवाई चुनें, स्टैम्प संख्या तय करें, पुरस्कार परिभाषित करें और Stampz पर प्रकाशित करें।"
+    },
+    {
+      "q": "क्या मुफ़्त प्लान है?",
+      "a": "हाँ। एक कार्ड और सीमित स्टैम्प के साथ मुफ़्त शुरुआत उपलब्ध है।"
+    },
+    {
+      "q": "छोटे व्यवसाय में लॉयल्टी काम करती है?",
+      "a": "जब ग्राहक वापस आते हैं, पुरस्कार साफ़ हो और लागत टिकाऊ हो।"
+    },
+    {
+      "q": "कॉफ़ी शॉप के लिए क्या सही है?",
+      "a": "बार-बार खरीदारी वाले साधारण आइटम-आधारित प्रोग्राम अक्सर सही बैठते हैं।"
+    }
+  ],
+  "reviews": [
+    {
+      "country": "नेपाल",
+      "quote": "डिजिटल लॉयल्टी कार्ड समझना आसान है और पुरस्कार इकट्ठा करना सुविधाजनक बनाता है।"
+    },
+    {
+      "country": "संयुक्त राज्य",
+      "quote": "QR स्कैनर सेकंडों में रजिस्टर करता है और एनालिटिक्स तुरंत उपयोगी होते हैं।"
+    },
+    {
+      "country": "भारत",
+      "quote": "Stampz ने मिनटों में कागज़ी पंच कार्ड बदल दिए। ऑफ़लाइन QR बहुत तेज़ है।"
+    },
+    {
+      "country": "इंडोनेशिया",
+      "quote": "नियमित ग्राहक Stampz पसंद करते हैं। डैशबोर्ड ट्रैक करना आसान बनाता है।"
+    },
+    {
+      "country": "पाकिस्तान",
+      "quote": "व्यवसाय और स्टाफ़ आसानी से प्रबंधित कर सकता हूँ।"
+    },
+    {
+      "country": "श्रीलंका",
+      "quote": "साफ़ इंटरफ़ेस वाला उपयोगी ऐप। सिफ़ारिश के योग्य।"
+    }
+  ],
+  "login": "Login",
+  "blog": "Blog",
+  "resources": "Resources",
+  "pricingPage": {
+    "badge": "Flexible plans, powerful growth",
+    "titleBefore": "Start small.",
+    "titleAccent": "Grow",
+    "titleAfter": "when you're ready.",
+    "subtitle": "Start free with no card, explore everything for three days, or save with yearly billing.",
+    "pricesShownIn": "Prices shown in {{currency}} for {{region}}.",
+    "perYear": "/ year",
+    "mostPopular": "Most Popular",
+    "saveRibbon": "Save {{percent}}%",
+    "bestValueBadge": "Best Value",
+    "trialReminder": "We'll remind you before your trial ends.",
+    "regionPicker": "मूल्य क्षेत्र",
+    "regions": {
+      "NP": "Nepal",
+      "US": "United States",
+      "AU": "Australia",
+      "IN": "India",
+      "EU": "Europe",
+      "CN": "China"
+    },
+    "plans": {
+      "free": {
+        "label": "Free Plan",
+        "title": "Explore Stampz",
+        "description": "Start without a bank card and experience the essentials.",
+        "features": [
+          "Create 1 loyalty card",
+          "Give 2 stamp transactions",
+          "Create 1 customer offer",
+          "No bank card required"
+        ],
+        "priceNote": "Upgrade when you reach a free limit.",
+        "cta": "Get Started Free",
+        "footer": "No payment details needed."
+      },
+      "monthly": {
+        "label": "Monthly Plan",
+        "title": "Try Everything",
+        "description": "Unlock every Stampz feature for 3 days, then continue month to month.",
+        "features": [
+          "Full premium access",
+          "Unlimited cards, stamps and offers",
+          "Explore every feature for 3 days",
+          "Cancel anytime"
+        ],
+        "trialPrice": "{{price}} for {{days}} days",
+        "thenPrice": "Then {{price}} / month",
+        "priceNote": "Billed monthly until cancelled",
+        "cta": "Start 3-Day Free Trial",
+        "footer": "Bank card required · Automatically renews unless cancelled"
+      },
+      "yearly": {
+        "label": "Yearly Plan",
+        "title": "Consistent Growth",
+        "description": "Build lasting customer habits all year while getting the best value.",
+        "features": [
+          "Full premium access",
+          "Unlimited cards, stamps and offers",
+          "Long-term customer analytics",
+          "Save 33% for the full year"
+        ],
+        "perMonth": "{{price}} per month equivalent.",
+        "cta": "Choose Yearly Plan",
+        "footer": "One annual payment."
+      }
+    },
+    "trust": {
+      "secure": {
+        "title": "Secure Payments",
+        "body": "100% secure & trusted payment processing"
+      },
+      "cancel": {
+        "title": "Cancel Anytime",
+        "body": "No long-term contracts. Cancel anytime."
+      },
+      "data": {
+        "title": "Your Data is Safe",
+        "body": "We never share your data with third parties."
+      },
+      "support": {
+        "title": "24/7 Support",
+        "body": "Our team is here to help you anytime."
+      }
+    },
+    "monthly": "मासिक",
+    "yearly": "वार्षिक",
+    "billingToggle": "Billing cycle",
+    "perMonthShort": "/mo",
+    "billedYearlyAt": "Billed yearly at {{price}}",
+    "allPlansInclude": "All plans include free updates and new features."
+  },
+  "guideArticles": [
+    {
+      "tag": "कैफ़े लॉयल्टी",
+      "title": "कॉफ़ी शॉप लॉयल्टी: 30-दिन गाइड",
+      "body": "काउंटर पर सरल रहने वाली कैफ़े लॉयल्टी लॉन्च योजना।"
+    },
+    {
+      "tag": "गाइड",
+      "title": "छोटे व्यवसाय के लिए डिजिटल पंच कार्ड कैसे बनाएं",
+      "body": "रिवॉर्ड इकोनॉमिक्स और तेज़ स्टाफ़ वर्कफ़्लो पर आधारित योजना।"
+    },
+    {
+      "tag": "रेस्तराँ लॉयल्टी",
+      "title": "रेस्तराँ लॉयल्टी आइडिया और रिवॉर्ड गणित",
+      "body": "अर्थशास्त्र और संचालन फिट के आधार पर आइडिया चुनें।"
+    }
+  ],
+  "panel": {
+    "logout": "Log out",
+    "loading": "Loading…",
+    "nav": {
+      "dashboard": "Dashboard",
+      "cards": "Loyalty cards",
+      "campaigns": "Campaigns",
+      "scan": "Scan QR",
+      "profile": "Profile",
+      "billing": "Billing",
+      "staff": "Staff",
+      "wallet": "My wallet",
+      "discover": "Discover",
+      "myQr": "My QR",
+      "settings": "Settings",
+      "admin": "Admin panel"
+    },
+    "crud": {
+      "create": "Create",
+      "save": "Save changes",
+      "edit": "Edit",
+      "cancel": "Cancel",
+      "delete": "Delete",
+      "reactivate": "Reactivate",
+      "active": "Active",
+      "inactive": "Inactive",
+      "created": "Created successfully",
+      "updated": "Updated successfully",
+      "deleted": "Removed successfully",
+      "failed": "Something went wrong",
+      "confirmDelete": "Are you sure you want to remove this?"
+    },
+    "cards": {
+      "title": "Loyalty cards",
+      "subtitle": "Create and manage stamp programs for your customers.",
+      "create": "Create program",
+      "fieldTitle": "Program title",
+      "rewardTitle": "Reward title",
+      "rewardDetails": "Reward details",
+      "stamps": "stamps",
+      "empty": "No loyalty programs yet. Create your first card."
+    },
+    "campaigns": {
+      "title": "Campaigns",
+      "subtitle": "Create offers that bring customers back.",
+      "create": "Create campaign",
+      "fieldTitle": "Title",
+      "fieldDesc": "Description",
+      "badge": "Badge text",
+      "publish": "Publish",
+      "total": "Total",
+      "active": "Active",
+      "views": "Views",
+      "clicks": "Clicks",
+      "empty": "No campaigns yet."
+    },
+    "staff": {
+      "title": "Manage staff",
+      "subtitle": "Invite team members and control permissions.",
+      "current": "Current staff",
+      "invite": "Invite staff",
+      "inviteBtn": "Send invite",
+      "name": "Name",
+      "email": "Email",
+      "invited": "Staff invited (default password Stampz123! if new)",
+      "deactivate": "Deactivate",
+      "empty": "No staff members yet."
+    },
+    "wallet": {
+      "title": "My wallet",
+      "subtitle": "Your digital loyalty cards",
+      "reward": "Reward",
+      "rewardReady": "reward ready",
+      "redeem": "Redeem reward",
+      "redeemed": "Reward redeemed!",
+      "viewBusiness": "View business",
+      "empty": "No cards yet."
+    },
+    "business": {
+      "performance": "Business performance",
+      "yourBusiness": "Your business",
+      "plan": "Plan",
+      "onboard": "Complete business onboarding",
+      "customers": "Total customers",
+      "stampsWeek": "Stamps this week",
+      "redeemed": "Rewards redeemed",
+      "returning": "Returning",
+      "activity": "Recent activity",
+      "noActivity": "No stamps or redemptions yet. Open Scan QR to start."
+    },
+    "admin": {
+      "role": "Super Admin",
+      "overview": "Overview",
+      "merchants": "Merchants",
+      "users": "Users",
+      "subscriptions": "Subscriptions",
+      "overviewTitle": "System overview",
+      "overviewSubtitle": "Platform health and key metrics",
+      "merchantsTitle": "Merchants",
+      "merchantsSubtitle": "Approve or suspend businesses",
+      "usersTitle": "Users",
+      "usersSubtitle": "All accounts on the platform",
+      "subsTitle": "Subscriptions",
+      "subsSubtitle": "Billing plans across merchants",
+      "approve": "Approve",
+      "pending": "Pending",
+      "suspend": "Suspend",
+      "noMerchants": "No merchants yet.",
+      "noSubs": "No subscriptions yet.",
+      "unknownBusiness": "Unknown business",
+      "updated": "Updated",
+      "colName": "Name",
+      "colEmail": "Email",
+      "colRole": "Role",
+      "colLocale": "Locale",
+      "colJoined": "Joined",
+      "metrics": {
+        "activeMerchants": "Active merchants",
+        "customers": "Customers",
+        "stamps": "Stamps",
+        "redemptions": "Redemptions",
+        "payingMerchants": "Paying merchants",
+        "systemHealth": "System health"
+      }
+    }
+  }
+}

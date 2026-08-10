@@ -1,0 +1,397 @@
+{
+  "preferences": "Pantalla",
+  "theme": "Tema",
+  "language": "Idioma",
+  "textSize": "Tamaño de texto",
+  "light": "Claro",
+  "dark": "Oscuro",
+  "soft": "Suave",
+  "sizeDefault": "Normal",
+  "sizeLarge": "Grande",
+  "sizeXLarge": "XL",
+  "product": "Producto",
+  "howItWorks": "Cómo funciona",
+  "pricing": "Precios",
+  "guides": "Guías",
+  "faq": "FAQ",
+  "customerLogin": "Acceso cliente",
+  "businessLogin": "Acceso negocio",
+  "builtFor": "Hecho para negocios",
+  "heroTitleBefore": "Tarjetas de fidelidad digitales que convierten visitas en",
+  "heroTitleAccent": "lealtad duradera.",
+  "heroBody": "Crea una tarjeta digital, recompensa clientes recurrentes y gestiona tu programa desde móvil y escritorio. Una cuenta. Todo sincronizado.",
+  "startHere": "Empezar",
+  "seeHow": "Ver cómo funciona Stampz",
+  "noCard": "Sin tarjeta",
+  "mobileDesktop": "Móvil + Escritorio",
+  "easySetup": "Configuración fácil",
+  "howLabel": "Cómo funciona",
+  "howTitle": "Mira cómo funciona Stampz",
+  "howBody": "Descubre cómo los comercios crean tarjetas, invitan clientes, dan sellos seguros y canjean recompensas.",
+  "steps": [
+    "Crea tu tarjeta",
+    "Invita clientes",
+    "Da sellos",
+    "Canjea recompensas"
+  ],
+  "startCreating": "Empieza a crear tu tarjeta",
+  "syncNote": "Una cuenta · Móvil y escritorio sincronizados.",
+  "features": [
+    {
+      "title": "Verificación QR segura",
+      "body": "Verifica cada sello y canje con flujos QR protegidos."
+    },
+    {
+      "title": "Trae clientes de vuelta",
+      "body": "Envía ofertas y recordatorios a tiempo."
+    },
+    {
+      "title": "Gestión de personal",
+      "body": "Roles claros y acceso controlado para el equipo."
+    },
+    {
+      "title": "Descubrimiento en el mapa",
+      "body": "Ayuda a clientes cercanos a encontrarte."
+    },
+    {
+      "title": "Analítica avanzada",
+      "body": "Sigue visitas, sellos y recompensas en un panel."
+    },
+    {
+      "title": "Presencia del negocio",
+      "body": "Perfil de confianza en móvil y escritorio."
+    }
+  ],
+  "pills": [
+    "Una cuenta",
+    "Móvil + Escritorio",
+    "Siempre sincronizado"
+  ],
+  "pricingLabel": "Precios simples",
+  "pricingTitle": "Empieza pequeño. Crece cuando estés listo.",
+  "pricingBody": "Empieza gratis, prueba premium o ahorra con facturación anual.",
+  "free": "Gratis",
+  "monthly": "Mensual",
+  "yearly": "Anual",
+  "mostPopular": "Más popular",
+  "bestValue": "Mejor valor · 33% off",
+  "enterFree": "Entrar gratis",
+  "startMonthly": "Empezar mensual",
+  "continueYearly": "Continuar anual",
+  "freeItems": [
+    "1 tarjeta de fidelidad",
+    "Sellos limitados",
+    "1 oferta"
+  ],
+  "monthlyItems": [
+    "Ilimitado: tarjetas, sellos y ofertas",
+    "Roles y analítica",
+    "Cancela cuando quieras"
+  ],
+  "yearlyItems": [
+    "Todo lo mensual",
+    "Analítica a largo plazo",
+    "Soporte prioritario"
+  ],
+  "pricingFooter": "Pagos seguros · Cancela mensual · Sin cargos sorpresa",
+  "reviewsTitle": "Querido por negocios en todo el mundo",
+  "appStore": "Descargar en App Store",
+  "playStore": "Disponible en Google Play",
+  "resourcesLabel": "Recursos de fidelidad",
+  "resourcesTitle": "Decide cada recompensa con confianza.",
+  "readGuide": "Leer la guía",
+  "faqLabel": "Preguntas frecuentes",
+  "faqTitle": "Respuestas sobre fidelidad digital.",
+  "ctaTitle": "¿Listo para convertir visitas en lealtad duradera?",
+  "ctaBody": "Crea tu tarjeta digital en minutos. Móvil y escritorio sincronizados.",
+  "footerTag": "Tarjetas de fidelidad digitales para negocios en crecimiento.",
+  "discover": "Descubrir",
+  "privacy": "Privacidad",
+  "terms": "Términos",
+  "faqs": [
+    {
+      "q": "¿Qué es una tarjeta de sellos digital?",
+      "a": "Sustituye la tarjeta de papel por un registro en la app o cuenta online."
+    },
+    {
+      "q": "¿Cómo creo una tarjeta de fidelidad?",
+      "a": "Define la acción, el número de sellos, la recompensa y publícala en Stampz."
+    },
+    {
+      "q": "¿Hay plan gratis?",
+      "a": "Sí. Incluye una tarjeta y sellos limitados para empezar."
+    },
+    {
+      "q": "¿Funciona en pequeños negocios?",
+      "a": "Sí, si los clientes vuelven, la recompensa es clara y el coste es sostenible."
+    },
+    {
+      "q": "¿Qué funciona en cafeterías?",
+      "a": "Programas simples por ítem suelen encajar con compras frecuentes."
+    }
+  ],
+  "reviews": [
+    {
+      "country": "Nepal",
+      "quote": "El sistema es fácil de entender y más cómodo que las tarjetas de papel."
+    },
+    {
+      "country": "Estados Unidos",
+      "quote": "El escáner QR registra en segundos y la analítica es útil al instante."
+    },
+    {
+      "country": "India",
+      "quote": "Stampz reemplazó nuestras tarjetas de papel en minutos. El QR offline es rapidísimo."
+    },
+    {
+      "country": "Indonesia",
+      "quote": "Mis clientes regulares lo aman. El panel facilita el seguimiento."
+    },
+    {
+      "country": "Pakistán",
+      "quote": "Gestiono mejor el negocio y el personal."
+    },
+    {
+      "country": "Sri Lanka",
+      "quote": "App útil con interfaz limpia. Muy recomendable."
+    }
+  ],
+  "login": "Login",
+  "blog": "Blog",
+  "resources": "Resources",
+  "pricingPage": {
+    "badge": "Flexible plans, powerful growth",
+    "titleBefore": "Start small.",
+    "titleAccent": "Grow",
+    "titleAfter": "when you're ready.",
+    "subtitle": "Start free with no card, explore everything for three days, or save with yearly billing.",
+    "pricesShownIn": "Prices shown in {{currency}} for {{region}}.",
+    "perYear": "/ year",
+    "mostPopular": "Most Popular",
+    "saveRibbon": "Save {{percent}}%",
+    "bestValueBadge": "Best Value",
+    "trialReminder": "We'll remind you before your trial ends.",
+    "regionPicker": "Región de precios",
+    "regions": {
+      "NP": "Nepal",
+      "US": "United States",
+      "AU": "Australia",
+      "IN": "India",
+      "EU": "Europe",
+      "CN": "China"
+    },
+    "plans": {
+      "free": {
+        "label": "Free Plan",
+        "title": "Explore Stampz",
+        "description": "Start without a bank card and experience the essentials.",
+        "features": [
+          "Create 1 loyalty card",
+          "Give 2 stamp transactions",
+          "Create 1 customer offer",
+          "No bank card required"
+        ],
+        "priceNote": "Upgrade when you reach a free limit.",
+        "cta": "Get Started Free",
+        "footer": "No payment details needed."
+      },
+      "monthly": {
+        "label": "Monthly Plan",
+        "title": "Try Everything",
+        "description": "Unlock every Stampz feature for 3 days, then continue month to month.",
+        "features": [
+          "Full premium access",
+          "Unlimited cards, stamps and offers",
+          "Explore every feature for 3 days",
+          "Cancel anytime"
+        ],
+        "trialPrice": "{{price}} for {{days}} days",
+        "thenPrice": "Then {{price}} / month",
+        "priceNote": "Billed monthly until cancelled",
+        "cta": "Start 3-Day Free Trial",
+        "footer": "Bank card required · Automatically renews unless cancelled"
+      },
+      "yearly": {
+        "label": "Yearly Plan",
+        "title": "Consistent Growth",
+        "description": "Build lasting customer habits all year while getting the best value.",
+        "features": [
+          "Full premium access",
+          "Unlimited cards, stamps and offers",
+          "Long-term customer analytics",
+          "Save 33% for the full year"
+        ],
+        "perMonth": "{{price}} per month equivalent.",
+        "cta": "Choose Yearly Plan",
+        "footer": "One annual payment."
+      }
+    },
+    "trust": {
+      "secure": {
+        "title": "Secure Payments",
+        "body": "100% secure & trusted payment processing"
+      },
+      "cancel": {
+        "title": "Cancel Anytime",
+        "body": "No long-term contracts. Cancel anytime."
+      },
+      "data": {
+        "title": "Your Data is Safe",
+        "body": "We never share your data with third parties."
+      },
+      "support": {
+        "title": "24/7 Support",
+        "body": "Our team is here to help you anytime."
+      }
+    },
+    "monthly": "Mensual",
+    "yearly": "Anual",
+    "billingToggle": "Billing cycle",
+    "perMonthShort": "/mo",
+    "billedYearlyAt": "Billed yearly at {{price}}",
+    "allPlansInclude": "All plans include free updates and new features."
+  },
+  "guideArticles": [
+    {
+      "tag": "Fidelidad café",
+      "title": "Programa de fidelidad para cafeterías: guía de 30 días",
+      "body": "Plan de lanzamiento simple para el mostrador."
+    },
+    {
+      "tag": "Guías",
+      "title": "Cómo crear una tarjeta digital para tu negocio",
+      "body": "Plan paso a paso con economía de recompensas."
+    },
+    {
+      "tag": "Fidelidad restaurante",
+      "title": "Ideas de fidelidad para restaurantes",
+      "body": "Elige por economía y encaje operativo."
+    }
+  ],
+  "panel": {
+    "logout": "Log out",
+    "loading": "Loading…",
+    "nav": {
+      "dashboard": "Dashboard",
+      "cards": "Loyalty cards",
+      "campaigns": "Campaigns",
+      "scan": "Scan QR",
+      "profile": "Profile",
+      "billing": "Billing",
+      "staff": "Staff",
+      "wallet": "My wallet",
+      "discover": "Discover",
+      "myQr": "My QR",
+      "settings": "Settings",
+      "admin": "Admin panel"
+    },
+    "crud": {
+      "create": "Create",
+      "save": "Save changes",
+      "edit": "Edit",
+      "cancel": "Cancel",
+      "delete": "Delete",
+      "reactivate": "Reactivate",
+      "active": "Active",
+      "inactive": "Inactive",
+      "created": "Created successfully",
+      "updated": "Updated successfully",
+      "deleted": "Removed successfully",
+      "failed": "Something went wrong",
+      "confirmDelete": "Are you sure you want to remove this?"
+    },
+    "cards": {
+      "title": "Loyalty cards",
+      "subtitle": "Create and manage stamp programs for your customers.",
+      "create": "Create program",
+      "fieldTitle": "Program title",
+      "rewardTitle": "Reward title",
+      "rewardDetails": "Reward details",
+      "stamps": "stamps",
+      "empty": "No loyalty programs yet. Create your first card."
+    },
+    "campaigns": {
+      "title": "Campaigns",
+      "subtitle": "Create offers that bring customers back.",
+      "create": "Create campaign",
+      "fieldTitle": "Title",
+      "fieldDesc": "Description",
+      "badge": "Badge text",
+      "publish": "Publish",
+      "total": "Total",
+      "active": "Active",
+      "views": "Views",
+      "clicks": "Clicks",
+      "empty": "No campaigns yet."
+    },
+    "staff": {
+      "title": "Manage staff",
+      "subtitle": "Invite team members and control permissions.",
+      "current": "Current staff",
+      "invite": "Invite staff",
+      "inviteBtn": "Send invite",
+      "name": "Name",
+      "email": "Email",
+      "invited": "Staff invited (default password Stampz123! if new)",
+      "deactivate": "Deactivate",
+      "empty": "No staff members yet."
+    },
+    "wallet": {
+      "title": "My wallet",
+      "subtitle": "Your digital loyalty cards",
+      "reward": "Reward",
+      "rewardReady": "reward ready",
+      "redeem": "Redeem reward",
+      "redeemed": "Reward redeemed!",
+      "viewBusiness": "View business",
+      "empty": "No cards yet."
+    },
+    "business": {
+      "performance": "Business performance",
+      "yourBusiness": "Your business",
+      "plan": "Plan",
+      "onboard": "Complete business onboarding",
+      "customers": "Total customers",
+      "stampsWeek": "Stamps this week",
+      "redeemed": "Rewards redeemed",
+      "returning": "Returning",
+      "activity": "Recent activity",
+      "noActivity": "No stamps or redemptions yet. Open Scan QR to start."
+    },
+    "admin": {
+      "role": "Super Admin",
+      "overview": "Overview",
+      "merchants": "Merchants",
+      "users": "Users",
+      "subscriptions": "Subscriptions",
+      "overviewTitle": "System overview",
+      "overviewSubtitle": "Platform health and key metrics",
+      "merchantsTitle": "Merchants",
+      "merchantsSubtitle": "Approve or suspend businesses",
+      "usersTitle": "Users",
+      "usersSubtitle": "All accounts on the platform",
+      "subsTitle": "Subscriptions",
+      "subsSubtitle": "Billing plans across merchants",
+      "approve": "Approve",
+      "pending": "Pending",
+      "suspend": "Suspend",
+      "noMerchants": "No merchants yet.",
+      "noSubs": "No subscriptions yet.",
+      "unknownBusiness": "Unknown business",
+      "updated": "Updated",
+      "colName": "Name",
+      "colEmail": "Email",
+      "colRole": "Role",
+      "colLocale": "Locale",
+      "colJoined": "Joined",
+      "metrics": {
+        "activeMerchants": "Active merchants",
+        "customers": "Customers",
+        "stamps": "Stamps",
+        "redemptions": "Redemptions",
+        "payingMerchants": "Paying merchants",
+        "systemHealth": "System health"
+      }
+    }
+  }
+}

@@ -1,0 +1,9 @@
+<!-- Stampz library icon · Lucide (ISC) -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128">
+  <rect width="128" height="128" rx="28" fill="#4C1D95"/>
+  <g transform="translate(64 64) scale(3.15) translate(-12 -12)" fill="none" stroke="#F8FAFC" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M12 7v6" />
+  <path d="M15 10H9" />
+  <path d="M17 3a2 2 0 0 1 2 2v15a1 1 0 0 1-1.496.868l-4.512-2.578a2 2 0 0 0-1.984 0l-4.512 2.578A1 1 0 0 1 5 20V5a2 2 0 0 1 2-2z" />
+  </g>
+</svg>

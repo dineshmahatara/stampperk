@@ -1,0 +1,11 @@
+<!-- Stampz library icon · Lucide (ISC) -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128">
+  <rect width="128" height="128" rx="28" fill="#1E3A8A"/>
+  <g transform="translate(64 64) scale(3.15) translate(-12 -12)" fill="none" stroke="#F8FAFC" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="m4 6 3-3 3 3" />
+  <path d="M7 17V3" />
+  <path d="m14 6 3-3 3 3" />
+  <path d="M17 17V3" />
+  <path d="M4 21h16" />
+  </g>
+</svg>

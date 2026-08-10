@@ -1,0 +1,27 @@
+{
+  "name": "stampz",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev:api": "npm run start:dev -w @stampz/api",
+    "dev:web": "npm run dev -w @stampz/web",
+    "dev:mobile": "npm run start --workspace=@stampz/mobile -- --lan --port 8081",
+    "library:icons": "node apps/api/scripts/build-media-library.cjs",
+    "build": "npm run build -w @stampz/shared && npm run build -w @stampz/api && npm run build -w @stampz/web",
+    "lint": "npm run lint -w @stampz/api --if-present && npm run lint -w @stampz/web --if-present",
+    "db:generate": "npm run prisma:generate -w @stampz/api",
+    "db:migrate": "npm run prisma:migrate -w @stampz/api",
+    "db:seed": "npm run prisma:seed -w @stampz/api"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "overrides": {
+    "react": "19.1.0",
+    "react-native": "0.81.5",
+    "react-native-svg": "15.12.1"
+  }
+}

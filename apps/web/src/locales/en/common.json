@@ -1,0 +1,381 @@
+{
+  "preferences": "Display",
+  "theme": "Theme",
+  "language": "Language",
+  "textSize": "Text size",
+  "light": "Light",
+  "dark": "Dark",
+  "soft": "Soft",
+  "sizeDefault": "Default",
+  "sizeLarge": "Large",
+  "sizeXLarge": "XL",
+  "product": "Product",
+  "howItWorks": "How It Works",
+  "pricing": "Pricing",
+  "guides": "Guides",
+  "faq": "FAQ",
+  "customerLogin": "Customer Login",
+  "businessLogin": "Business Login",
+  "builtFor": "Digital loyalty for modern businesses",
+  "heroTitleBefore": "",
+  "heroTitleAccent": "Loyalty that runs itself.",
+  "heroBody": "Stamp cards, secure QR, Discover, CRM segments, coupons, and win-back automations — one workspace for merchants and customers.",
+  "startHere": "Start free",
+  "seeHow": "See how it works",
+  "noCard": "No credit card",
+  "mobileDesktop": "Web + mobile app",
+  "easySetup": "14-day trial ready",
+  "howLabel": "How it works",
+  "howTitle": "From first visit to repeat reward",
+  "howBody": "Publish a card, stamp with QR, then grow with segments, coupons, and automations that bring customers back.",
+  "steps": [
+    "Create your loyalty card",
+    "Customers join via QR",
+    "Stamp visits securely",
+    "Automate offers & redeem"
+  ],
+  "startCreating": "Create your loyalty card",
+  "syncNote": "One account · Web dashboard and mobile stay in sync.",
+  "features": [
+    {
+      "title": "Secure QR stamps",
+      "body": "Issue and redeem on the floor with staff roles — web and mobile stay in sync."
+    },
+    {
+      "title": "Discover & Verified",
+      "body": "Customers find you on the map. Stampz Verified lifts trusted shops to the top."
+    },
+    {
+      "title": "CRM segments",
+      "body": "See New, Returning, VIP, and At-risk customers with last visit and spend."
+    },
+    {
+      "title": "Coupons & automations",
+      "body": "Percent or fixed offers, birthday and 30-day win-back flows that send themselves."
+    },
+    {
+      "title": "Leaflets & campaigns",
+      "body": "Print-ready leaflets, promotions, and push — from one merchant dashboard."
+    },
+    {
+      "title": "Analytics & billing",
+      "body": "Stamps, redemption rate, staff performance, Free / Pro / Business plans, invoices."
+    }
+  ],
+  "pills": [
+    "Google · Apple · Microsoft sign-in",
+    "Device & session security",
+    "Offline-ready mobile"
+  ],
+  "audienceMerchantsTitle": "Run loyalty like a growth system",
+  "audienceMerchantsBody": "Cards, scan, CRM, coupons, automations, leaflets, analytics, and Verified — without stitching five tools together.",
+  "audienceCustomersTitle": "Collect stamps. Find places you love.",
+  "audienceCustomersBody": "Wallet cards, Discover map, rewards, Refer & Earn, and secure My QR — on web and mobile.",
+  "audienceMerchantsCta": "Open business account",
+  "audienceCustomersCta": "Explore Discover",
+  "verifiedLabel": "Trust that converts",
+  "verifiedTitle": "Stampz Verified Badge",
+  "verifiedBody": "Apply with business docs, get admin review, then activate the add-on. Live checkmark on Discover and your public profile.",
+  "verifiedCta": "View plans & Verified",
+  "reviewsTitle": "Built for shops that live on repeat visits",
+  "resourcesLabel": "Why Stampz",
+  "resourcesTitle": "More than a punch card — a loyalty workspace.",
+  "resourcesBody": "From first stamp to win-back offer, everything merchants need sits in one place.",
+  "ctaTitle": "Ready to turn visits into loyalty?",
+  "ctaBody": "Start free or begin a trial. Add Verified when you want the trust edge. Web and app stay in sync.",
+  "footerTag": "Digital loyalty, Discover, CRM, automations, and Verified trust for growing businesses.",
+  "faqLabel": "FAQ",
+  "faqTitle": "Questions about Stampz, answered.",
+  "readGuide": "Learn more",
+  "appStore": "Download on the App Store",
+  "playStore": "Get it on Google Play",
+  "discover": "Discover",
+  "privacy": "Privacy",
+  "terms": "Terms",
+  "faqs": [
+    {
+      "q": "What is Stampz?",
+      "a": "Stampz is a digital loyalty workspace: merchants run stamp cards, QR scan, CRM segments, coupons, automations, leaflets, and analytics; customers collect stamps, discover nearby shops, refer friends, and redeem rewards."
+    },
+    {
+      "q": "What is Stampz Verified?",
+      "a": "A paid trust badge. Merchants submit registration/PAN docs, admins review, then the business pays a Verified add-on. The badge boosts Discover ranking and shows on the public profile."
+    },
+    {
+      "q": "Is there a free plan?",
+      "a": "Yes — one loyalty card and limited stamps. Upgrade for unlimited cards, campaigns, and branches. Verified is a separate optional add-on."
+    },
+    {
+      "q": "Does the mobile app work offline?",
+      "a": "Stamp and enroll actions can queue offline and sync when the connection returns."
+    },
+    {
+      "q": "How do customers find my shop?",
+      "a": "Publish an active profile and appear in Discover. Verified merchants are ranked higher near the customer."
+    }
+  ],
+  "reviews": [
+    {
+      "country": "Nepal",
+      "quote": "The digital loyalty card system is simple to understand and makes collecting rewards more convenient than traditional stamp cards."
+    },
+    {
+      "country": "United States",
+      "quote": "The QR scanner registers interactions in seconds, and the real-time analytics provide useful insights instantly."
+    },
+    {
+      "country": "India",
+      "quote": "Stampz replaced our paper punch cards in minutes. It needs no extra hardware, and offline QR scanning is lightning-fast."
+    },
+    {
+      "country": "Indonesia",
+      "quote": "I switched to Stampz last month, and my regulars love it. The analytics dashboard makes rewards and repeat visits easy to track."
+    },
+    {
+      "country": "Pakistan",
+      "quote": "I can manage my business and staff more easily, and the app has helped me a lot."
+    },
+    {
+      "country": "Sri Lanka",
+      "quote": "A useful app with a smooth, clean interface. Easy to use and highly recommended."
+    }
+  ],
+  "login": "Login",
+  "blog": "Blog",
+  "resources": "Resources",
+  "pricingPage": {
+    "badge": "Flexible plans, powerful growth",
+    "titleBefore": "Start small.",
+    "titleAccent": "Grow",
+    "titleAfter": "when you're ready.",
+    "subtitle": "Start free with no card, explore everything for three days, or save with yearly billing.",
+    "pricesShownIn": "Prices shown in {{currency}} for {{region}}.",
+    "perYear": "/ year",
+    "mostPopular": "Most Popular",
+    "saveRibbon": "Save {{percent}}%",
+    "bestValueBadge": "Best Value",
+    "trialReminder": "We'll remind you before your trial ends.",
+    "regionPicker": "Pricing region",
+    "regions": {
+      "NP": "Nepal",
+      "US": "United States",
+      "AU": "Australia",
+      "IN": "India",
+      "EU": "Europe",
+      "CN": "China"
+    },
+    "plans": {
+      "free": {
+        "label": "Free",
+        "title": "Explore Stampz",
+        "description": "Start without a bank card and experience the essentials.",
+        "features": [
+          "Create 1 loyalty card",
+          "Core QR stamp & redeem",
+          "1 campaign / offer",
+          "No bank card required"
+        ],
+        "priceNote": "Upgrade when you reach a free limit.",
+        "cta": "Get Started Free",
+        "footer": "No payment details needed."
+      },
+      "monthly": {
+        "label": "Pro",
+        "title": "Grow every month",
+        "description": "CRM segments, coupons, automations, analytics — billed monthly.",
+        "features": [
+          "CRM, coupons & automations",
+          "More cards, stamps & staff",
+          "Leaflets, push & analytics",
+          "Cancel anytime"
+        ],
+        "trialPrice": "{{price}} for {{days}} days",
+        "thenPrice": "Then {{price}} / month",
+        "priceNote": "Billed monthly until cancelled",
+        "cta": "Start 3-Day Free Trial",
+        "footer": "Bank card required · Automatically renews unless cancelled"
+      },
+      "yearly": {
+        "label": "Business",
+        "title": "Scale with the best value",
+        "description": "Everything in Pro for a full year — best rate for growing shops.",
+        "features": [
+          "Everything in Pro",
+          "Higher staff & branch limits",
+          "Analytics, leaflets & push",
+          "Save vs monthly billing"
+        ],
+        "perMonth": "{{price}} per month equivalent.",
+        "cta": "Choose Business",
+        "footer": "One annual payment."
+      }
+    },
+    "trust": {
+      "secure": {
+        "title": "Secure Payments",
+        "body": "100% secure & trusted payment processing"
+      },
+      "cancel": {
+        "title": "Cancel Anytime",
+        "body": "No long-term contracts. Cancel anytime."
+      },
+      "data": {
+        "title": "Your Data is Safe",
+        "body": "We never share your data with third parties."
+      },
+      "support": {
+        "title": "24/7 Support",
+        "body": "Our team is here to help you anytime."
+      }
+    },
+    "monthly": "Monthly",
+    "yearly": "Yearly",
+    "billingToggle": "Billing cycle",
+    "perMonthShort": "/mo",
+    "billedYearlyAt": "Billed yearly at {{price}}",
+    "allPlansInclude": "All plans include free updates and new features."
+  },
+  "guideArticles": [
+    {
+      "tag": "Cafe loyalty",
+      "title": "Coffee Shop Loyalty Program: A Practical 30-Day Launch Guide",
+      "body": "A four-week launch plan for a café loyalty program that stays simple at the counter."
+    },
+    {
+      "tag": "Guides",
+      "title": "How to Create a Digital Punch Card for Your Small Business",
+      "body": "A step-by-step digital punch card plan built around reward economics and fast staff workflow."
+    },
+    {
+      "tag": "Restaurant loyalty",
+      "title": "Restaurant Loyalty Program Ideas With Practical Reward Math",
+      "body": "Choose a restaurant loyalty idea by its economics and operating fit."
+    }
+  ],
+  "panel": {
+    "logout": "Log out",
+    "loading": "Loading…",
+    "nav": {
+      "dashboard": "Dashboard",
+      "cards": "Loyalty cards",
+      "campaigns": "Campaigns",
+      "scan": "Scan QR",
+      "profile": "Profile",
+      "billing": "Billing",
+      "staff": "Staff",
+      "wallet": "My wallet",
+      "discover": "Discover",
+      "myQr": "My QR",
+      "settings": "Settings",
+      "admin": "Admin panel"
+    },
+    "crud": {
+      "create": "Create",
+      "save": "Save changes",
+      "edit": "Edit",
+      "cancel": "Cancel",
+      "delete": "Delete",
+      "reactivate": "Reactivate",
+      "active": "Active",
+      "inactive": "Inactive",
+      "created": "Created successfully",
+      "updated": "Updated successfully",
+      "deleted": "Removed successfully",
+      "failed": "Something went wrong",
+      "confirmDelete": "Are you sure you want to remove this?"
+    },
+    "cards": {
+      "title": "Loyalty cards",
+      "subtitle": "Create and manage stamp programs for your customers.",
+      "create": "Create program",
+      "fieldTitle": "Program title",
+      "rewardTitle": "Reward title",
+      "rewardDetails": "Reward details",
+      "stamps": "stamps",
+      "empty": "No loyalty programs yet. Create your first card."
+    },
+    "campaigns": {
+      "title": "Campaigns",
+      "subtitle": "Create offers that bring customers back.",
+      "create": "Create campaign",
+      "fieldTitle": "Title",
+      "fieldDesc": "Description",
+      "badge": "Badge text",
+      "publish": "Publish",
+      "total": "Total",
+      "active": "Active",
+      "views": "Views",
+      "clicks": "Clicks",
+      "empty": "No campaigns yet."
+    },
+    "staff": {
+      "title": "Manage staff",
+      "subtitle": "Invite team members and control permissions.",
+      "current": "Current staff",
+      "invite": "Invite staff",
+      "inviteBtn": "Send invite",
+      "name": "Name",
+      "email": "Email",
+      "invited": "Staff invited (default password Stampz123! if new)",
+      "deactivate": "Deactivate",
+      "empty": "No staff members yet."
+    },
+    "wallet": {
+      "title": "My wallet",
+      "subtitle": "Your digital loyalty cards",
+      "reward": "Reward",
+      "rewardReady": "reward ready",
+      "redeem": "Redeem reward",
+      "redeemed": "Reward redeemed!",
+      "viewBusiness": "View business",
+      "empty": "No cards yet."
+    },
+    "business": {
+      "performance": "Business performance",
+      "yourBusiness": "Your business",
+      "plan": "Plan",
+      "onboard": "Complete business onboarding",
+      "customers": "Total customers",
+      "stampsWeek": "Stamps this week",
+      "redeemed": "Rewards redeemed",
+      "returning": "Returning",
+      "activity": "Recent activity",
+      "noActivity": "No stamps or redemptions yet. Open Scan QR to start."
+    },
+    "admin": {
+      "role": "Super Admin",
+      "overview": "Overview",
+      "merchants": "Merchants",
+      "users": "Users",
+      "subscriptions": "Subscriptions",
+      "overviewTitle": "System overview",
+      "overviewSubtitle": "Platform health and key metrics",
+      "merchantsTitle": "Merchants",
+      "merchantsSubtitle": "Approve or suspend businesses",
+      "usersTitle": "Users",
+      "usersSubtitle": "All accounts on the platform",
+      "subsTitle": "Subscriptions",
+      "subsSubtitle": "Billing plans across merchants",
+      "approve": "Approve",
+      "pending": "Pending",
+      "suspend": "Suspend",
+      "noMerchants": "No merchants yet.",
+      "noSubs": "No subscriptions yet.",
+      "unknownBusiness": "Unknown business",
+      "updated": "Updated",
+      "colName": "Name",
+      "colEmail": "Email",
+      "colRole": "Role",
+      "colLocale": "Locale",
+      "colJoined": "Joined",
+      "metrics": {
+        "activeMerchants": "Active merchants",
+        "customers": "Customers",
+        "stamps": "Stamps",
+        "redemptions": "Redemptions",
+        "payingMerchants": "Paying merchants",
+        "systemHealth": "System health"
+      }
+    }
+  }
+}

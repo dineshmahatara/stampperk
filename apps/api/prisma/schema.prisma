@@ -1,0 +1,1036 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  // Local/dev uses SQLite so the stack runs without Docker.
+  // For staging/production with docker-compose, switch provider to "postgresql".
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+enum UserRole {
+  CUSTOMER
+  MERCHANT_OWNER
+  STAFF
+  SUPER_ADMIN
+}
+
+enum MerchantStatus {
+  PENDING
+  ACTIVE
+  SUSPENDED
+}
+
+enum VerificationStatus {
+  NONE
+  PENDING
+  APPROVED
+  REJECTED
+  REVOKED
+}
+
+enum StaffPermission {
+  SCAN
+  REDEEM
+  MANAGE
+}
+
+enum SubscriptionPlan {
+  FREE
+  MONTHLY
+  YEARLY
+}
+
+enum SubscriptionStatus {
+  ACTIVE
+  CANCELED
+  PAST_DUE
+  TRIALING
+}
+
+enum CampaignStatus {
+  DRAFT
+  ACTIVE
+  SCHEDULED
+  ENDED
+}
+
+enum OfferType {
+  PERCENTAGE
+  FIXED
+  FREE_ITEM
+  CUSTOM
+}
+
+enum NotificationType {
+  REWARD_READY
+  NEW_OFFER
+  STAMP_ADDED
+  REWARD_REDEEMED
+  SYSTEM
+  BIRTHDAY
+  EXPIRING
+  MERCHANT_PUSH
+  STAMP_TRANSFER
+  REFERRAL_REWARD
+  ADMIN_ALERT
+  ANNOUNCEMENT
+}
+
+enum CouponType {
+  PERCENT
+  FIXED
+  FIRST_VISIT
+  BIRTHDAY
+  REFERRAL
+}
+
+enum CustomerSegment {
+  ALL
+  NEW
+  RETURNING
+  VIP
+  AT_RISK
+}
+
+enum InvoiceStatus {
+  DRAFT
+  OPEN
+  PAID
+  VOID
+  UNCOLLECTIBLE
+}
+
+enum AutomationTrigger {
+  WIN_BACK_30
+  BIRTHDAY
+  NEAR_REWARD
+}
+
+enum AutomationAction {
+  PUSH
+  COUPON_AND_PUSH
+}
+
+enum ReferralScope {
+  PLATFORM
+  MERCHANT
+}
+
+enum ReferralStatus {
+  PENDING
+  REWARDED
+  INVALID
+}
+
+enum StampTransferStatus {
+  PENDING
+  ACCEPTED
+  DECLINED
+  CANCELLED
+  EXPIRED
+}
+
+enum PushContentType {
+  GENERAL
+  LOYALTY_CARD
+  OFFER
+}
+
+enum PushAudience {
+  LOYALTY_CUSTOMERS
+  NEAR_AREA
+  CUSTOMERS_AND_OUTSIDE
+}
+
+enum PushSendStatus {
+  DRAFT
+  SENT
+  FAILED
+}
+
+enum BillingProvider {
+  STRIPE
+  APPLE
+  GOOGLE
+  MANUAL
+}
+
+model User {
+  id               String    @id @default(cuid())
+  email            String    @unique
+  passwordHash     String
+  name             String
+  phone            String?
+  alternatePhone   String?
+  photoUrl         String?
+  dateOfBirth      DateTime?
+  gender           String?
+  role             UserRole  @default(CUSTOMER)
+  language         String    @default("en")
+  timezone         String    @default("Asia/Kathmandu")
+  currency         String    @default("NPR")
+  country          String    @default("NP")
+  province         String?
+  district         String?
+  city             String?
+  municipality     String?
+  ward             String?
+  streetAddress    String?
+  postalCode       String?
+  marketingConsent Boolean   @default(false)
+  pushConsent      Boolean   @default(true)
+  /** Category push prefs — inbox always keeps a copy. */
+  notifyOffers     Boolean   @default(true)
+  notifyLoyalty    Boolean   @default(true)
+  notifyExpiry     Boolean   @default(true)
+  notifyTransfers  Boolean   @default(true)
+  notifyStaff      Boolean   @default(true)
+  lastLat          Float?
+  lastLng          Float?
+  lastLocationAt   DateTime?
+  oauthProvider    String?
+  oauthSub         String?
+  qrToken          String    @unique @default(cuid())
+  /** Short shareable invite code for Refer & Earn. */
+  referralCode     String?   @unique
+  referredByUserId String?
+  /** Platform bonus stamps applied on the customer's next merchant scan. */
+  pendingBonusStamps Int     @default(0)
+  emailVerifiedAt  DateTime?
+  failedLoginCount Int       @default(0)
+  lockedUntil      DateTime?
+  lastLoginAt      DateTime?
+  lastLoginIp      String?
+  lastLoginDevice  String?
+  createdAt        DateTime  @default(now())
+  updatedAt        DateTime  @updatedAt
+  deletedAt        DateTime?
+
+  @@unique([oauthProvider, oauthSub])
+
+  referredBy       User?     @relation("UserReferrals", fields: [referredByUserId], references: [id])
+  referralsMade    User[]    @relation("UserReferrals")
+  referralsAsReferrer Referral[] @relation("ReferralReferrer")
+  referralsAsReferee  Referral[] @relation("ReferralReferee")
+  authSessions     AuthSession[]
+  loginEvents      LoginEvent[]
+  emailTokens      EmailVerificationToken[]
+  ownedMerchants Merchant[]
+  staffMemberships StaffMember[]
+  loyaltyCards  LoyaltyCard[]
+  stampsIssued  Stamp[]           @relation("IssuedBy")
+  stampsReceived Stamp[]          @relation("CustomerStamps")
+  redemptions   Redemption[]
+  notifications Notification[]
+  deviceTokens  DeviceToken[]
+  offlineScans  OfflineScan[]     @relation("OfflineScanner")
+  auditLogs     AuditLog[]
+  dataExports   DataExportRequest[]
+  pushSendsCreated MerchantPushSend[] @relation("PushSendCreator")
+  announcementsCreated MerchantAnnouncement[] @relation("AnnouncementCreator")
+  stampTransfersSent     StampTransfer[] @relation("StampTransferFrom")
+  stampTransfersReceived StampTransfer[] @relation("StampTransferTo")
+  couponRedemptions      CouponRedemption[]
+
+  @@index([role])
+  @@index([createdAt])
+  @@index([lastLat, lastLng])
+  @@index([referredByUserId])
+}
+
+model AuthSession {
+  id           String    @id @default(cuid())
+  userId       String
+  /** Random session secret embedded in JWT as `sid`. */
+  sessionToken String    @unique
+  deviceName   String?
+  deviceType   String?
+  userAgent    String?
+  ip           String?
+  suspicious   Boolean   @default(false)
+  lastSeenAt   DateTime  @default(now())
+  revokedAt    DateTime?
+  createdAt    DateTime  @default(now())
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId, revokedAt])
+}
+
+model LoginEvent {
+  id          String   @id @default(cuid())
+  userId      String?
+  email       String
+  success     Boolean
+  reason      String?
+  ip          String?
+  userAgent   String?
+  deviceName  String?
+  suspicious  Boolean  @default(false)
+  captchaUsed Boolean  @default(false)
+  createdAt   DateTime @default(now())
+
+  user User? @relation(fields: [userId], references: [id], onDelete: SetNull)
+
+  @@index([userId, createdAt])
+  @@index([email, createdAt])
+}
+
+model EmailVerificationToken {
+  id        String   @id @default(cuid())
+  userId    String
+  token     String   @unique
+  expiresAt DateTime
+  usedAt    DateTime?
+  createdAt DateTime @default(now())
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+}
+
+model CaptchaChallenge {
+  id        String   @id @default(cuid())
+  /** Expected answer hash (sha256 of answer + salt). */
+  answerHash String
+  question  String
+  email     String?
+  expiresAt DateTime
+  consumed  Boolean  @default(false)
+  createdAt DateTime @default(now())
+
+  @@index([expiresAt])
+}
+
+model Merchant {
+  id                 String         @id @default(cuid())
+  ownerId            String
+  businessName       String
+  slug               String         @unique
+  category           String
+  description        String?
+  logoUrl            String?
+  registrationNumber String?
+  panVatNumber       String?
+  businessType       String?
+  yearEstablished    Int?
+  tagline            String?
+  contactPerson      String?
+  designation        String?
+  phone              String?
+  mobile             String?
+  supportPhone       String?
+  email              String?
+  website            String?
+  whatsapp           String?
+  address            String?
+  province           String?
+  district           String?
+  city               String?
+  municipality       String?
+  ward               String?
+  postalCode         String?
+  country            String         @default("NP")
+  latitude           Float?
+  longitude          Float?
+  googleMapsUrl      String?
+  facebook           String?
+  instagram          String?
+  linkedin           String?
+  tiktok             String?
+  youtube            String?
+  twitter            String?
+  pinterest          String?
+  threads            String?
+  timezone           String         @default("Asia/Kathmandu")
+  currency           String         @default("NPR")
+  status             MerchantStatus @default(PENDING)
+  verificationStatus VerificationStatus @default(NONE)
+  verifiedAt         DateTime?
+  verificationReviewedAt DateTime?
+  verificationNote   String?
+  /** JSON array of document image/PDF URLs for KYC review. */
+  verificationDocUrls Json?
+  hoursJson          Json?
+  deliveryNote       String?
+  supportNote        String?
+  deliveryEnabled    Boolean        @default(false)
+  createdAt          DateTime       @default(now())
+  updatedAt          DateTime       @updatedAt
+
+  owner            User              @relation(fields: [ownerId], references: [id])
+  branches         Branch[]
+  staff            StaffMember[]
+  loyaltyPrograms  LoyaltyProgram[]
+  campaigns        Campaign[]
+  gallery          GalleryPhoto[]
+  menuItems        MenuItem[]
+  publicLinks      PublicLink[]
+  leaflets         MerchantLeaflet[]
+  subscription     Subscription?
+  stamps           Stamp[]
+  redemptions      Redemption[]
+  salesAdjustments SalesAdjustment[]
+  savingsAdjustments SavingsAdjustment[]
+  pushSends        MerchantPushSend[]
+  announcements    MerchantAnnouncement[]
+  stampTransfers   StampTransfer[]
+  referrals        Referral[]
+  coupons          Coupon[]
+  couponRedemptions CouponRedemption[]
+  invoices         Invoice[]
+  automationRules  AutomationRule[]
+  automationRuns   AutomationRun[]
+
+  @@index([ownerId])
+  @@index([status, category])
+  @@index([verificationStatus])
+  @@index([latitude, longitude])
+  @@index([slug])
+}
+
+model Branch {
+  id         String   @id @default(cuid())
+  merchantId String
+  name       String
+  address    String?
+  phone      String?
+  latitude   Float?
+  longitude  Float?
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  merchant Merchant      @relation(fields: [merchantId], references: [id], onDelete: Cascade)
+  staff    StaffMember[]
+  coupons  Coupon[]
+
+  @@index([merchantId])
+}
+
+model StaffMember {
+  id          String            @id @default(cuid())
+  merchantId  String
+  userId      String
+  branchId    String?
+  permissions String            @default("[\"SCAN\",\"REDEEM\"]")
+  active      Boolean           @default(true)
+  invitedAt   DateTime          @default(now())
+  acceptedAt  DateTime?
+
+  merchant Merchant @relation(fields: [merchantId], references: [id], onDelete: Cascade)
+  user     User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  branch   Branch?  @relation(fields: [branchId], references: [id])
+
+  @@unique([merchantId, userId])
+  @@index([userId])
+}
+
+model LoyaltyProgram {
+  id                String    @id @default(cuid())
+  merchantId        String
+  title             String
+  description       String?
+  totalStamps       Int
+  rewardTitle       String
+  rewardDescription String?
+  expiryDays        Int?
+  expiresAt         DateTime?
+  active            Boolean   @default(true)
+  cardType          String    @default("CLASSIC")
+  categorySlug      String?
+  templateId        String?
+  businessName      String?
+  logoUrl           String?
+  logoScale         Float     @default(1)
+  logoOffsetX       Float     @default(0)
+  logoOffsetY       Float     @default(0)
+  logoPosX          Float     @default(50)
+  logoPosY          Float     @default(32)
+  /** Optional front-cover promo / atmosphere photo. */
+  promoImageUrl     String?
+  stampColor        String?
+  emptyStampColor   String?
+  accentColor       String?
+  fontStyle         String?
+  thresholdType     String?
+  thresholdValue    Float?
+  stepsJson         Json?
+  campaignPreset    String?
+  doubleSided       Boolean   @default(true)
+  cardPhone         String?
+  cardEmail         String?
+  cardLocation      String?
+  cardWebsite       String?
+  cardFacebook      String?
+  cardInstagram     String?
+  cardTiktok        String?
+  deliveryAvailable Boolean   @default(false)
+  /** Merchant-scoped Refer & Earn for this program. */
+  referralEnabled         Boolean @default(false)
+  referralBonusReferrer   Int     @default(1)
+  referralBonusReferee    Int     @default(1)
+  createdAt         DateTime  @default(now())
+  updatedAt         DateTime  @updatedAt
+
+  merchant Merchant      @relation(fields: [merchantId], references: [id], onDelete: Cascade)
+  cards    LoyaltyCard[]
+  stamps   Stamp[]
+  pushSends MerchantPushSend[]
+  stampTransfers StampTransfer[]
+  referrals Referral[]
+
+  @@index([merchantId, active])
+}
+
+model Referral {
+  id          String         @id @default(cuid())
+  referrerId  String
+  refereeId   String         @unique
+  scope       ReferralScope  @default(PLATFORM)
+  status      ReferralStatus @default(PENDING)
+  merchantId  String?
+  programId   String?
+  codeUsed    String
+  rewardedAt  DateTime?
+  createdAt   DateTime       @default(now())
+  updatedAt   DateTime       @updatedAt
+
+  referrer User            @relation("ReferralReferrer", fields: [referrerId], references: [id], onDelete: Cascade)
+  referee  User            @relation("ReferralReferee", fields: [refereeId], references: [id], onDelete: Cascade)
+  merchant Merchant?       @relation(fields: [merchantId], references: [id], onDelete: SetNull)
+  program  LoyaltyProgram? @relation(fields: [programId], references: [id], onDelete: SetNull)
+
+  @@index([referrerId, status, createdAt])
+  @@index([status, createdAt])
+  @@index([merchantId, programId])
+}
+
+model LoyaltyCard {
+  id               String    @id @default(cuid())
+  programId        String
+  customerId       String
+  stampCount       Int       @default(0)
+  progressValue    Float     @default(0)
+  completedCycles  Int       @default(0)
+  availableRewards Int       @default(0)
+  expiresAt        DateTime?
+  createdAt        DateTime  @default(now())
+  updatedAt        DateTime  @updatedAt
+
+  program     LoyaltyProgram @relation(fields: [programId], references: [id], onDelete: Cascade)
+  customer    User           @relation(fields: [customerId], references: [id], onDelete: Cascade)
+  stamps      Stamp[]
+  redemptions Redemption[]
+  transfersFrom StampTransfer[] @relation("StampTransferFromCard")
+
+  @@unique([programId, customerId])
+  @@index([customerId])
+}
+
+/** Peer stamp gift within one business program. Stamps are held on create until accept/timeout. */
+model StampTransfer {
+  id              String              @id @default(cuid())
+  merchantId      String
+  programId       String
+  fromCardId      String
+  fromCustomerId  String
+  toCustomerId    String
+  amount          Int
+  /** Original card expiry from the sender — carried to recipient on accept (does not reset). */
+  stampExpiresAt  DateTime?
+  /** Deadline for the recipient to accept; after this stamps return to sender. */
+  offerExpiresAt  DateTime
+  status          StampTransferStatus @default(PENDING)
+  note            String?
+  createdAt       DateTime            @default(now())
+  resolvedAt      DateTime?
+
+  merchant Merchant       @relation(fields: [merchantId], references: [id], onDelete: Cascade)
+  program  LoyaltyProgram @relation(fields: [programId], references: [id], onDelete: Cascade)
+  fromCard LoyaltyCard    @relation("StampTransferFromCard", fields: [fromCardId], references: [id], onDelete: Cascade)
+  fromUser User           @relation("StampTransferFrom", fields: [fromCustomerId], references: [id], onDelete: Cascade)
+  toUser   User           @relation("StampTransferTo", fields: [toCustomerId], references: [id], onDelete: Cascade)
+
+  @@index([toCustomerId, status, createdAt])
+  @@index([fromCustomerId, status, createdAt])
+  @@index([status, offerExpiresAt])
+  @@index([merchantId, programId])
+}
+
+model Stamp {
+  id          String   @id @default(cuid())
+  cardId      String
+  programId   String
+  merchantId  String
+  customerId  String
+  issuedById  String
+  saleAmount  Float?
+  offlineId   String?  @unique
+  createdAt   DateTime @default(now())
+
+  card     LoyaltyCard    @relation(fields: [cardId], references: [id], onDelete: Cascade)
+  program  LoyaltyProgram @relation(fields: [programId], references: [id])
+  merchant Merchant       @relation(fields: [merchantId], references: [id])
+  customer User           @relation("CustomerStamps", fields: [customerId], references: [id])
+  issuedBy User           @relation("IssuedBy", fields: [issuedById], references: [id])
+
+  @@index([merchantId, createdAt])
+  @@index([customerId, createdAt])
+  @@index([cardId])
+}
+
+model Redemption {
+  id               String   @id @default(cuid())
+  cardId           String
+  merchantId       String
+  customerId       String
+  rewardTitle      String
+  estimatedSavings Float?
+  createdAt        DateTime @default(now())
+
+  card     LoyaltyCard @relation(fields: [cardId], references: [id], onDelete: Cascade)
+  merchant Merchant    @relation(fields: [merchantId], references: [id])
+  customer User        @relation(fields: [customerId], references: [id])
+
+  @@index([merchantId, createdAt])
+  @@index([customerId])
+}
+
+model Campaign {
+  id             String         @id @default(cuid())
+  merchantId     String
+  title          String
+  description    String
+  badgeText      String
+  offerType      OfferType      @default(PERCENTAGE)
+  discountValue  Float?
+  imageUrl       String?
+  status         CampaignStatus @default(DRAFT)
+  startsAt       DateTime?
+  endsAt         DateTime?
+  views          Int            @default(0)
+  clicks         Int            @default(0)
+  campaignPreset String?
+  createdAt      DateTime       @default(now())
+  updatedAt      DateTime       @updatedAt
+
+  merchant Merchant @relation(fields: [merchantId], references: [id], onDelete: Cascade)
+  pushSends MerchantPushSend[]
+
+  @@index([merchantId, status])
+}
+
+/** Platform leaflet layouts curated by Super Admin. */
+model LeafletTemplate {
+  id           String   @id @default(cuid())
+  name         String
+  description  String?
+  previewUrl   String?
+  /** Fixed renderer key: hero-a5 | story-square | offer-band | minimal-qr */
+  layoutId     String
+  categoryTags String?
+  active       Boolean  @default(true)
+  sortOrder    Int      @default(0)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  leaflets MerchantLeaflet[]
+
+  @@index([active, sortOrder])
+  @@index([layoutId])
+}
+
+/** Merchant-filled promo flyer from a platform template. */
+model MerchantLeaflet {
+  id            String   @id @default(cuid())
+  merchantId    String
+  templateId    String
+  headline      String
+  offerText     String
+  promoImageUrl String?
+  logoUrl       String?
+  phone         String?
+  address       String?
+  accentColor   String?
+  published     Boolean  @default(false)
+  publicToken   String   @unique
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  merchant Merchant        @relation(fields: [merchantId], references: [id], onDelete: Cascade)
+  template LeafletTemplate @relation(fields: [templateId], references: [id])
+
+  @@index([merchantId, published])
+  @@index([templateId])
+}
+
+model GalleryPhoto {
+  id         String   @id @default(cuid())
+  merchantId String
+  url        String
+  sortOrder  Int      @default(0)
+  createdAt  DateTime @default(now())
+
+  merchant Merchant @relation(fields: [merchantId], references: [id], onDelete: Cascade)
+
+  @@index([merchantId])
+}
+
+model MenuItem {
+  id          String   @id @default(cuid())
+  merchantId  String
+  name        String
+  description String?
+  price       Float?
+  imageUrl    String?
+  createdAt   DateTime @default(now())
+
+  merchant Merchant @relation(fields: [merchantId], references: [id], onDelete: Cascade)
+
+  @@index([merchantId])
+}
+
+model PublicLink {
+  id         String   @id @default(cuid())
+  merchantId String
+  label      String
+  url        String
+  createdAt  DateTime @default(now())
+
+  merchant Merchant @relation(fields: [merchantId], references: [id], onDelete: Cascade)
+
+  @@index([merchantId])
+}
+
+model Subscription {
+  id                   String             @id @default(cuid())
+  merchantId           String             @unique
+  plan                 SubscriptionPlan   @default(FREE)
+  status               SubscriptionStatus @default(ACTIVE)
+  provider             BillingProvider    @default(MANUAL)
+  stripeCustomerId     String?
+  stripeSubscriptionId String?
+  appleOriginalTxId    String?
+  googlePurchaseToken  String?
+  currentPeriodEnd     DateTime?
+  trialEndsAt          DateTime?
+  graceEndsAt          DateTime?
+  cancelAtPeriodEnd    Boolean            @default(false)
+  extraBranches        Int                @default(0)
+  extraStaff           Int                @default(0)
+  verifiedAddon        Boolean            @default(false)
+  verifiedUntil        DateTime?
+  verifiedStripeSubscriptionId String?
+  createdAt            DateTime           @default(now())
+  updatedAt            DateTime           @updatedAt
+
+  merchant Merchant  @relation(fields: [merchantId], references: [id], onDelete: Cascade)
+  invoices Invoice[]
+}
+
+model Invoice {
+  id              String        @id @default(cuid())
+  subscriptionId  String
+  merchantId      String
+  amount          Float
+  currency        String        @default("USD")
+  status          InvoiceStatus @default(OPEN)
+  stripeInvoiceId String?
+  pdfUrl          String?
+  description     String?
+  periodStart     DateTime?
+  periodEnd       DateTime?
+  paidAt          DateTime?
+  createdAt       DateTime      @default(now())
+
+  subscription Subscription @relation(fields: [subscriptionId], references: [id], onDelete: Cascade)
+  merchant     Merchant     @relation(fields: [merchantId], references: [id], onDelete: Cascade)
+
+  @@index([merchantId, createdAt])
+  @@index([subscriptionId, createdAt])
+}
+
+model Coupon {
+  id            String           @id @default(cuid())
+  merchantId    String
+  code          String
+  title         String
+  description   String?
+  type          CouponType       @default(PERCENT)
+  value         Float            @default(10)
+  expiresAt     DateTime?
+  usageLimit    Int?
+  usedCount     Int              @default(0)
+  active        Boolean          @default(true)
+  branchId      String?
+  segment       CustomerSegment  @default(ALL)
+  createdAt     DateTime         @default(now())
+  updatedAt     DateTime         @updatedAt
+
+  merchant    Merchant           @relation(fields: [merchantId], references: [id], onDelete: Cascade)
+  branch      Branch?            @relation(fields: [branchId], references: [id], onDelete: SetNull)
+  redemptions CouponRedemption[]
+
+  @@unique([merchantId, code])
+  @@index([merchantId, active])
+}
+
+model CouponRedemption {
+  id         String   @id @default(cuid())
+  couponId   String
+  merchantId String
+  customerId String
+  createdAt  DateTime @default(now())
+
+  coupon   Coupon   @relation(fields: [couponId], references: [id], onDelete: Cascade)
+  merchant Merchant @relation(fields: [merchantId], references: [id], onDelete: Cascade)
+  customer User     @relation(fields: [customerId], references: [id], onDelete: Cascade)
+
+  @@index([couponId, createdAt])
+  @@index([customerId, createdAt])
+  @@index([merchantId, createdAt])
+}
+
+model AutomationRule {
+  id         String            @id @default(cuid())
+  merchantId String
+  name       String
+  trigger    AutomationTrigger
+  action     AutomationAction  @default(PUSH)
+  active     Boolean           @default(true)
+  configJson Json?
+  createdAt  DateTime          @default(now())
+  updatedAt  DateTime          @updatedAt
+
+  merchant Merchant        @relation(fields: [merchantId], references: [id], onDelete: Cascade)
+  runs     AutomationRun[]
+
+  @@index([merchantId, active])
+}
+
+model AutomationRun {
+  id         String   @id @default(cuid())
+  ruleId     String
+  merchantId String
+  customerId String?
+  status     String   @default("OK")
+  detail     String?
+  createdAt  DateTime @default(now())
+
+  rule     AutomationRule @relation(fields: [ruleId], references: [id], onDelete: Cascade)
+  merchant Merchant       @relation(fields: [merchantId], references: [id], onDelete: Cascade)
+
+  @@index([ruleId, createdAt])
+  @@index([merchantId, createdAt])
+}
+
+model Notification {
+  id        String           @id @default(cuid())
+  userId    String
+  title     String
+  body      String
+  type      NotificationType
+  read      Boolean          @default(false)
+  dataJson  Json?
+  createdAt DateTime         @default(now())
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId, read, createdAt])
+}
+
+model MerchantPushSend {
+  id             String          @id @default(cuid())
+  merchantId     String
+  createdById    String
+  contentType    PushContentType
+  title          String
+  body           String
+  programId      String?
+  campaignId     String?
+  audience       PushAudience
+  radiusKm       Float           @default(5)
+  branchId       String?
+  status         PushSendStatus  @default(DRAFT)
+  estimatedCount Int             @default(0)
+  sentCount      Int             @default(0)
+  dataJson       Json?
+  createdAt      DateTime        @default(now())
+  updatedAt      DateTime        @updatedAt
+
+  merchant  Merchant         @relation(fields: [merchantId], references: [id], onDelete: Cascade)
+  createdBy User             @relation("PushSendCreator", fields: [createdById], references: [id])
+  program   LoyaltyProgram?  @relation(fields: [programId], references: [id], onDelete: SetNull)
+  campaign  Campaign?        @relation(fields: [campaignId], references: [id], onDelete: SetNull)
+
+  @@index([merchantId, createdAt])
+  @@index([createdById])
+}
+
+/** Merchant broadcast to enrolled loyalty customers (in-app + optional device push). */
+model MerchantAnnouncement {
+  id          String   @id @default(cuid())
+  merchantId  String
+  createdById String
+  title       String
+  body        String
+  segment     CustomerSegment @default(ALL)
+  status      String   @default("DRAFT") // DRAFT | SENT
+  sentCount   Int      @default(0)
+  publishedAt DateTime?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  merchant  Merchant @relation(fields: [merchantId], references: [id], onDelete: Cascade)
+  createdBy User     @relation("AnnouncementCreator", fields: [createdById], references: [id])
+
+  @@index([merchantId, createdAt])
+  @@index([createdById])
+}
+
+model DeviceToken {
+  id        String   @id @default(cuid())
+  userId    String
+  token     String
+  platform  String
+  createdAt DateTime @default(now())
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, token])
+}
+
+model OfflineScan {
+  id          String    @id @default(cuid())
+  offlineId   String    @unique
+  scannerId   String
+  payloadJson Json
+  syncedAt    DateTime?
+  createdAt   DateTime  @default(now())
+
+  scanner User @relation("OfflineScanner", fields: [scannerId], references: [id])
+
+  @@index([scannerId, syncedAt])
+}
+
+model SalesAdjustment {
+  id         String   @id @default(cuid())
+  merchantId String
+  amount     Float
+  reason     String
+  createdAt  DateTime @default(now())
+
+  merchant Merchant @relation(fields: [merchantId], references: [id], onDelete: Cascade)
+}
+
+model SavingsAdjustment {
+  id         String   @id @default(cuid())
+  merchantId String
+  amount     Float
+  reason     String
+  createdAt  DateTime @default(now())
+
+  merchant Merchant @relation(fields: [merchantId], references: [id], onDelete: Cascade)
+}
+
+model AuditLog {
+  id         String   @id @default(cuid())
+  userId     String?
+  action     String
+  entityType String?
+  entityId   String?
+  metaJson   Json?
+  createdAt  DateTime @default(now())
+
+  user User? @relation(fields: [userId], references: [id])
+
+  @@index([createdAt])
+}
+
+model DataExportRequest {
+  id          String    @id @default(cuid())
+  userId      String
+  status      String    @default("PENDING")
+  downloadUrl String?
+  createdAt   DateTime  @default(now())
+  completedAt DateTime?
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model SupportTicket {
+  id             String   @id @default(cuid())
+  subject        String
+  body           String
+  status         String   @default("OPEN")
+  priority       String   @default("NORMAL")
+  requesterEmail String?
+  requesterName  String?
+  merchantId     String?
+  assignedTo     String?
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+
+  @@index([status, createdAt])
+}
+
+/** Singleton platform branding / SEO (id = "default"). */
+model PlatformSettings {
+  id                String   @id @default("default")
+  companyName       String   @default("Stampz")
+  tagline           String?
+  seoTitleTemplate  String?
+  metaDescription   String?
+  metaKeywords      String?
+  logoUrl           String?
+  faviconUrl        String?
+  appleTouchIconUrl String?
+  pwaIcon192Url     String?
+  pwaIcon512Url     String?
+  ogImageUrl        String?
+  contactEmail      String?
+  supportEmail      String?
+  website           String?
+  facebook          String?
+  instagram         String?
+  twitter           String?
+  linkedin          String?
+  youtube           String?
+  updatedAt         DateTime @updatedAt
+  updatedByUserId   String?
+}
+
+/** CMS list prices per billing region (NP/US/AU/IN/EU/CN). */
+model PricingRegionConfig {
+  regionCode       String   @id
+  currency         String
+  label            String
+  monthlyAmount    Float
+  yearlyAmount     Float
+  yearlyWasAmount  Float
+  trialDays        Int      @default(14)
+  updatedAt        DateTime @updatedAt
+}
+
+/** CMS plan copy + enforcement limits (FREE / MONTHLY / YEARLY). */
+model PlanCatalog {
+  planId           String   @id
+  displayName      String
+  label            String
+  title            String
+  description      String
+  features         Json
+  priceNote        String?
+  cta              String?
+  footer           String?
+  businesses       Int
+  loyaltyCards     Int
+  stampsPerMonth   Int
+  campaigns        Int
+  branches         Int
+  galleryPhotos    Int
+  staff            Int
+  updatedAt        DateTime @updatedAt
+}

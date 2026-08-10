@@ -1,0 +1,298 @@
+@import "tailwindcss";
+
+:root,
+html[data-theme='light'] {
+  --stampz-coral: #e23d4a;
+  --stampz-coral-dark: #c93340;
+  --stampz-coral-soft: #f7d7db;
+  --stampz-pink: #fff1f2;
+  --stampz-cream: #fff8f6;
+  --stampz-ink: #1c1917;
+  --stampz-muted: #5c5651;
+  --stampz-line: rgba(28, 25, 23, 0.1);
+  --stampz-surface: #ffffff;
+  --stampz-chip: #f4efec;
+  --stampz-hero-a: #ffe4e8;
+  --stampz-hero-b: #ffd6dc;
+  --stampz-landing-end: #ffffff;
+}
+
+html[data-theme='dark'] {
+  --stampz-coral: #ff6b7a;
+  --stampz-coral-dark: #e23d4a;
+  --stampz-coral-soft: #4a2a30;
+  --stampz-pink: #2a1a1d;
+  --stampz-cream: #121014;
+  --stampz-ink: #f5f0ed;
+  --stampz-muted: #b7aea8;
+  --stampz-line: rgba(255, 255, 255, 0.12);
+  --stampz-surface: #1c181b;
+  --stampz-chip: #2a2428;
+  --stampz-hero-a: #3a1f24;
+  --stampz-hero-b: #2a1519;
+  --stampz-landing-end: #161216;
+}
+
+html[data-theme='soft'] {
+  --stampz-coral: #d9485f;
+  --stampz-coral-dark: #b83248;
+  --stampz-coral-soft: #f8dde3;
+  --stampz-pink: #fff0f3;
+  --stampz-cream: #fff5f7;
+  --stampz-ink: #2a1f22;
+  --stampz-muted: #6e5d62;
+  --stampz-line: rgba(42, 31, 34, 0.1);
+  --stampz-surface: #ffffff;
+  --stampz-chip: #ffe8ee;
+  --stampz-hero-a: #ffdce4;
+  --stampz-hero-b: #ffc9d4;
+  --stampz-landing-end: #fff9fa;
+}
+
+/* Larger base type — everything scales up from here */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5.5rem;
+  font-size: 18px;
+}
+
+html[data-font-scale='md'] {
+  font-size: 17px;
+}
+
+html[data-font-scale='lg'] {
+  font-size: 19px;
+}
+
+html[data-font-scale='xl'] {
+  font-size: 21px;
+}
+
+@layer base {
+  html,
+  body {
+    margin: 0;
+    padding: 0;
+    background: var(--stampz-cream);
+    color: var(--stampz-ink);
+    font-family: var(--font-outfit), "Noto Sans Devanagari", "Avenir Next", system-ui, sans-serif;
+    line-height: 1.55;
+    transition: background-color 0.25s ease, color 0.25s ease;
+  }
+
+  html[dir='rtl'] body,
+  html[lang='ar'] body {
+    font-family: var(--font-arabic), var(--font-outfit), system-ui, sans-serif;
+  }
+
+  html[lang='he'] body {
+    font-family: var(--font-hebrew), var(--font-outfit), system-ui, sans-serif;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+}
+
+.btn-primary {
+  background: var(--stampz-coral);
+  color: white;
+  border-radius: 999px;
+  padding: 0.95rem 1.5rem;
+  font-weight: 650;
+  font-size: 1rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 10px 24px rgba(226, 61, 74, 0.28);
+  transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+.btn-primary:hover {
+  filter: brightness(1.05);
+  transform: translateY(-1px);
+}
+
+.btn-ghost {
+  background: var(--stampz-surface);
+  color: var(--stampz-ink);
+  border-radius: 999px;
+  padding: 0.95rem 1.5rem;
+  font-weight: 650;
+  font-size: 1rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border: 1px solid var(--stampz-line);
+  box-shadow: 0 8px 20px rgba(28, 25, 23, 0.04);
+}
+
+.card {
+  background: var(--stampz-surface);
+  border-radius: 1.25rem;
+  box-shadow: 0 8px 30px rgba(226, 61, 74, 0.07);
+  border: 1px solid rgba(226, 61, 74, 0.08);
+}
+
+.landing-shell {
+  background:
+    radial-gradient(ellipse 80% 50% at 10% -10%, var(--stampz-hero-a) 0%, transparent 55%),
+    radial-gradient(ellipse 60% 40% at 90% 0%, var(--stampz-hero-b) 0%, transparent 50%),
+    linear-gradient(180deg, var(--stampz-cream) 0%, var(--stampz-landing-end) 38%, var(--stampz-cream) 100%);
+  min-height: 100vh;
+}
+
+.hero-underline {
+  position: relative;
+  display: inline-block;
+}
+
+.hero-underline::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0.08em;
+  height: 0.22em;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 12' fill='none'%3E%3Cpath d='M2 8C40 2 80 2 120 7C150 11 180 4 198 6' stroke='%23e23d4a' stroke-width='4' stroke-linecap='round'/%3E%3C/svg%3E")
+    center / 100% 100% no-repeat;
+  z-index: -1;
+}
+
+.fade-up {
+  animation: fadeUp 0.8s ease both;
+}
+
+.fade-up-delay {
+  animation: fadeUp 0.9s ease 0.15s both;
+}
+
+.float-y {
+  animation: floatY 5s ease-in-out infinite;
+}
+
+.stamp-dot {
+  animation: stampPop 0.55s ease both;
+}
+
+.stamp-count {
+  animation: fadeUp 0.8s ease 0.35s both;
+}
+
+.reveal-on-scroll {
+  animation: fadeUp 0.7s ease both;
+}
+
+.reveal-delay {
+  animation-delay: 0.12s;
+}
+
+@keyframes stampPop {
+  from {
+    opacity: 0;
+    transform: scale(0.55);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes floatY {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.marquee {
+  overflow: hidden;
+  mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+}
+
+.marquee-track {
+  display: flex;
+  gap: 1rem;
+  width: max-content;
+  animation: marquee 55s linear infinite;
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.device-desktop {
+  background: linear-gradient(160deg, #2a2a2a, #111);
+  border-radius: 18px;
+  padding: 10px 10px 14px;
+  box-shadow: 0 30px 60px rgba(28, 25, 23, 0.22);
+}
+
+.device-screen {
+  background: var(--stampz-surface);
+  border-radius: 10px;
+  overflow: hidden;
+  min-height: 220px;
+}
+
+.device-phone {
+  background: linear-gradient(160deg, #2a2a2a, #111);
+  border-radius: 28px;
+  padding: 8px;
+  width: 140px;
+  box-shadow: 0 24px 50px rgba(28, 25, 23, 0.25);
+}
+
+.stamp-card-float {
+  background: var(--stampz-surface);
+  border-radius: 18px;
+  padding: 14px;
+  box-shadow: 0 18px 40px rgba(226, 61, 74, 0.18);
+  border: 1px solid rgba(226, 61, 74, 0.12);
+}
+
+@media print {
+  body * {
+    visibility: hidden !important;
+  }
+  .leaflet-print-root,
+  .leaflet-print-root * {
+    visibility: visible !important;
+  }
+  .leaflet-print-root {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    box-shadow: none !important;
+    border: none !important;
+  }
+  .print\:hidden {
+    display: none !important;
+  }
+}
