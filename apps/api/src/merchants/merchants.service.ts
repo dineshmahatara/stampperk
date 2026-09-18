@@ -25,6 +25,15 @@ import { allocateUniqueQrToken } from '../common/qr-token';
 import { NotificationsService } from '../notifications/notifications.service';
 import { PricingCatalogService } from '../pricing/pricing-catalog.service';
 
+function isPrismaUniqueViolation(e: unknown): boolean {
+  return (
+    typeof e === 'object' &&
+    e !== null &&
+    'code' in e &&
+    (e as { code: string }).code === 'P2002'
+  );
+}
+
 function slugify(input: string) {
   return input
     .toLowerCase()
@@ -965,7 +974,7 @@ export class MerchantsService {
         },
       });
     } catch (e) {
-      if (e instanceof Prisma.PrismaClientKnownRequestError && e.code === 'P2002') {
+      if (isPrismaUniqueViolation(e)) {
         throw new BadRequestException('Coupon code already exists');
       }
       throw e;
@@ -1007,7 +1016,7 @@ export class MerchantsService {
         },
       });
     } catch (e) {
-      if (e instanceof Prisma.PrismaClientKnownRequestError && e.code === 'P2002') {
+      if (isPrismaUniqueViolation(e)) {
         throw new BadRequestException('Coupon code already exists');
       }
       throw e;
@@ -1532,7 +1541,7 @@ export class MerchantsService {
       });
       return { created: true, customer: this.customerPublic(created) };
     } catch (e) {
-      if (e instanceof Prisma.PrismaClientKnownRequestError && e.code === 'P2002') {
+      if (isPrismaUniqueViolation(e)) {
         const again = await this.prisma.user.findFirst({
           where: { email: finalEmail, deletedAt: null },
           select,

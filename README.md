@@ -53,9 +53,12 @@ npm run dev:mobile
 
 Public demo business: http://localhost:3000/b/brew-bliss
 
-## Phase 5
+## Render (API)
 
-See [docs/phase-5.md](docs/phase-5.md) for camera QR, push, OAuth, and EAS store builds.
+- **Build:** `npm install && npm run build:api`
+- **Start:** `npm run start:api` (runs `prisma db push` then Nest)
+- **Env:** `DATABASE_URL` = Render Postgres **Internal** URL
+- Node: `22.x` (pinned in `package.json` engines)
 
 ## i18n
 
