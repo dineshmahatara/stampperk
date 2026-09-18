@@ -260,7 +260,7 @@ export class ReferralsService {
     const bonus = user?.pendingBonusStamps ?? 0;
     if (bonus <= 0) return;
 
-    await this.prisma.$transaction(async (tx) => {
+    await this.prisma.$transaction(async (tx: Prisma.TransactionClient) => {
       const fresh = await tx.user.findUnique({
         where: { id: input.customerId },
         select: { pendingBonusStamps: true },
@@ -378,7 +378,7 @@ export class ReferralsService {
     const referrerBonus = Math.max(0, program.referralBonusReferrer);
     const refereeBonus = Math.max(0, program.referralBonusReferee);
 
-    await this.prisma.$transaction(async (tx) => {
+    await this.prisma.$transaction(async (tx: Prisma.TransactionClient) => {
       await tx.referral.update({
         where: { id: referralId },
         data: { status: ReferralStatus.REWARDED, rewardedAt: new Date(), programId: program.id },
