@@ -1,49 +1,39 @@
-# PostgreSQL for staging / production
+# PostgreSQL (default for Stamp Perk)
 
-Local development uses **SQLite** (`file:./dev.db`) so the stack runs without Docker.
-
-## Switch to Postgres
-
-1. Start Postgres:
+Prisma uses **PostgreSQL**. Local Docker:
 
 ```bash
 docker compose up -d postgres redis
 ```
 
-2. In `apps/api/prisma/schema.prisma` change:
-
-```prisma
-datasource db {
-  provider = "postgresql"
-  url      = env("DATABASE_URL")
-}
-```
-
-3. Set env:
+Default connection string:
 
 ```
-DATABASE_URL=postgresql://stampperk:stampperk@localhost:5432/stampperk?schema=public
+DATABASE_URL=postgresql://stampperk:stampperk@localhost:5433/stampperk?schema=public
 ```
 
-4. Optional: store staff permissions as a native enum array again:
-
-```prisma
-permissions StaffPermission[]
-```
-
-(and update merchants/qr/loyalty services to use arrays instead of JSON strings)
-
-5. Apply:
+Apply schema + seed:
 
 ```bash
 npm run db:generate
-npx prisma migrate dev --name postgres_init -w @stampperk/api
+npm run db:migrate
 npm run db:seed
 ```
 
-## Staging compose
+## Render
+
+1. Create a **PostgreSQL** database on Render.
+2. Copy the **Internal Database URL** (or External) into the API service env as `DATABASE_URL`.
+3. Ensure the API build runs `prisma generate` and `prisma migrate deploy` / `db push` (your existing nest build already runs generate if configured).
+4. Redeploy the API after setting `DATABASE_URL`.
+
+## Staging compose (full stack)
 
 ```bash
-# After switching schema provider to postgresql
 docker compose --profile staging up -d --build
 ```
+
+## Notes
+
+- Old SQLite file `apps/api/prisma/dev.db` is unused after this switch (safe to delete locally).
+- Staff `permissions` remain a JSON string for compatibility; native `StaffPermission[]` can be a later migration.

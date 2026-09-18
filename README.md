@@ -7,13 +7,13 @@ Worldwide digital loyalty & rewards platform — **React Native (Expo)**, Next.j
 - **Mobile:** Expo React Native SDK 57 (`expo@57.0.9`, Android + iOS / Expo Go)
 - **Web:** Next.js (marketing, merchant dashboard, admin)
 - **API:** NestJS + Prisma
-- **Local DB:** SQLite (`apps/api/prisma/dev.db`) so you can run without Docker
-- **Staging/Prod DB:** PostgreSQL via `docker-compose` (switch Prisma provider when ready)
+- **DB:** PostgreSQL (`docker compose up -d postgres` → localhost:**5433**)
 - **Billing:** Stripe (web) + Apple/Google IAP hooks (mobile)
 
 ## Quick start
 
 ```bash
+docker compose up -d postgres
 npm install
 npm run build -w @stampperk/shared
 npm run db:generate

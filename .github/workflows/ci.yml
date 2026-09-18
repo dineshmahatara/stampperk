@@ -8,8 +8,22 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:16-alpine
+        env:
+          POSTGRES_USER: stampperk
+          POSTGRES_PASSWORD: stampperk
+          POSTGRES_DB: stampperk
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U stampperk -d stampperk"
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 10
     env:
-      DATABASE_URL: file:./dev.db
+      DATABASE_URL: postgresql://stampperk:stampperk@localhost:5432/stampperk?schema=public
       JWT_SECRET: ci-secret
     steps:
       - uses: actions/checkout@v4

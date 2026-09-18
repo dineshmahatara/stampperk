@@ -3,9 +3,7 @@ generator client {
 }
 
 datasource db {
-  // Local/dev uses SQLite so the stack runs without Docker.
-  // For staging/production with docker-compose, switch provider to "postgresql".
-  provider = "sqlite"
+  provider = "postgresql"
   url      = env("DATABASE_URL")
 }
 
