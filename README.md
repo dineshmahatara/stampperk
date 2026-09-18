@@ -60,6 +60,14 @@ Public demo business: http://localhost:3000/b/brew-bliss
 - **Env:** `DATABASE_URL` = Render Postgres **Internal** URL
 - Node: `22.x` (pinned in `package.json` engines)
 
+> Do **not** use plain `npm run build` for the API service — that also builds Next.js web and is slower/more fragile.
+
+## Render (Web, optional separate service)
+
+- **Build:** `npm install && npm run build:web`
+- **Start:** `npm run start -w @stampperk/web`
+- **Env:** `NEXT_PUBLIC_API_URL` = your Render API public URL
+
 ## i18n
 
 Web translations use **i18next** + **react-i18next**. See [docs/i18n.md](docs/i18n.md).
