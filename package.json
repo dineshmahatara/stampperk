@@ -12,6 +12,7 @@
     "library:icons": "node apps/api/scripts/build-media-library.cjs",
     "build": "npm run build -w @stampperk/shared && npm run build -w @stampperk/api && npm run build -w @stampperk/web",
     "build:api": "npm run build -w @stampperk/shared && npm run build -w @stampperk/api",
+    "build:web": "npm run build -w @stampperk/shared && npm run build -w @stampperk/web",
     "lint": "npm run lint -w @stampperk/api --if-present && npm run lint -w @stampperk/web --if-present",
     "db:generate": "npm run prisma:generate -w @stampperk/api",
     "db:migrate": "npm run prisma:migrate -w @stampperk/api",

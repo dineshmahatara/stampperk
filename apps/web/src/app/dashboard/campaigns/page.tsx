@@ -22,13 +22,23 @@ type CampaignData = {
   campaigns: Campaign[];
 };
 
-const empty = {
+type CampaignForm = {
+  title: string;
+  description: string;
+  badgeText: string;
+  offerType: 'PERCENTAGE' | 'FIXED' | 'FREE_ITEM' | 'CUSTOM';
+  discountValue: number;
+  status: 'ACTIVE' | 'PAUSED' | 'ENDED' | 'DRAFT';
+  campaignPreset: string;
+};
+
+const empty: CampaignForm = {
   title: '',
   description: '',
   badgeText: '20% OFF',
-  offerType: 'PERCENTAGE' as const,
+  offerType: 'PERCENTAGE',
   discountValue: 20,
-  status: 'ACTIVE' as const,
+  status: 'ACTIVE',
   campaignPreset: '',
 };
 
@@ -53,9 +63,9 @@ export default function CampaignsPage() {
       title: c.title,
       description: c.description,
       badgeText: c.badgeText,
-      offerType: (c.offerType as 'PERCENTAGE') || 'PERCENTAGE',
+      offerType: (c.offerType as CampaignForm['offerType']) || 'PERCENTAGE',
       discountValue: c.discountValue ?? 20,
-      status: (c.status as 'ACTIVE') || 'ACTIVE',
+      status: (c.status as CampaignForm['status']) || 'ACTIVE',
       campaignPreset: c.campaignPreset || '',
     });
   }
