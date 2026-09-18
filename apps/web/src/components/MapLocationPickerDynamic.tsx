@@ -10,7 +10,7 @@ export const MapLocationPicker = dynamic(
   {
     ssr: false,
     loading: () => (
-      <div className="flex h-64 items-center justify-center rounded-2xl border border-[var(--stampz-line)] bg-[#F8F8FA] text-sm font-semibold text-[var(--stampz-muted)]">
+      <div className="flex h-64 items-center justify-center rounded-2xl border border-[var(--stampperk-line)] bg-[#F8F8FA] text-sm font-semibold text-[var(--stampperk-muted)]">
         Loading map…
       </div>
     ),

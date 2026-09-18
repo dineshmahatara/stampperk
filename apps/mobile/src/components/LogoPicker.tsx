@@ -12,7 +12,7 @@ import {
   StyleSheet,
 } from 'react-native';
 import * as ImagePicker from 'expo-image-picker';
-import { groupMediaLibrary, mediaLibraryGroupLabel } from '@stampz/shared';
+import { groupMediaLibrary, mediaLibraryGroupLabel } from '@stampperk/shared';
 import { api, uploadMedia } from '../api';
 import { colors } from '../theme';
 import { PrimaryButton } from '../ui';
@@ -192,7 +192,7 @@ export function LogoPicker({
           <View style={s.sheet}>
           <View style={s.handle} />
           <Text style={s.title}>Business logo</Text>
-          <Text style={s.sub}>Pick from Stampz library or upload your own photo.</Text>
+          <Text style={s.sub}>Pick from Stamp Perk library or upload your own photo.</Text>
 
           <View style={s.tabs}>
             <Pressable

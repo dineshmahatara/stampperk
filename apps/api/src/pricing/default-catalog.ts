@@ -3,7 +3,7 @@ import {
   PLAN_DISPLAY_NAMES,
   PLAN_LIMITS,
   type BillingRegionCode,
-} from '@stampz/shared';
+} from '@stampperk/shared';
 
 export type PlanCatalogId = 'FREE' | 'MONTHLY' | 'YEARLY';
 
@@ -43,7 +43,7 @@ export const DEFAULT_PLAN_COPY: Record<
 > = {
   FREE: {
     label: 'Free',
-    title: 'Explore Stampz',
+    title: 'Explore Stamp Perk',
     description: 'Start without a bank card and experience the essentials.',
     features: [
       'Create 1 loyalty card',

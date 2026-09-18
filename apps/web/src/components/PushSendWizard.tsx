@@ -221,7 +221,7 @@ export function PushSendWizard({
           <div className="mt-6 grid gap-3 sm:grid-cols-3">
             {[
               ['Promote existing content', 'Send offers or loyalty cards without creating again.'],
-              ['Choose your channel', 'Free app notifications delivered in Stampza.'],
+              ['Choose your channel', 'Free app notifications delivered in Stamp Perk.'],
               ['Select audience and send', 'Pick the right customers, review and send.'],
             ].map(([t, d]) => (
               <div key={t} className="rounded-2xl border border-black/5 bg-white p-4">
@@ -232,7 +232,7 @@ export function PushSendWizard({
           </div>
           <div className="mt-6 flex items-center gap-3 rounded-2xl border border-black/5 bg-white p-3 text-xs text-[#8E8E93]">
             <span className="font-bold text-[#FF5A5F]">🔔 App Notification FREE</span>
-            Instant delivery in the Stampza app.
+            Instant delivery in the Stamp Perk app.
           </div>
           <button
             type="button"

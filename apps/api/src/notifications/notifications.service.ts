@@ -10,7 +10,7 @@ import {
   createPushSendSchema,
   estimateAudienceSchema,
   updateLocationSchema,
-} from '@stampz/shared';
+} from '@stampperk/shared';
 import {
   CustomerSegment,
   NotificationType,

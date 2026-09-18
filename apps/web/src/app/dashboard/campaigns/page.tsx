@@ -2,7 +2,7 @@
 
 import { FormEvent, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { REWARD_CAMPAIGN_TYPES } from '@stampz/shared';
+import { REWARD_CAMPAIGN_TYPES } from '@stampperk/shared';
 import { api } from '@/lib/api';
 import { useAuth } from '@/lib/auth';
 
@@ -121,7 +121,7 @@ export default function CampaignsPage() {
     <div className="mx-auto max-w-6xl">
       <div className="mb-6">
         <h1 className="text-3xl font-extrabold tracking-tight md:text-4xl">{t('panel.campaigns.title')}</h1>
-        <p className="mt-1 text-[var(--stampz-muted)]">{t('panel.campaigns.subtitle')}</p>
+        <p className="mt-1 text-[var(--stampperk-muted)]">{t('panel.campaigns.subtitle')}</p>
       </div>
 
       {data && (
@@ -133,7 +133,7 @@ export default function CampaignsPage() {
             [t('panel.campaigns.clicks'), data.stats.clicks],
           ].map(([l, v]) => (
             <div key={String(l)} className="card p-4">
-              <div className="text-sm text-[var(--stampz-muted)]">{l}</div>
+              <div className="text-sm text-[var(--stampperk-muted)]">{l}</div>
               <div className="text-2xl font-extrabold">{v}</div>
             </div>
           ))}
@@ -147,9 +147,9 @@ export default function CampaignsPage() {
               {editingId ? t('panel.crud.edit') : t('panel.campaigns.create')}
             </h2>
             <label className="block text-sm">
-              <span className="mb-1 block font-semibold text-[var(--stampz-muted)]">Campaign type</span>
+              <span className="mb-1 block font-semibold text-[var(--stampperk-muted)]">Campaign type</span>
               <select
-                className="w-full rounded-xl border border-[var(--stampz-line)] px-3 py-2.5"
+                className="w-full rounded-xl border border-[var(--stampperk-line)] px-3 py-2.5"
                 value={form.campaignPreset}
                 onChange={(e) => applyPreset(e.target.value)}
               >
@@ -162,7 +162,7 @@ export default function CampaignsPage() {
               </select>
             </label>
             <input
-              className="w-full rounded-xl border border-[var(--stampz-line)] px-3 py-2.5"
+              className="w-full rounded-xl border border-[var(--stampperk-line)] px-3 py-2.5"
               maxLength={40}
               placeholder={t('panel.campaigns.fieldTitle')}
               value={form.title}
@@ -170,7 +170,7 @@ export default function CampaignsPage() {
               required
             />
             <textarea
-              className="w-full rounded-xl border border-[var(--stampz-line)] px-3 py-2.5"
+              className="w-full rounded-xl border border-[var(--stampperk-line)] px-3 py-2.5"
               maxLength={100}
               placeholder={t('panel.campaigns.fieldDesc')}
               value={form.description}
@@ -179,7 +179,7 @@ export default function CampaignsPage() {
               rows={3}
             />
             <input
-              className="w-full rounded-xl border border-[var(--stampz-line)] px-3 py-2.5"
+              className="w-full rounded-xl border border-[var(--stampperk-line)] px-3 py-2.5"
               maxLength={12}
               placeholder={t('panel.campaigns.badge')}
               value={form.badgeText}
@@ -187,7 +187,7 @@ export default function CampaignsPage() {
               required
             />
             <select
-              className="w-full rounded-xl border border-[var(--stampz-line)] px-3 py-2.5"
+              className="w-full rounded-xl border border-[var(--stampperk-line)] px-3 py-2.5"
               value={form.status}
               onChange={(e) => setForm({ ...form, status: e.target.value as 'ACTIVE' })}
             >
@@ -203,7 +203,7 @@ export default function CampaignsPage() {
                 </button>
               )}
             </div>
-            {msg && <p className="text-sm font-semibold text-[var(--stampz-coral)]">{msg}</p>}
+            {msg && <p className="text-sm font-semibold text-[var(--stampperk-coral)]">{msg}</p>}
           </form>
         )}
 
@@ -214,20 +214,20 @@ export default function CampaignsPage() {
                 <div>
                   <div className="flex flex-wrap items-center gap-2">
                     <h3 className="text-lg font-bold">{c.title}</h3>
-                    <span className="rounded-full bg-[var(--stampz-pink)] px-2 py-0.5 text-xs font-bold text-[var(--stampz-coral)]">
+                    <span className="rounded-full bg-[var(--stampperk-pink)] px-2 py-0.5 text-xs font-bold text-[var(--stampperk-coral)]">
                       {c.badgeText}
                     </span>
-                    <span className="rounded-full bg-[var(--stampz-chip)] px-2 py-0.5 text-xs font-bold uppercase text-[var(--stampz-muted)]">
+                    <span className="rounded-full bg-[var(--stampperk-chip)] px-2 py-0.5 text-xs font-bold uppercase text-[var(--stampperk-muted)]">
                       {c.status}
                     </span>
                   </div>
-                  <p className="mt-1 text-sm text-[var(--stampz-muted)]">{c.description}</p>
+                  <p className="mt-1 text-sm text-[var(--stampperk-muted)]">{c.description}</p>
                 </div>
                 {canWrite && (
                   <div className="flex flex-wrap gap-2">
                     <button
                       type="button"
-                      className="rounded-full border border-[var(--stampz-line)] px-3 py-1.5 text-sm font-semibold"
+                      className="rounded-full border border-[var(--stampperk-line)] px-3 py-1.5 text-sm font-semibold"
                       onClick={() => startEdit(c)}
                     >
                       {t('panel.crud.edit')}
@@ -254,7 +254,7 @@ export default function CampaignsPage() {
             </article>
           ))}
           {!data?.campaigns?.length && (
-            <p className="rounded-2xl border border-dashed border-[var(--stampz-line)] p-8 text-center text-[var(--stampz-muted)]">
+            <p className="rounded-2xl border border-dashed border-[var(--stampperk-line)] p-8 text-center text-[var(--stampperk-muted)]">
               {t('panel.campaigns.empty')}
             </p>
           )}

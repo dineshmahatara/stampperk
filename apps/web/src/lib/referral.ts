@@ -1,5 +1,5 @@
 /** Persist invite attribution across register / public business pages. */
-const KEY = 'stampz_referral_v1';
+const KEY = 'stampperk_referral_v1';
 
 export type StoredReferral = {
   referralCode: string;

@@ -2,7 +2,7 @@ import {
   DEFAULT_PLATFORM_BRANDING,
   resolveSeoTitle,
   type PlatformBrandingInput,
-} from '@stampz/shared';
+} from '@stampperk/shared';
 
 export type PlatformBranding = PlatformBrandingInput & {
   id?: string;

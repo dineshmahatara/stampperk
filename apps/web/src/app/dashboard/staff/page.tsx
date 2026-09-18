@@ -97,7 +97,7 @@ export default function StaffPage() {
     <div className="mx-auto max-w-3xl">
       <div className="mb-6">
         <h1 className="text-3xl font-extrabold tracking-tight md:text-4xl">{t('panel.staff.title')}</h1>
-        <p className="mt-1 text-[var(--stampz-muted)]">{t('panel.staff.subtitle')}</p>
+        <p className="mt-1 text-[var(--stampperk-muted)]">{t('panel.staff.subtitle')}</p>
       </div>
       {error && <p className="mb-4 text-red-600">{error}</p>}
 
@@ -117,7 +117,7 @@ export default function StaffPage() {
                   />
                   <div>
                     <div className="font-bold">{s.user.name}</div>
-                    <div className="text-sm text-[var(--stampz-muted)]">{s.user.email}</div>
+                    <div className="text-sm text-[var(--stampperk-muted)]">{s.user.email}</div>
                   </div>
                 </div>
                 <span
@@ -141,8 +141,8 @@ export default function StaffPage() {
                     }
                     className={`rounded-full px-3 py-1.5 text-xs font-bold ${
                       perms.includes(p)
-                        ? 'bg-[var(--stampz-coral)] text-white'
-                        : 'bg-[var(--stampz-chip)] text-[var(--stampz-muted)]'
+                        ? 'bg-[var(--stampperk-coral)] text-white'
+                        : 'bg-[var(--stampperk-chip)] text-[var(--stampperk-muted)]'
                     }`}
                   >
                     {p}
@@ -178,20 +178,20 @@ export default function StaffPage() {
             </div>
           );
         })}
-        {!staff.length && <p className="text-sm text-[var(--stampz-muted)]">{t('panel.staff.empty')}</p>}
+        {!staff.length && <p className="text-sm text-[var(--stampperk-muted)]">{t('panel.staff.empty')}</p>}
       </div>
 
       <form onSubmit={invite} className="card space-y-3 p-5 sm:p-6">
         <h2 className="font-bold">{t('panel.staff.invite')}</h2>
         <input
-          className="w-full rounded-xl border border-[var(--stampz-line)] px-3 py-2.5"
+          className="w-full rounded-xl border border-[var(--stampperk-line)] px-3 py-2.5"
           placeholder={t('panel.staff.name')}
           value={form.name}
           onChange={(e) => setForm({ ...form, name: e.target.value })}
           required
         />
         <input
-          className="w-full rounded-xl border border-[var(--stampz-line)] px-3 py-2.5"
+          className="w-full rounded-xl border border-[var(--stampperk-line)] px-3 py-2.5"
           type="email"
           placeholder={t('panel.staff.email')}
           value={form.email}
@@ -206,8 +206,8 @@ export default function StaffPage() {
               onClick={() => togglePerm(p)}
               className={`rounded-full px-3 py-1.5 text-xs font-bold ${
                 form.permissions.includes(p)
-                  ? 'bg-[var(--stampz-coral)] text-white'
-                  : 'bg-[var(--stampz-chip)] text-[var(--stampz-muted)]'
+                  ? 'bg-[var(--stampperk-coral)] text-white'
+                  : 'bg-[var(--stampperk-chip)] text-[var(--stampperk-muted)]'
               }`}
             >
               {p}
@@ -215,7 +215,7 @@ export default function StaffPage() {
           ))}
         </div>
         <button className="btn-primary w-full sm:w-auto">{t('panel.staff.inviteBtn')}</button>
-        {msg && <p className="text-sm font-semibold text-[var(--stampz-coral)]">{msg}</p>}
+        {msg && <p className="text-sm font-semibold text-[var(--stampperk-coral)]">{msg}</p>}
       </form>
     </div>
   );

@@ -1,6 +1,6 @@
 'use client';
 
-import { passwordStrength } from '@stampz/shared';
+import { passwordStrength } from '@stampperk/shared';
 
 const COLORS = {
   empty: '#E5E7EB',

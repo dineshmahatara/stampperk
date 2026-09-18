@@ -171,7 +171,7 @@ export default function AdminUsersPage() {
     <div className="mx-auto max-w-[1500px]">
       <AdminPageHeader
         title="Users"
-        subtitle="All accounts on the Stampza platform."
+        subtitle="All accounts on the Stamp Perk platform."
         action={
           <div className="flex flex-wrap gap-2">
             <AdminDateRangePill />

@@ -2,7 +2,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import { NetworkError } from './offline/network';
 
 const API_URL = process.env.EXPO_PUBLIC_API_URL || 'http://localhost:4000';
-const MERCHANT_KEY = 'stampz_active_merchant_id';
+const MERCHANT_KEY = 'stampperk_active_merchant_id';
 
 export type AuthUser = {
   id: string;

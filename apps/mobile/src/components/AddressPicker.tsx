@@ -35,7 +35,7 @@ import {
   showsLocalAdminFields,
   stateName,
   type NominatimHit,
-} from '@stampz/shared';
+} from '@stampperk/shared';
 import { colors, radii } from '../theme';
 
 function OptionModal({

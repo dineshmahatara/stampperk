@@ -9,7 +9,7 @@ import {
   normalizeCountryCode,
   contactFormatError,
   type AddressFormValue,
-} from '@stampz/shared';
+} from '@stampperk/shared';
 import { api, getActiveMerchantId, setActiveMerchantId } from '@/lib/api';
 import { useAuth } from '@/lib/auth';
 import { MerchantPageHeader, MerchantSurface } from '@/components/MerchantPage';

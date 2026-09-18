@@ -31,10 +31,10 @@ export default function ScanPage() {
       setResult('Paste or scan a customer QR first');
       return null;
     }
-    const tokenOnly = trimmed.replace(/^stampz:customer:/i, '').trim();
+    const tokenOnly = trimmed.replace(/^(stampperk|stampz):customer:/i, '').trim();
     if (tokenOnly.length < 8) {
       setOk(false);
-      setResult('Customer QR looks incomplete. Use stampz:customer:… from the customer app.');
+      setResult('Customer QR looks incomplete. Use stampperk:customer:… from the customer app.');
       return null;
     }
     return trimmed;
@@ -117,7 +117,7 @@ export default function ScanPage() {
   return (
     <div className="mx-auto max-w-lg">
       <h1 className="mb-2 text-3xl font-bold">Scan customer QR</h1>
-      <p className="mb-6 text-[#6b7280]">Paste customer QR token or stampz:customer:… payload</p>
+      <p className="mb-6 text-[#6b7280]">Paste customer QR token or stampperk:customer:… payload</p>
       <div className="card space-y-4 p-6">
         <label className="block text-sm font-medium">
           Program
@@ -141,7 +141,7 @@ export default function ScanPage() {
             rows={3}
             value={qr}
             onChange={(e) => setQr(e.target.value)}
-            placeholder="stampz:customer:…"
+            placeholder="stampperk:customer:…"
           />
         </label>
         <label className="block text-sm font-medium">

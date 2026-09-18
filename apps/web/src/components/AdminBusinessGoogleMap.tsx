@@ -50,16 +50,16 @@ declare global {
         event: { clearInstanceListeners: (t: unknown) => void };
       };
     };
-    __stampzGoogleMapsPromise?: Promise<void>;
+    __stampperkGoogleMapsPromise?: Promise<void>;
   }
 }
 
 function loadGoogleMaps(apiKey: string): Promise<void> {
   if (typeof window === 'undefined') return Promise.reject(new Error('no window'));
   if (window.google?.maps) return Promise.resolve();
-  if (window.__stampzGoogleMapsPromise) return window.__stampzGoogleMapsPromise;
-  window.__stampzGoogleMapsPromise = new Promise((resolve, reject) => {
-    const existing = document.querySelector<HTMLScriptElement>('script[data-stampz-gmaps]');
+  if (window.__stampperkGoogleMapsPromise) return window.__stampperkGoogleMapsPromise;
+  window.__stampperkGoogleMapsPromise = new Promise((resolve, reject) => {
+    const existing = document.querySelector<HTMLScriptElement>('script[data-stampperk-gmaps]');
     if (existing) {
       existing.addEventListener('load', () => resolve());
       existing.addEventListener('error', () => reject(new Error('Google Maps failed to load')));
@@ -69,12 +69,12 @@ function loadGoogleMaps(apiKey: string): Promise<void> {
     script.src = `https://maps.googleapis.com/maps/api/js?key=${encodeURIComponent(apiKey)}`;
     script.async = true;
     script.defer = true;
-    script.dataset.stampzGmaps = '1';
+    script.dataset.stampperkGmaps = '1';
     script.onload = () => resolve();
     script.onerror = () => reject(new Error('Google Maps failed to load'));
     document.head.appendChild(script);
   });
-  return window.__stampzGoogleMapsPromise;
+  return window.__stampperkGoogleMapsPromise;
 }
 
 export function AdminBusinessGoogleMap({

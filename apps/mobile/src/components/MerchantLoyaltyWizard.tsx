@@ -15,7 +15,7 @@ import {
   CARD_FONTS,
   categoryLabelFromSlug,
   type CreateLoyaltyProgramInput,
-} from '@stampz/shared';
+} from '@stampperk/shared';
 import { colors, styles as theme } from '../theme';
 import { PrimaryButton, ScreenHeader } from '../ui';
 import { StampCardPreview, type ProfileContact } from './StampCardPreview';

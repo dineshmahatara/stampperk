@@ -1,7 +1,7 @@
 'use client';
 
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import { groupMediaLibrary, mediaLibraryGroupLabel } from '@stampz/shared';
+import { groupMediaLibrary, mediaLibraryGroupLabel } from '@stampperk/shared';
 import { api, uploadMedia } from '@/lib/api';
 
 type LibraryItem = {
@@ -146,7 +146,7 @@ export function LogoPicker({
             <div className="shrink-0 p-5 pb-0">
               <h3 className="text-xl font-extrabold">Business logo</h3>
               <p className="mb-3 text-sm text-[#8E8E93]">
-                Pick from Stampz library or upload your own photo.
+                Pick from Stamp Perk library or upload your own photo.
               </p>
 
               <div className="mb-3 grid grid-cols-2 gap-2">

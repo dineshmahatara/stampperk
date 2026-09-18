@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import { api } from '@/lib/api';
 import { StampCardPreview } from '@/components/StampCardPreview';
-import { categoryLabelFromSlug } from '@stampz/shared';
+import { categoryLabelFromSlug } from '@stampperk/shared';
 
 export type CustomerWalletCard = {
   id: string;
@@ -472,22 +472,22 @@ export function CustomerHome({
       </div>
 
       {(transfers.incoming.length > 0 || transfers.outgoing.length > 0) && (
-        <div className="space-y-3 rounded-[1.5rem] border border-[var(--stampz-line)] bg-white p-4 shadow-sm">
+        <div className="space-y-3 rounded-[1.5rem] border border-[var(--stampperk-line)] bg-white p-4 shadow-sm">
           <h2 className="text-lg font-extrabold">Stamp transfers</h2>
-          <p className="text-xs text-[var(--stampz-muted)]">
+          <p className="text-xs text-[var(--stampperk-muted)]">
             Same business only. Accept within 48h or stamps stay with the sender. Expiry keeps the
             original earn date.
           </p>
           {transfers.incoming.map((t) => (
             <div
               key={t.id}
-              className="flex flex-col gap-2 rounded-2xl border border-[var(--stampz-coral)]/20 bg-[var(--stampz-pink)] px-3 py-3 sm:flex-row sm:items-center sm:justify-between"
+              className="flex flex-col gap-2 rounded-2xl border border-[var(--stampperk-coral)]/20 bg-[var(--stampperk-pink)] px-3 py-3 sm:flex-row sm:items-center sm:justify-between"
             >
               <div className="text-sm">
                 <div className="font-bold">
                   {t.fromUser.name} → you · {t.amount} stamp{t.amount === 1 ? '' : 's'}
                 </div>
-                <div className="text-[var(--stampz-muted)]">
+                <div className="text-[var(--stampperk-muted)]">
                   {t.merchant.businessName} · offer ends{' '}
                   {new Date(t.offerExpiresAt).toLocaleString()}
                   {t.stampExpiresAt
@@ -499,14 +499,14 @@ export function CustomerHome({
                 <button
                   type="button"
                   onClick={() => respondTransfer(t.id, 'accept')}
-                  className="rounded-full bg-[var(--stampz-coral)] px-4 py-2 text-xs font-bold text-white"
+                  className="rounded-full bg-[var(--stampperk-coral)] px-4 py-2 text-xs font-bold text-white"
                 >
                   Accept
                 </button>
                 <button
                   type="button"
                   onClick={() => respondTransfer(t.id, 'decline')}
-                  className="rounded-full border border-[var(--stampz-line)] bg-white px-4 py-2 text-xs font-bold"
+                  className="rounded-full border border-[var(--stampperk-line)] bg-white px-4 py-2 text-xs font-bold"
                 >
                   Decline
                 </button>
@@ -516,13 +516,13 @@ export function CustomerHome({
           {transfers.outgoing.map((t) => (
             <div
               key={t.id}
-              className="flex flex-col gap-2 rounded-2xl border border-[var(--stampz-line)] bg-[#FAFAF9] px-3 py-3 sm:flex-row sm:items-center sm:justify-between"
+              className="flex flex-col gap-2 rounded-2xl border border-[var(--stampperk-line)] bg-[#FAFAF9] px-3 py-3 sm:flex-row sm:items-center sm:justify-between"
             >
               <div className="text-sm">
                 <div className="font-bold">
                   Pending → {t.toUser.name} · {t.amount} stamp{t.amount === 1 ? '' : 's'}
                 </div>
-                <div className="text-[var(--stampz-muted)]">
+                <div className="text-[var(--stampperk-muted)]">
                   {t.merchant.businessName} · held until{' '}
                   {new Date(t.offerExpiresAt).toLocaleString()}
                 </div>
@@ -530,7 +530,7 @@ export function CustomerHome({
               <button
                 type="button"
                 onClick={() => respondTransfer(t.id, 'cancel')}
-                className="rounded-full border border-[var(--stampz-line)] bg-white px-4 py-2 text-xs font-bold"
+                className="rounded-full border border-[var(--stampperk-line)] bg-white px-4 py-2 text-xs font-bold"
               >
                 Cancel
               </button>
@@ -678,20 +678,20 @@ export function CustomerHome({
           </div>
           <Link
             href={`#rewards`}
-            className="mt-5 flex items-center justify-between rounded-2xl bg-white px-4 py-3 text-[var(--stampz-ink)]"
+            className="mt-5 flex items-center justify-between rounded-2xl bg-white px-4 py-3 text-[var(--stampperk-ink)]"
           >
             <span className="flex items-center gap-2 text-sm font-bold">
-              <span className="text-[var(--stampz-coral)]">🎁</span>
+              <span className="text-[var(--stampperk-coral)]">🎁</span>
               Next Reward: {featured.program.rewardTitle}
             </span>
-            <span className="text-[var(--stampz-coral)]">→</span>
+            <span className="text-[var(--stampperk-coral)]">→</span>
           </Link>
           {featured.availableRewards > 0 && (
             <button
               type="button"
               disabled={redeemingId === featured.id}
               onClick={() => redeem(featured.id)}
-              className="mt-3 w-full rounded-full bg-white py-2.5 text-sm font-extrabold text-[var(--stampz-coral)] disabled:opacity-60"
+              className="mt-3 w-full rounded-full bg-white py-2.5 text-sm font-extrabold text-[var(--stampperk-coral)] disabled:opacity-60"
             >
               {redeemingId === featured.id ? 'Redeeming…' : 'Redeem now'}
             </button>
@@ -882,7 +882,7 @@ export function CustomerHome({
       <div id="my-cards">
         <div className="mb-3 flex items-center justify-between">
           <h2 className="text-lg font-extrabold">My cards</h2>
-          <span className="text-xs font-bold text-[var(--stampz-muted)]">{cards.length} cards</span>
+          <span className="text-xs font-bold text-[var(--stampperk-muted)]">{cards.length} cards</span>
         </div>
         <div className="grid gap-5 sm:grid-cols-2">
           {cards.map((c) => {

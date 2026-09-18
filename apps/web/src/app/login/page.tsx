@@ -247,11 +247,11 @@ const FEATURES = [
 export default function LoginPage() {
   const { login } = useAuth();
   const branding = useBranding();
-  const company = branding.companyName || 'Stampz';
+  const company = branding.companyName || 'Stamp Perk';
   const { theme, setTheme, locale, setLocale, languages } = usePreferences();
   const router = useRouter();
-  const [email, setEmail] = useState('merchant@stampz.app');
-  const [password, setPassword] = useState('Stampz123!');
+  const [email, setEmail] = useState('merchant@stampperk.app');
+  const [password, setPassword] = useState('StampPerk123!');
   const [showPassword, setShowPassword] = useState(false);
   const [remember, setRemember] = useState(true);
   const [error, setError] = useState('');
@@ -270,7 +270,7 @@ export default function LoginPage() {
         deviceName: typeof navigator !== 'undefined' ? navigator.userAgent.slice(0, 80) : 'Web',
         deviceType: 'web',
       });
-      const raw = localStorage.getItem('stampz_user');
+      const raw = localStorage.getItem('stampperk_user');
       const u = raw ? (JSON.parse(raw) as AuthUser) : null;
       router.push(u?.role === 'SUPER_ADMIN' ? '/admin' : '/dashboard');
     } catch (err) {
@@ -294,7 +294,7 @@ export default function LoginPage() {
         body: JSON.stringify({
           provider,
           idToken: `demo-${provider}-${Date.now()}`,
-          email: `${provider}.web@stampz.app`,
+          email: `${provider}.web@stampperk.app`,
           name:
             provider === 'google'
               ? 'Google Web'
@@ -308,8 +308,8 @@ export default function LoginPage() {
           deviceType: 'web',
         }),
       });
-      localStorage.setItem('stampz_token', res.accessToken);
-      localStorage.setItem('stampz_user', JSON.stringify(res.user));
+      localStorage.setItem('stampperk_token', res.accessToken);
+      localStorage.setItem('stampperk_user', JSON.stringify(res.user));
       window.location.href = '/dashboard';
     } catch (err) {
       setError(err instanceof Error ? err.message : 'OAuth failed');
@@ -566,7 +566,7 @@ export default function LoginPage() {
 
               <p className="mt-7 text-center text-sm text-[#8E8E93]">
                 Need help?{' '}
-                <a href="mailto:support@stampz.app" className="font-bold text-[#FF5A5F]">
+                <a href="mailto:support@stampperk.app" className="font-bold text-[#FF5A5F]">
                   Contact Support
                 </a>
               </p>
@@ -576,7 +576,7 @@ export default function LoginPage() {
                   Sign up
                 </Link>
                 {' · '}
-                Demo: merchant@ / customer@ · Stampz123!
+                Demo: merchant@ / customer@ · StampPerk123!
               </p>
             </div>
           </section>

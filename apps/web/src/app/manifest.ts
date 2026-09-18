@@ -3,7 +3,7 @@ import { fetchBranding } from '@/lib/branding';
 
 export default async function manifest(): Promise<MetadataRoute.Manifest> {
   const branding = await fetchBranding();
-  const name = branding.companyName || 'Stampz';
+  const name = branding.companyName || 'Stamp Perk';
   const icons: MetadataRoute.Manifest['icons'] = [];
   if (branding.pwaIcon192Url) {
     icons.push({ src: branding.pwaIcon192Url, sizes: '192x192', type: 'image/png' });

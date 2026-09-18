@@ -1,9 +1,9 @@
 import { I18nManager, DevSettings, Platform } from 'react-native';
-import { isRtlLocale, localeDirection, type TextDirection } from '@stampz/shared';
+import { isRtlLocale, localeDirection, type TextDirection } from '@stampperk/shared';
 
 export const strings = {
   en: {
-    appName: 'Stampz',
+    appName: 'Stamp Perk',
     login: 'Sign in',
     email: 'Email',
     password: 'Password',
@@ -35,7 +35,7 @@ export const strings = {
     language: 'भाषा',
   },
   ar: {
-    appName: 'Stampz',
+    appName: 'Stamp Perk',
     login: 'تسجيل الدخول',
     email: 'البريد الإلكتروني',
     password: 'كلمة المرور',
@@ -51,7 +51,7 @@ export const strings = {
     language: 'اللغة',
   },
   he: {
-    appName: 'Stampz',
+    appName: 'Stamp Perk',
     login: 'התחברות',
     email: 'אימייל',
     password: 'סיסמה',

@@ -55,7 +55,7 @@ export default async function PublicLeafletPage({
           <h1 className="text-xl font-extrabold">Leaflet not found</h1>
           <p className="mt-2 text-sm text-[#8E8E93]">This flyer is unpublished or the link is invalid.</p>
           <Link href="/" className="mt-4 inline-block text-sm font-bold text-[#FF5A5F]">
-            Go to Stampz
+            Go to Stamp Perk
           </Link>
         </div>
       </main>

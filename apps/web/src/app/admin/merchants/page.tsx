@@ -1,7 +1,7 @@
 'use client';
 
 import { FormEvent, useEffect, useMemo, useState } from 'react';
-import { BUSINESS_INDUSTRIES, normalizeCountryCode, type AddressFormValue } from '@stampz/shared';
+import { BUSINESS_INDUSTRIES, normalizeCountryCode, type AddressFormValue } from '@stampperk/shared';
 import { api } from '@/lib/api';
 import { useAuth } from '@/lib/auth';
 import { AddressPicker } from '@/components/AddressPicker';
@@ -353,7 +353,7 @@ export default function AdminMerchantsPage() {
     <div className="mx-auto max-w-[1500px]">
       <AdminPageHeader
         title="Merchants"
-        subtitle="Approve, monitor, and manage businesses on Stampza."
+        subtitle="Approve, monitor, and manage businesses on Stamp Perk."
         action={
           <div className="flex flex-wrap items-center gap-2">
             <AdminDateRangePill />

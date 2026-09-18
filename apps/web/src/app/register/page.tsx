@@ -12,7 +12,7 @@ import { PasswordStrength } from '@/components/PasswordStrength';
 function RegisterForm() {
   const { register } = useAuth();
   const branding = useBranding();
-  const companyName = branding.companyName || 'Stampz';
+  const companyName = branding.companyName || 'Stamp Perk';
   const router = useRouter();
   const search = useSearchParams();
   const [name, setName] = useState('');

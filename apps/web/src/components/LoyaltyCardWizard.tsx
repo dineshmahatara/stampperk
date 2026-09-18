@@ -8,7 +8,7 @@ import {
   STAMP_COLORS,
   categoryLabelFromSlug,
   type CreateLoyaltyProgramInput,
-} from '@stampz/shared';
+} from '@stampperk/shared';
 import { api } from '@/lib/api';
 import { StampCardPreview, type ProfileContact } from '@/components/StampCardPreview';
 import { LogoPicker } from '@/components/LogoPicker';

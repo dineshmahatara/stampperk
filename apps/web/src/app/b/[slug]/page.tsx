@@ -123,7 +123,7 @@ function socialHref(raw?: string | null) {
 export default async function BusinessPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   const [business, branding] = await Promise.all([getBusiness(slug), fetchBranding()]);
-  const companyName = branding.companyName || 'Stampz';
+  const companyName = branding.companyName || 'Stamp Perk';
 
   if (!business) {
     return (
@@ -228,7 +228,7 @@ export default async function BusinessPage({ params }: { params: Promise<{ slug:
               {business.verified ? <VerifiedBadge size="lg" /> : null}
             </h1>
             {business.verified ? (
-              <p className="mt-2 text-sm font-semibold text-[#C9B08A]">Stampz Verified business</p>
+              <p className="mt-2 text-sm font-semibold text-[#C9B08A]">Stamp Perk Verified business</p>
             ) : null}
             <p className="mt-4 max-w-md text-base text-white/75 sm:text-lg">
               {business.tagline || business.description || 'Collect stamps. Unlock rewards. Come back for more.'}

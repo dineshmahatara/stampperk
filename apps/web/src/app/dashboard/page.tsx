@@ -262,7 +262,7 @@ export default function DashboardPage() {
                 tint: 'bg-[#D1FAE5] text-[#059669]',
               },
               {
-                label: `Sales Through Stampza`,
+                label: `Sales Through Stamp Perk`,
                 value: `${currency === 'NPR' ? 'Rs.' : currency} ${Math.round(data.kpis.salesWeek).toLocaleString()}`,
                 trend: data.trends?.sales,
                 tint: 'bg-[#FFEDD5] text-[#EA580C]',

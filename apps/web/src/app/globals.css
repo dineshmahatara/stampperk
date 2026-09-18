@@ -2,51 +2,51 @@
 
 :root,
 html[data-theme='light'] {
-  --stampz-coral: #e23d4a;
-  --stampz-coral-dark: #c93340;
-  --stampz-coral-soft: #f7d7db;
-  --stampz-pink: #fff1f2;
-  --stampz-cream: #fff8f6;
-  --stampz-ink: #1c1917;
-  --stampz-muted: #5c5651;
-  --stampz-line: rgba(28, 25, 23, 0.1);
-  --stampz-surface: #ffffff;
-  --stampz-chip: #f4efec;
-  --stampz-hero-a: #ffe4e8;
-  --stampz-hero-b: #ffd6dc;
-  --stampz-landing-end: #ffffff;
+  --stampperk-coral: #e23d4a;
+  --stampperk-coral-dark: #c93340;
+  --stampperk-coral-soft: #f7d7db;
+  --stampperk-pink: #fff1f2;
+  --stampperk-cream: #fff8f6;
+  --stampperk-ink: #1c1917;
+  --stampperk-muted: #5c5651;
+  --stampperk-line: rgba(28, 25, 23, 0.1);
+  --stampperk-surface: #ffffff;
+  --stampperk-chip: #f4efec;
+  --stampperk-hero-a: #ffe4e8;
+  --stampperk-hero-b: #ffd6dc;
+  --stampperk-landing-end: #ffffff;
 }
 
 html[data-theme='dark'] {
-  --stampz-coral: #ff6b7a;
-  --stampz-coral-dark: #e23d4a;
-  --stampz-coral-soft: #4a2a30;
-  --stampz-pink: #2a1a1d;
-  --stampz-cream: #121014;
-  --stampz-ink: #f5f0ed;
-  --stampz-muted: #b7aea8;
-  --stampz-line: rgba(255, 255, 255, 0.12);
-  --stampz-surface: #1c181b;
-  --stampz-chip: #2a2428;
-  --stampz-hero-a: #3a1f24;
-  --stampz-hero-b: #2a1519;
-  --stampz-landing-end: #161216;
+  --stampperk-coral: #ff6b7a;
+  --stampperk-coral-dark: #e23d4a;
+  --stampperk-coral-soft: #4a2a30;
+  --stampperk-pink: #2a1a1d;
+  --stampperk-cream: #121014;
+  --stampperk-ink: #f5f0ed;
+  --stampperk-muted: #b7aea8;
+  --stampperk-line: rgba(255, 255, 255, 0.12);
+  --stampperk-surface: #1c181b;
+  --stampperk-chip: #2a2428;
+  --stampperk-hero-a: #3a1f24;
+  --stampperk-hero-b: #2a1519;
+  --stampperk-landing-end: #161216;
 }
 
 html[data-theme='soft'] {
-  --stampz-coral: #d9485f;
-  --stampz-coral-dark: #b83248;
-  --stampz-coral-soft: #f8dde3;
-  --stampz-pink: #fff0f3;
-  --stampz-cream: #fff5f7;
-  --stampz-ink: #2a1f22;
-  --stampz-muted: #6e5d62;
-  --stampz-line: rgba(42, 31, 34, 0.1);
-  --stampz-surface: #ffffff;
-  --stampz-chip: #ffe8ee;
-  --stampz-hero-a: #ffdce4;
-  --stampz-hero-b: #ffc9d4;
-  --stampz-landing-end: #fff9fa;
+  --stampperk-coral: #d9485f;
+  --stampperk-coral-dark: #b83248;
+  --stampperk-coral-soft: #f8dde3;
+  --stampperk-pink: #fff0f3;
+  --stampperk-cream: #fff5f7;
+  --stampperk-ink: #2a1f22;
+  --stampperk-muted: #6e5d62;
+  --stampperk-line: rgba(42, 31, 34, 0.1);
+  --stampperk-surface: #ffffff;
+  --stampperk-chip: #ffe8ee;
+  --stampperk-hero-a: #ffdce4;
+  --stampperk-hero-b: #ffc9d4;
+  --stampperk-landing-end: #fff9fa;
 }
 
 /* Larger base type — everything scales up from here */
@@ -73,8 +73,8 @@ html[data-font-scale='xl'] {
   body {
     margin: 0;
     padding: 0;
-    background: var(--stampz-cream);
-    color: var(--stampz-ink);
+    background: var(--stampperk-cream);
+    color: var(--stampperk-ink);
     font-family: var(--font-outfit), "Noto Sans Devanagari", "Avenir Next", system-ui, sans-serif;
     line-height: 1.55;
     transition: background-color 0.25s ease, color 0.25s ease;
@@ -96,7 +96,7 @@ html[data-font-scale='xl'] {
 }
 
 .btn-primary {
-  background: var(--stampz-coral);
+  background: var(--stampperk-coral);
   color: white;
   border-radius: 999px;
   padding: 0.95rem 1.5rem;
@@ -118,8 +118,8 @@ html[data-font-scale='xl'] {
 }
 
 .btn-ghost {
-  background: var(--stampz-surface);
-  color: var(--stampz-ink);
+  background: var(--stampperk-surface);
+  color: var(--stampperk-ink);
   border-radius: 999px;
   padding: 0.95rem 1.5rem;
   font-weight: 650;
@@ -127,12 +127,12 @@ html[data-font-scale='xl'] {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  border: 1px solid var(--stampz-line);
+  border: 1px solid var(--stampperk-line);
   box-shadow: 0 8px 20px rgba(28, 25, 23, 0.04);
 }
 
 .card {
-  background: var(--stampz-surface);
+  background: var(--stampperk-surface);
   border-radius: 1.25rem;
   box-shadow: 0 8px 30px rgba(226, 61, 74, 0.07);
   border: 1px solid rgba(226, 61, 74, 0.08);
@@ -140,9 +140,9 @@ html[data-font-scale='xl'] {
 
 .landing-shell {
   background:
-    radial-gradient(ellipse 80% 50% at 10% -10%, var(--stampz-hero-a) 0%, transparent 55%),
-    radial-gradient(ellipse 60% 40% at 90% 0%, var(--stampz-hero-b) 0%, transparent 50%),
-    linear-gradient(180deg, var(--stampz-cream) 0%, var(--stampz-landing-end) 38%, var(--stampz-cream) 100%);
+    radial-gradient(ellipse 80% 50% at 10% -10%, var(--stampperk-hero-a) 0%, transparent 55%),
+    radial-gradient(ellipse 60% 40% at 90% 0%, var(--stampperk-hero-b) 0%, transparent 50%),
+    linear-gradient(180deg, var(--stampperk-cream) 0%, var(--stampperk-landing-end) 38%, var(--stampperk-cream) 100%);
   min-height: 100vh;
 }
 
@@ -252,7 +252,7 @@ html[data-font-scale='xl'] {
 }
 
 .device-screen {
-  background: var(--stampz-surface);
+  background: var(--stampperk-surface);
   border-radius: 10px;
   overflow: hidden;
   min-height: 220px;
@@ -267,7 +267,7 @@ html[data-font-scale='xl'] {
 }
 
 .stamp-card-float {
-  background: var(--stampz-surface);
+  background: var(--stampperk-surface);
   border-radius: 18px;
   padding: 14px;
   box-shadow: 0 18px 40px rgba(226, 61, 74, 0.18);

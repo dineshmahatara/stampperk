@@ -1,24 +1,19 @@
 {
   "expo": {
-    "name": "Stampz",
-    "slug": "stampz",
+    "name": "Stamp Perk",
+    "slug": "stampperk",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
-    "splash": {
-      "image": "./assets/splash-icon.png",
-      "resizeMode": "contain",
-      "backgroundColor": "#fff8f8"
-    },
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.stampz.app",
+      "bundleIdentifier": "com.stampperk.app",
       "infoPlist": {
         "NSCameraUsageDescription": "Scan customer loyalty QR codes or take a photo for your business logo.",
         "NSPhotoLibraryUsageDescription": "Choose a photo for your business logo, or save your business QR code to Photos.",
-        "NSPhotoLibraryAddUsageDescription": "Stampz saves your business QR code to Photos when you tap Download.",
-        "NSUserNotificationsUsageDescription": "Stampz sends reward and offer notifications."
+        "NSPhotoLibraryAddUsageDescription": "Stamp Perk saves your business QR code to Photos when you tap Download.",
+        "NSUserNotificationsUsageDescription": "Stamp Perk sends reward and offer notifications."
       }
     },
     "android": {
@@ -28,7 +23,7 @@
         "backgroundImage": "./assets/android-icon-background.png",
         "monochromeImage": "./assets/android-icon-monochrome.png"
       },
-      "package": "com.stampz.app",
+      "package": "com.stampperk.app",
       "softwareKeyboardLayoutMode": "resize",
       "permissions": ["CAMERA", "POST_NOTIFICATIONS", "READ_MEDIA_IMAGES", "WRITE_EXTERNAL_STORAGE"]
     },
@@ -36,23 +31,32 @@
       "expo-web-browser",
       "expo-secure-store",
       [
+        "expo-splash-screen",
+        {
+          "backgroundColor": "#fff8f8",
+          "image": "./assets/splash-icon.png",
+          "resizeMode": "contain",
+          "imageWidth": 200
+        }
+      ],
+      [
         "expo-camera",
         {
-          "cameraPermission": "Allow Stampz to scan customer loyalty QR codes."
+          "cameraPermission": "Allow Stamp Perk to scan customer loyalty QR codes."
         }
       ],
       [
         "expo-image-picker",
         {
-          "photosPermission": "Allow Stampz to use your photos for your business logo.",
-          "cameraPermission": "Allow Stampz to take a photo for your business logo."
+          "photosPermission": "Allow Stamp Perk to use your photos for your business logo.",
+          "cameraPermission": "Allow Stamp Perk to take a photo for your business logo."
         }
       ],
       [
         "expo-media-library",
         {
-          "photosPermission": "Allow Stampz to save your business QR code to your photo library.",
-          "savePhotosPermission": "Allow Stampz to save your business QR code to your photo library.",
+          "photosPermission": "Allow Stamp Perk to save your business QR code to your photo library.",
+          "savePhotosPermission": "Allow Stamp Perk to save your business QR code to your photo library.",
           "isAccessMediaLocationEnabled": false
         }
       ],
@@ -65,9 +69,9 @@
     ],
     "extra": {
       "eas": {
-        "projectId": "stampz-local"
+        "projectId": "stampperk-local"
       }
     },
-    "owner": "stampz"
+    "owner": "stampperk"
   }
 }

@@ -7,7 +7,7 @@ import {
   Image,
   ImageBackground,
 } from 'react-native';
-import { categoryLabelFromSlug } from '@stampz/shared';
+import { categoryLabelFromSlug } from '@stampperk/shared';
 import { colors } from '../theme';
 import { LogoImage } from './LogoImage';
 

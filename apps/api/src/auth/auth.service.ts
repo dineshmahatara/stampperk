@@ -14,7 +14,7 @@ import {
   registerSchema,
   resendVerificationSchema,
   verifyEmailSchema,
-} from '@stampz/shared';
+} from '@stampperk/shared';
 import { PrismaService } from '../prisma/prisma.service';
 import { allocateUniqueQrToken } from '../common/qr-token';
 import { ReferralsService } from '../referrals/referrals.service';
@@ -231,7 +231,7 @@ export class AuthService {
     const data = oauthLoginSchema.parse(body);
     const demo = process.env.OAUTH_DEMO_MODE !== 'false';
     let email = data.email?.toLowerCase();
-    let name = data.name || 'Stampz User';
+    let name = data.name || 'Stamp Perk User';
     let sub = data.sub || data.idToken.slice(0, 32);
 
     if (!demo) {

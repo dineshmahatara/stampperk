@@ -219,7 +219,7 @@ export function CustomerNotificationSettingsScreen({
                   ? Platform.OS === 'android'
                     ? 'Sounds and channels can also be tuned in system settings.'
                     : 'You can refine banners and sounds in iOS Settings.'
-                  : 'Stampz needs permission before category alerts can appear on this phone.'}
+                  : 'Stamp Perk needs permission before category alerts can appear on this phone.'}
               </Text>
             </View>
           </View>
@@ -252,7 +252,7 @@ export function CustomerNotificationSettingsScreen({
 
         <Text style={ns.sectionTitle}>Alert categories</Text>
         <Text style={ns.sectionSub}>
-          These control push only. Matching updates still appear in your Stampz inbox.
+          These control push only. Matching updates still appear in your Stamp Perk inbox.
         </Text>
 
         <View style={[ns.card, { paddingVertical: 4, opacity: masterOn ? 1 : 0.55 }]}>

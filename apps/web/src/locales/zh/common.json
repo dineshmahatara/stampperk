@@ -21,12 +21,12 @@
   "heroTitleAccent": "持久忠诚。",
   "heroBody": "创建数字集点卡，奖励回头客，并在手机与电脑上管理会员计划。一个账号，全程同步。",
   "startHere": "从这里开始",
-  "seeHow": "看看 Stampz 如何运作",
+  "seeHow": "看看 Stamp Perk 如何运作",
   "noCard": "无需信用卡",
   "mobileDesktop": "手机 + 电脑",
   "easySetup": "轻松设置",
   "howLabel": "如何运作",
-  "howTitle": "看看 Stampz 如何运作",
+  "howTitle": "看看 Stamp Perk 如何运作",
   "howBody": "了解商家如何创建卡片、邀请顾客、发放安全印章并兑换奖励。",
   "steps": [
     "创建卡片",
@@ -115,7 +115,7 @@
     },
     {
       "q": "如何创建数字会员卡？",
-      "a": "选择行动、设定印章数、定义奖励，并在 Stampz 发布。"
+      "a": "选择行动、设定印章数、定义奖励，并在 Stamp Perk 发布。"
     },
     {
       "q": "有免费方案吗？",
@@ -141,7 +141,7 @@
     },
     {
       "country": "印度",
-      "quote": "Stampz 几分钟就替代了纸质卡，离线扫码非常快。"
+      "quote": "Stamp Perk 几分钟就替代了纸质卡，离线扫码非常快。"
     },
     {
       "country": "印尼",
@@ -183,7 +183,7 @@
     "plans": {
       "free": {
         "label": "Free Plan",
-        "title": "Explore Stampz",
+        "title": "Explore Stamp Perk",
         "description": "Start without a bank card and experience the essentials.",
         "features": [
           "Create 1 loyalty card",
@@ -198,7 +198,7 @@
       "monthly": {
         "label": "Monthly Plan",
         "title": "Try Everything",
-        "description": "Unlock every Stampz feature for 3 days, then continue month to month.",
+        "description": "Unlock every Stamp Perk feature for 3 days, then continue month to month.",
         "features": [
           "Full premium access",
           "Unlimited cards, stamps and offers",
@@ -332,7 +332,7 @@
       "inviteBtn": "Send invite",
       "name": "Name",
       "email": "Email",
-      "invited": "Staff invited (default password Stampz123! if new)",
+      "invited": "Staff invited (default password StampPerk123! if new)",
       "deactivate": "Deactivate",
       "empty": "No staff members yet."
     },

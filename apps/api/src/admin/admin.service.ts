@@ -7,7 +7,7 @@ import {
   platformBrandingSchema,
   adminVerificationActionSchema,
   isMerchantVerifiedLive,
-} from '@stampz/shared';
+} from '@stampperk/shared';
 import { PrismaService } from '../prisma/prisma.service';
 import { allocateUniqueQrToken } from '../common/qr-token';
 import { NotificationsService } from '../notifications/notifications.service';
@@ -1607,14 +1607,14 @@ export class AdminService {
     return this.prisma.platformSettings.create({
       data: {
         id: 'default',
-        companyName: 'Stampz',
+        companyName: 'Stamp Perk',
         tagline: 'Digital Loyalty Cards for Growing Businesses',
         seoTitleTemplate: '{companyName} | {tagline}',
         metaDescription:
           'Create a digital punch card, earn repeat customers, and manage your loyalty program from mobile and desktop. One account. Everything stays in sync.',
-        metaKeywords: 'loyalty, stamp card, digital punch card, rewards, Stampz',
-        contactEmail: 'hello@stampz.app',
-        supportEmail: 'support@stampz.app',
+        metaKeywords: 'loyalty, stamp card, digital punch card, rewards, Stamp Perk',
+        contactEmail: 'hello@stampperk.app',
+        supportEmail: 'support@stampperk.app',
       },
     });
   }

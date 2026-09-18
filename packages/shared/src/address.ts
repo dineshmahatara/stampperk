@@ -203,7 +203,7 @@ export async function searchPlaces(query: string, limit = 6): Promise<NominatimH
     headers: {
       Accept: 'application/json',
       // Nominatim usage policy requires a valid identifying UA.
-      'User-Agent': 'StampzAddressPicker/1.0 (loyalty@stampz.app)',
+      'User-Agent': 'StampPerkAddressPicker/1.0 (loyalty@stampperk.app)',
     },
   });
   if (!res.ok) return [];

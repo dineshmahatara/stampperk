@@ -2,7 +2,7 @@
 
 export type AppMode = 'business' | 'customer';
 
-const KEY = 'stampz_app_mode';
+const KEY = 'stampperk_app_mode';
 
 export function canUseBusinessMode(role?: string | null) {
   return role === 'MERCHANT_OWNER' || role === 'STAFF';

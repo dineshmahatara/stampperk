@@ -23,7 +23,7 @@ import type {
   OfflineScanItem,
   SyncResult,
 } from './types';
-import type { CreateLoyaltyProgramInput } from '@stampz/shared';
+import type { CreateLoyaltyProgramInput } from '@stampperk/shared';
 
 type OfflineContextValue = {
   online: boolean;

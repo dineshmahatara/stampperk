@@ -274,7 +274,7 @@ function extractInner(svgText) {
 }
 
 function tileSvg(bg, inner) {
-  return `<!-- Stampz library icon · Lucide (ISC) -->
+  return `<!-- Stamp Perk library icon · Lucide (ISC) -->
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128">
   <rect width="128" height="128" rx="28" fill="${bg}"/>
   <g transform="translate(64 64) scale(3.15) translate(-12 -12)" fill="none" stroke="#F8FAFC" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -286,7 +286,7 @@ function tileSvg(bg, inner) {
 
 function availableIcons() {
   if (!fs.existsSync(LUCIDE_DIR)) {
-    throw new Error(`lucide-static not found at ${LUCIDE_DIR}. Run: npm i -D lucide-static -w @stampz/api`);
+    throw new Error(`lucide-static not found at ${LUCIDE_DIR}. Run: npm i -D lucide-static -w @stampperk/api`);
   }
   return new Set(
     fs

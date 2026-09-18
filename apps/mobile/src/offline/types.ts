@@ -1,4 +1,4 @@
-import type { CreateLoyaltyProgramInput, StampScanInput } from '@stampz/shared';
+import type { CreateLoyaltyProgramInput, StampScanInput } from '@stampperk/shared';
 
 export type OfflineScanItem = StampScanInput & {
   offlineId: string;

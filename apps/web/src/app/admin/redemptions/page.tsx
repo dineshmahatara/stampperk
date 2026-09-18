@@ -169,7 +169,7 @@ export default function AdminRedemptionsPage() {
     <div className="mx-auto max-w-[1500px]">
       <AdminPageHeader
         title="Redemptions"
-        subtitle="Every reward claimed on Stampza."
+        subtitle="Every reward claimed on Stamp Perk."
         action={
           <div className="flex flex-wrap items-center gap-2">
             <button

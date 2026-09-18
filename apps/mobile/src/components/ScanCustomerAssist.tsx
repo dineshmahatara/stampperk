@@ -19,7 +19,7 @@ import {
   normalizeDialPhone,
   phoneNationalLength,
   sanitizeLocalPhoneInput,
-} from '@stampz/shared';
+} from '@stampperk/shared';
 import { api } from '../api';
 import { colors, radii } from '../theme';
 import { KeyboardAwareScroll } from './KeyboardAwareScroll';
@@ -167,7 +167,7 @@ export function ScanCustomerAssist({
   function quickSetup() {
     setName('');
     setLocalPhone('9876543210');
-    setEmail('customer@stampz.app');
+    setEmail('customer@stampperk.app');
     setInviteChannel('phone');
   }
 

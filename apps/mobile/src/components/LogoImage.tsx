@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Image, type ImageStyle, type StyleProp, View, type ViewStyle } from 'react-native';
 import { SvgUri } from 'react-native-svg';
-import { MEDIA_LIBRARY } from '@stampz/shared';
+import { MEDIA_LIBRARY } from '@stampperk/shared';
 
 const API_URL = (process.env.EXPO_PUBLIC_API_URL || 'http://localhost:4000').replace(/\/$/, '');
 

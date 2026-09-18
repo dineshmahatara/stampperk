@@ -1,7 +1,7 @@
 'use client';
 
 import { useRef, useState } from 'react';
-import { categoryLabelFromSlug } from '@stampz/shared';
+import { categoryLabelFromSlug } from '@stampperk/shared';
 
 export type ProfileContact = {
   phone?: string | null;
@@ -133,7 +133,7 @@ export function StampCardPreview({
   const qrTarget =
     typeof window !== 'undefined' && profile?.slug
       ? `${window.location.origin}/b/${profile.slug}`
-      : profile?.website || 'https://stampz.app';
+      : profile?.website || 'https://stampperk.app';
   const ff = fontFamily(fontStyle);
   const emptyTone = emptyStampColor || GOLD;
 
@@ -383,7 +383,7 @@ export function StampCardPreview({
               flip();
             }
           }}
-          className="cursor-pointer touch-pan-y select-none outline-none transition-transform duration-200 active:scale-[0.985] focus-visible:ring-2 focus-visible:ring-[var(--stampz-coral)]/40"
+          className="cursor-pointer touch-pan-y select-none outline-none transition-transform duration-200 active:scale-[0.985] focus-visible:ring-2 focus-visible:ring-[var(--stampperk-coral)]/40"
         >
           {side === 'front' ? front : back}
         </div>

@@ -14,7 +14,7 @@ import {
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
 import * as WebBrowser from 'expo-web-browser';
-import { passwordStrength } from '@stampz/shared';
+import { passwordStrength } from '@stampperk/shared';
 import { api, ApiError, AuthUser } from '../api';
 import { Locale } from '../i18n';
 import { colors, radii } from '../theme';
@@ -57,13 +57,13 @@ export function LoginScreen({
   locale: Locale;
 }) {
   const { branding } = useAppBranding();
-  const appName = branding.companyName || 'Stampz';
+  const appName = branding.companyName || 'Stamp Perk';
 
   const [mode, setMode] = useState<AuthMode>('login');
   const [role, setRole] = useState<RegisterRole>('CUSTOMER');
   const [name, setName] = useState('');
-  const [email, setEmail] = useState('merchant@stampz.app');
-  const [password, setPassword] = useState('Stampz123!');
+  const [email, setEmail] = useState('merchant@stampperk.app');
+  const [password, setPassword] = useState('StampPerk123!');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [inviteCode, setInviteCode] = useState('');
   const [showPassword, setShowPassword] = useState(false);
@@ -93,8 +93,8 @@ export function LoginScreen({
       setName('');
       setRole('CUSTOMER');
     } else {
-      setEmail('merchant@stampz.app');
-      setPassword('Stampz123!');
+      setEmail('merchant@stampperk.app');
+      setPassword('StampPerk123!');
       setConfirmPassword('');
       setName('');
       setInviteCode('');
@@ -197,7 +197,7 @@ export function LoginScreen({
         body: JSON.stringify({
           provider,
           idToken: `demo-${provider}-${Date.now()}`,
-          email: `${provider}.demo@stampz.app`,
+          email: `${provider}.demo@stampperk.app`,
           name: nameByProvider,
           sub: `${provider}-demo-sub`,
           role: mode === 'register' ? role : 'CUSTOMER',
@@ -252,7 +252,7 @@ export function LoginScreen({
         <Text style={s.welcomeSub}>
           {isLogin
             ? 'Sign in to access your dashboard'
-            : 'Join Stampz to collect stamps or grow your business'}
+            : 'Join Stamp Perk to collect stamps or grow your business'}
         </Text>
 
         {!isLogin && (
@@ -434,7 +434,7 @@ export function LoginScreen({
               {' · '}
               <Text
                 style={s.footerLink}
-                onPress={() => Linking.openURL('mailto:support@stampz.app')}
+                onPress={() => Linking.openURL('mailto:support@stampperk.app')}
               >
                 Contact Support
               </Text>
@@ -451,7 +451,7 @@ export function LoginScreen({
 
         {isLogin && (
           <Text style={s.demoHint}>
-            Demo: merchant@ / customer@ / admin@ stampz.app · Stampz123!
+            Demo: merchant@ / customer@ / admin@ stampperk.app · StampPerk123!
           </Text>
         )}
       </KeyboardAwareScroll>

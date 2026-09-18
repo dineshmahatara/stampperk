@@ -3,7 +3,7 @@ import { fetchBranding } from '@/lib/branding';
 
 export default async function TermsPage() {
   const branding = await fetchBranding();
-  const companyName = branding.companyName || 'Stampz';
+  const companyName = branding.companyName || 'Stamp Perk';
 
   return (
     <main className="prose mx-auto max-w-3xl px-6 py-12">

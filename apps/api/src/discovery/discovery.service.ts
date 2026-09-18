@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { BUSINESS_CATEGORY_TREE, isMerchantVerifiedLive } from '@stampz/shared';
+import { BUSINESS_CATEGORY_TREE, isMerchantVerifiedLive } from '@stampperk/shared';
 import { PrismaService } from '../prisma/prisma.service';
 
 type CatGroup = (typeof BUSINESS_CATEGORY_TREE)[number];

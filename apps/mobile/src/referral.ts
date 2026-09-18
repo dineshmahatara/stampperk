@@ -1,6 +1,6 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-const KEY = 'stampz_referral_v1';
+const KEY = 'stampperk_referral_v1';
 
 export type StoredReferral = {
   referralCode: string;

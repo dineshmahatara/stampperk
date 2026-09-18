@@ -1,4 +1,4 @@
-# Stampz API contracts (summary)
+# Stamp Perk API contracts (summary)
 
 Base URL: `http://localhost:4000/api`  
 Auth: `Authorization: Bearer <token>`  

@@ -12,7 +12,7 @@ export class HealthController {
     await this.prisma.$queryRawUnsafe('SELECT 1');
     return {
       status: 'ok',
-      service: 'stampz-api',
+      service: 'stampperk-api',
       database: 'ok',
       time: new Date().toISOString(),
     };

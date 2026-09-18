@@ -139,7 +139,7 @@ export function MapLocationPicker({
           type="button"
           onClick={useCurrentLocation}
           disabled={busy}
-          className="rounded-full bg-[var(--stampz-coral)] px-4 py-2 text-sm font-bold text-white disabled:opacity-60"
+          className="rounded-full bg-[var(--stampperk-coral)] px-4 py-2 text-sm font-bold text-white disabled:opacity-60"
         >
           {busy ? 'Locating…' : 'Use current location'}
         </button>
@@ -147,7 +147,7 @@ export function MapLocationPicker({
           <button
             type="button"
             onClick={clearPin}
-            className="rounded-full border border-[var(--stampz-line)] bg-white px-4 py-2 text-sm font-bold"
+            className="rounded-full border border-[var(--stampperk-line)] bg-white px-4 py-2 text-sm font-bold"
           >
             Clear pin
           </button>
@@ -157,7 +157,7 @@ export function MapLocationPicker({
             href={googleMapsLink(latitude!, longitude!)}
             target="_blank"
             rel="noreferrer"
-            className="rounded-full border border-[var(--stampz-line)] bg-white px-4 py-2 text-sm font-bold text-[var(--stampz-coral)]"
+            className="rounded-full border border-[var(--stampperk-line)] bg-white px-4 py-2 text-sm font-bold text-[var(--stampperk-coral)]"
           >
             Open in Google Maps →
           </a>
@@ -165,7 +165,7 @@ export function MapLocationPicker({
       </div>
 
       <div
-        className={`overflow-hidden rounded-2xl border border-[var(--stampz-line)] ${heightClassName} z-0`}
+        className={`overflow-hidden rounded-2xl border border-[var(--stampperk-line)] ${heightClassName} z-0`}
       >
         <MapContainer
           center={center}
@@ -201,20 +201,20 @@ export function MapLocationPicker({
 
       <div className="grid gap-2 sm:grid-cols-2">
         <div className="rounded-xl bg-[#F8F8FA] px-3 py-2 text-sm">
-          <span className="text-xs font-bold uppercase tracking-wide text-[var(--stampz-muted)]">
+          <span className="text-xs font-bold uppercase tracking-wide text-[var(--stampperk-muted)]">
             Latitude
           </span>
           <div className="font-semibold">{hasPin ? latitude!.toFixed(6) : '—'}</div>
         </div>
         <div className="rounded-xl bg-[#F8F8FA] px-3 py-2 text-sm">
-          <span className="text-xs font-bold uppercase tracking-wide text-[var(--stampz-muted)]">
+          <span className="text-xs font-bold uppercase tracking-wide text-[var(--stampperk-muted)]">
             Longitude
           </span>
           <div className="font-semibold">{hasPin ? longitude!.toFixed(6) : '—'}</div>
         </div>
       </div>
 
-      <p className="text-xs font-medium text-[var(--stampz-muted)]">
+      <p className="text-xs font-medium text-[var(--stampperk-muted)]">
         Tap the map to drop a pin, or drag the pin. Customers and nearby search use these coordinates;
         Google Maps link is filled automatically.
       </p>

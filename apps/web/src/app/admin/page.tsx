@@ -280,7 +280,7 @@ export default function AdminOverviewPage() {
             Welcome back, {user?.name?.split(' ')[0] || 'Admin'}! 👋
           </h1>
           <p className="mt-1 text-sm text-[#8E8E93]">
-            Here&apos;s what&apos;s happening with your Stampza platform today.
+            Here&apos;s what&apos;s happening with your Stamp Perk platform today.
           </p>
         </div>
         <div className="inline-flex items-center gap-2 rounded-xl border border-black/6 bg-white px-3 py-2 text-sm font-semibold text-[#1C1C1E] shadow-sm">

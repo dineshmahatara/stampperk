@@ -37,7 +37,7 @@ export class ApiError extends Error {
   }
 }
 
-const MERCHANT_KEY = 'stampz_active_merchant_id';
+const MERCHANT_KEY = 'stampperk_active_merchant_id';
 
 export function getActiveMerchantId(): string | null {
   if (typeof window === 'undefined') return null;

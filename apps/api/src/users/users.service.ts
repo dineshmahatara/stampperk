@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { updateCustomerProfileSchema, updateLocationSchema } from '@stampz/shared';
+import { updateCustomerProfileSchema, updateLocationSchema } from '@stampperk/shared';
 import { PrismaService } from '../prisma/prisma.service';
 
 const profileSelect = {

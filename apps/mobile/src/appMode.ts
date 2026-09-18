@@ -2,7 +2,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export type AppMode = 'business' | 'customer';
 
-const KEY = 'stampz_app_mode';
+const KEY = 'stampperk_app_mode';
 
 /** Only merchant-side roles may enter Business mode. */
 export function canUseBusinessMode(role?: string | null) {

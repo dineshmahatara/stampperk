@@ -4,7 +4,7 @@ import {
   Injectable,
   NotFoundException,
 } from '@nestjs/common';
-import { stampScanSchema } from '@stampz/shared';
+import { stampScanSchema } from '@stampperk/shared';
 import { PrismaService } from '../prisma/prisma.service';
 import { NotificationsService } from '../notifications/notifications.service';
 import { ReferralsService } from '../referrals/referrals.service';
@@ -41,7 +41,7 @@ export class QrService {
     return {
       userId: user.id,
       name: user.name,
-      qrPayload: `stampz:customer:${user.qrToken}`,
+      qrPayload: `stampperk:customer:${user.qrToken}`,
       qrToken: user.qrToken,
     };
   }
@@ -53,16 +53,18 @@ export class QrService {
       const path = issue?.path?.join('.') || '';
       if (path === 'customerQrToken') {
         throw new BadRequestException(
-          'Paste or scan a valid customer QR (stampz:customer:...)',
+          'Paste or scan a valid customer QR (stampperk:customer:...)',
         );
       }
       throw new BadRequestException(issue?.message || 'Invalid scan payload');
     }
     const data = parsed.data;
-    const token = data.customerQrToken.replace(/^stampz:customer:/i, '').trim();
+    const token = data.customerQrToken
+      .replace(/^(stampperk|stampz):customer:/i, '')
+      .trim();
     if (token.length < 4 || token.length > 40) {
       throw new BadRequestException(
-        'Paste or scan a valid customer QR (stampz:customer:...)',
+        'Paste or scan a valid customer QR (stampperk:customer:...)',
       );
     }
     const customer = await this.prisma.user.findFirst({ where: { qrToken: token, deletedAt: null } });

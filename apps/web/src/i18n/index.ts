@@ -3,7 +3,7 @@
 import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
 import LanguageDetector from 'i18next-browser-languagedetector';
-import { localeDirection, type TextDirection } from '@stampz/shared';
+import { localeDirection, type TextDirection } from '@stampperk/shared';
 
 import en from '@/locales/en/common.json';
 import ne from '@/locales/ne/common.json';
@@ -63,7 +63,7 @@ if (!i18n.isInitialized) {
       interpolation: { escapeValue: false },
       detection: {
         order: ['localStorage', 'navigator'],
-        lookupLocalStorage: 'stampz_i18nextLng',
+        lookupLocalStorage: 'stampperk_i18nextLng',
         caches: ['localStorage'],
       },
       react: { useSuspense: false },

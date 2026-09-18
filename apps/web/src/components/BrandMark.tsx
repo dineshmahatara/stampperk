@@ -15,7 +15,7 @@ export function BrandMark({
   className?: string;
 }) {
   const branding = useBranding();
-  const name = branding.companyName || 'Stampz';
+  const name = branding.companyName || 'Stamp Perk';
   const initial = name.slice(0, 1).toUpperCase();
   const text = tone === 'dark' ? 'text-white' : 'text-[#1C1C1E]';
   const sub = tone === 'dark' ? 'text-white/45' : 'text-[#8E8E93]';

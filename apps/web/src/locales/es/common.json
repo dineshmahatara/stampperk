@@ -21,12 +21,12 @@
   "heroTitleAccent": "lealtad duradera.",
   "heroBody": "Crea una tarjeta digital, recompensa clientes recurrentes y gestiona tu programa desde móvil y escritorio. Una cuenta. Todo sincronizado.",
   "startHere": "Empezar",
-  "seeHow": "Ver cómo funciona Stampz",
+  "seeHow": "Ver cómo funciona Stamp Perk",
   "noCard": "Sin tarjeta",
   "mobileDesktop": "Móvil + Escritorio",
   "easySetup": "Configuración fácil",
   "howLabel": "Cómo funciona",
-  "howTitle": "Mira cómo funciona Stampz",
+  "howTitle": "Mira cómo funciona Stamp Perk",
   "howBody": "Descubre cómo los comercios crean tarjetas, invitan clientes, dan sellos seguros y canjean recompensas.",
   "steps": [
     "Crea tu tarjeta",
@@ -115,7 +115,7 @@
     },
     {
       "q": "¿Cómo creo una tarjeta de fidelidad?",
-      "a": "Define la acción, el número de sellos, la recompensa y publícala en Stampz."
+      "a": "Define la acción, el número de sellos, la recompensa y publícala en Stamp Perk."
     },
     {
       "q": "¿Hay plan gratis?",
@@ -141,7 +141,7 @@
     },
     {
       "country": "India",
-      "quote": "Stampz reemplazó nuestras tarjetas de papel en minutos. El QR offline es rapidísimo."
+      "quote": "Stamp Perk reemplazó nuestras tarjetas de papel en minutos. El QR offline es rapidísimo."
     },
     {
       "country": "Indonesia",
@@ -183,7 +183,7 @@
     "plans": {
       "free": {
         "label": "Free Plan",
-        "title": "Explore Stampz",
+        "title": "Explore Stamp Perk",
         "description": "Start without a bank card and experience the essentials.",
         "features": [
           "Create 1 loyalty card",
@@ -198,7 +198,7 @@
       "monthly": {
         "label": "Monthly Plan",
         "title": "Try Everything",
-        "description": "Unlock every Stampz feature for 3 days, then continue month to month.",
+        "description": "Unlock every Stamp Perk feature for 3 days, then continue month to month.",
         "features": [
           "Full premium access",
           "Unlimited cards, stamps and offers",
@@ -332,7 +332,7 @@
       "inviteBtn": "Send invite",
       "name": "Name",
       "email": "Email",
-      "invited": "Staff invited (default password Stampz123! if new)",
+      "invited": "Staff invited (default password StampPerk123! if new)",
       "deactivate": "Deactivate",
       "empty": "No staff members yet."
     },

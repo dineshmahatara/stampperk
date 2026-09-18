@@ -228,7 +228,7 @@ export const VerificationStatus = {
 } as const;
 export type VerificationStatus = (typeof VerificationStatus)[keyof typeof VerificationStatus];
 
-/** Stampz Verified badge is live when admin-approved and paid period is active. */
+/** Stamp Perk Verified badge is live when admin-approved and paid period is active. */
 export function isMerchantVerifiedLive(input: {
   verificationStatus?: string | null;
   verifiedAddon?: boolean | null;
@@ -932,20 +932,20 @@ export const platformBrandingSchema = z.object({
 export type PlatformBrandingInput = z.infer<typeof platformBrandingSchema>;
 
 export const DEFAULT_PLATFORM_BRANDING = {
-  companyName: 'Stampz',
+  companyName: 'Stamp Perk',
   tagline: 'Digital Loyalty Cards for Growing Businesses',
   seoTitleTemplate: '{companyName} | {tagline}',
   metaDescription:
     'Create a digital punch card, earn repeat customers, and manage your loyalty program from mobile and desktop. One account. Everything stays in sync.',
-  metaKeywords: 'loyalty, stamp card, digital punch card, rewards, Stampz',
+  metaKeywords: 'loyalty, stamp card, digital punch card, rewards, Stamp Perk',
   logoUrl: null as string | null,
   faviconUrl: null as string | null,
   appleTouchIconUrl: null as string | null,
   pwaIcon192Url: null as string | null,
   pwaIcon512Url: null as string | null,
   ogImageUrl: null as string | null,
-  contactEmail: 'hello@stampz.app' as string | null,
-  supportEmail: 'support@stampz.app' as string | null,
+  contactEmail: 'hello@stampperk.app' as string | null,
+  supportEmail: 'support@stampperk.app' as string | null,
   website: null as string | null,
   facebook: null as string | null,
   instagram: null as string | null,

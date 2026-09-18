@@ -14,7 +14,7 @@ import { api } from '../api';
 import { colors, radii } from '../theme';
 import { PrimaryButton, ScreenHeader } from '../ui';
 import { KeyboardAwareScroll } from '../components/KeyboardAwareScroll';
-import { VERIFIED_ADDON_PRICES } from '@stampz/shared';
+import { VERIFIED_ADDON_PRICES } from '@stampperk/shared';
 import type { Session } from './LoginScreen';
 
 type VerificationState = {
@@ -117,7 +117,7 @@ export function VerifiedBadgeScreen({
           <Text style={{ color: colors.coral, fontWeight: '800' }}>← Back</Text>
         </Pressable>
         <ScreenHeader
-          title="Stampz Verified"
+          title="Stamp Perk Verified"
           subtitle="Trust badge · Discover boost · recurring add-on"
         />
 

@@ -7,7 +7,7 @@ import { useAuth } from '@/lib/auth';
 import { SUPPORTED_LOCALES } from '@/i18n';
 import { usePreferences } from '@/lib/preferences';
 import { AddressPicker } from '@/components/AddressPicker';
-import { normalizeCountryCode, type AddressFormValue } from '@stampz/shared';
+import { normalizeCountryCode, type AddressFormValue } from '@stampperk/shared';
 
 type CustomerProfile = {
   id: string;
@@ -41,8 +41,8 @@ type CustomerProfile = {
 };
 
 const inputClass =
-  'w-full rounded-xl border border-[var(--stampz-line)] bg-white px-3 py-2.5 text-sm outline-none focus:ring-2 focus:ring-[var(--stampz-coral)]/30';
-const labelClass = 'mb-1 block text-xs font-semibold uppercase tracking-wide text-[var(--stampz-muted)]';
+  'w-full rounded-xl border border-[var(--stampperk-line)] bg-white px-3 py-2.5 text-sm outline-none focus:ring-2 focus:ring-[var(--stampperk-coral)]/30';
+const labelClass = 'mb-1 block text-xs font-semibold uppercase tracking-wide text-[var(--stampperk-muted)]';
 
 function Field({ label, children }: { label: string; children: React.ReactNode }) {
   return (
@@ -149,7 +149,7 @@ export default function CustomerSettingsPage() {
     <div className="mx-auto max-w-3xl pb-24">
       <div className="mb-6 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
         <div className="flex items-center gap-4">
-          <div className="flex h-16 w-16 shrink-0 items-center justify-center overflow-hidden rounded-full border border-[var(--stampz-line)] bg-[var(--stampz-pink)] text-lg font-extrabold text-[var(--stampz-coral)]">
+          <div className="flex h-16 w-16 shrink-0 items-center justify-center overflow-hidden rounded-full border border-[var(--stampperk-line)] bg-[var(--stampperk-pink)] text-lg font-extrabold text-[var(--stampperk-coral)]">
             {profile?.photoUrl ? (
               // eslint-disable-next-line @next/next/no-img-element
               <img src={profile.photoUrl} alt="" className="h-full w-full object-cover" />
@@ -159,26 +159,26 @@ export default function CustomerSettingsPage() {
           </div>
           <div>
             <h1 className="text-3xl font-bold">My Profile</h1>
-            <p className="mt-1 text-sm text-[var(--stampz-muted)]">
+            <p className="mt-1 text-sm text-[var(--stampperk-muted)]">
               Keep your details updated for stamps, birthday offers, and nearby businesses.
             </p>
           </div>
         </div>
         {profile && (
-          <div className="min-w-[140px] rounded-2xl border border-[var(--stampz-line)] bg-[var(--stampz-surface)] px-4 py-3">
-            <div className="text-[10px] font-bold uppercase tracking-wide text-[var(--stampz-muted)]">
+          <div className="min-w-[140px] rounded-2xl border border-[var(--stampperk-line)] bg-[var(--stampperk-surface)] px-4 py-3">
+            <div className="text-[10px] font-bold uppercase tracking-wide text-[var(--stampperk-muted)]">
               Profile completion
             </div>
             <div className="mt-1 flex items-end justify-between gap-2">
-              <span className="text-2xl font-extrabold text-[var(--stampz-coral)]">{completion}%</span>
+              <span className="text-2xl font-extrabold text-[var(--stampperk-coral)]">{completion}%</span>
             </div>
             <div className="mt-2 h-1.5 overflow-hidden rounded-full bg-[#F1F5F9]">
               <div
-                className="h-full rounded-full bg-[var(--stampz-coral)] transition-all"
+                className="h-full rounded-full bg-[var(--stampperk-coral)] transition-all"
                 style={{ width: `${completion}%` }}
               />
             </div>
-            <p className="mt-2 text-[11px] font-medium text-[var(--stampz-muted)]">
+            <p className="mt-2 text-[11px] font-medium text-[var(--stampperk-muted)]">
               Name, phone, birthday, city, photo
             </p>
           </div>
@@ -197,10 +197,10 @@ export default function CustomerSettingsPage() {
       )}
 
       {!profile ? (
-        <p className="mt-6 text-[var(--stampz-muted)]">Loading…</p>
+        <p className="mt-6 text-[var(--stampperk-muted)]">Loading…</p>
       ) : (
         <form onSubmit={save} className="space-y-5">
-          <div className="rounded-2xl border border-[var(--stampz-line)] bg-[var(--stampz-surface)] p-5 shadow-sm">
+          <div className="rounded-2xl border border-[var(--stampperk-line)] bg-[var(--stampperk-surface)] p-5 shadow-sm">
             <h2 className="mb-3 text-base font-extrabold">Basic Information</h2>
             <div className="grid gap-3 sm:grid-cols-2">
               <Field label="Full Name">
@@ -243,7 +243,7 @@ export default function CustomerSettingsPage() {
             </div>
           </div>
 
-          <div className="rounded-2xl border border-[var(--stampz-line)] bg-[var(--stampz-surface)] p-5 shadow-sm">
+          <div className="rounded-2xl border border-[var(--stampperk-line)] bg-[var(--stampperk-surface)] p-5 shadow-sm">
             <h2 className="mb-3 text-base font-extrabold">Contact Information</h2>
             <div className="grid gap-3 sm:grid-cols-2">
               <Field label="Email Address">
@@ -273,7 +273,7 @@ export default function CustomerSettingsPage() {
             </div>
           </div>
 
-          <div className="rounded-2xl border border-[var(--stampz-line)] bg-[var(--stampz-surface)] p-5 shadow-sm">
+          <div className="rounded-2xl border border-[var(--stampperk-line)] bg-[var(--stampperk-surface)] p-5 shadow-sm">
             <h2 className="mb-3 text-base font-extrabold">Address</h2>
             <AddressPicker
               value={{
@@ -306,7 +306,7 @@ export default function CustomerSettingsPage() {
             />
           </div>
 
-          <div className="rounded-2xl border border-[var(--stampz-line)] bg-[var(--stampz-surface)] p-5 shadow-sm">
+          <div className="rounded-2xl border border-[var(--stampperk-line)] bg-[var(--stampperk-surface)] p-5 shadow-sm">
             <h2 className="mb-3 text-base font-extrabold">Preferences</h2>
             <div className="mb-4 flex flex-col gap-2">
               <a
@@ -356,24 +356,24 @@ export default function CustomerSettingsPage() {
                 />
               </Field>
             </div>
-            <div className="mt-6 space-y-4 rounded-[1.5rem] border border-[var(--stampz-line)] bg-[#FFF8F7] p-4 sm:p-5">
+            <div className="mt-6 space-y-4 rounded-[1.5rem] border border-[var(--stampperk-line)] bg-[#FFF8F7] p-4 sm:p-5">
               <div>
                 <h2 className="text-lg font-extrabold tracking-tight">Notification settings</h2>
-                <p className="mt-1 text-sm text-[var(--stampz-muted)]">
+                <p className="mt-1 text-sm text-[var(--stampperk-muted)]">
                   Personalize which alerts reach your devices. Inbox always keeps a copy.
                 </p>
               </div>
 
-              <label className="flex items-start justify-between gap-4 rounded-2xl border border-[var(--stampz-coral)]/15 bg-white px-4 py-3">
+              <label className="flex items-start justify-between gap-4 rounded-2xl border border-[var(--stampperk-coral)]/15 bg-white px-4 py-3">
                 <div className="min-w-0">
                   <div className="text-sm font-extrabold">Push alerts</div>
-                  <div className="mt-0.5 text-xs text-[var(--stampz-muted)]">
-                    Master switch for on-device alerts from Stampz.
+                  <div className="mt-0.5 text-xs text-[var(--stampperk-muted)]">
+                    Master switch for on-device alerts from Stamp Perk.
                   </div>
                 </div>
                 <input
                   type="checkbox"
-                  className="mt-1 h-5 w-5 accent-[var(--stampz-coral)]"
+                  className="mt-1 h-5 w-5 accent-[var(--stampperk-coral)]"
                   checked={Boolean(profile.pushConsent)}
                   onChange={(e) => setField('pushConsent', e.target.checked)}
                 />
@@ -381,7 +381,7 @@ export default function CustomerSettingsPage() {
 
               <div>
                 <div className="mb-2 text-sm font-extrabold">Alert categories</div>
-                <div className="overflow-hidden rounded-2xl border border-[var(--stampz-line)] bg-white">
+                <div className="overflow-hidden rounded-2xl border border-[var(--stampperk-line)] bg-white">
                   {(
                     [
                       {
@@ -414,16 +414,16 @@ export default function CustomerSettingsPage() {
                     <label
                       key={row.key}
                       className={`flex items-start justify-between gap-4 px-4 py-3 ${
-                        i < arr.length - 1 ? 'border-b border-[var(--stampz-line)]' : ''
+                        i < arr.length - 1 ? 'border-b border-[var(--stampperk-line)]' : ''
                       } ${profile.pushConsent ? '' : 'opacity-50'}`}
                     >
                       <div className="min-w-0">
                         <div className="text-sm font-bold">{row.title}</div>
-                        <div className="mt-0.5 text-xs text-[var(--stampz-muted)]">{row.sub}</div>
+                        <div className="mt-0.5 text-xs text-[var(--stampperk-muted)]">{row.sub}</div>
                       </div>
                       <input
                         type="checkbox"
-                        className="mt-1 h-5 w-5 accent-[var(--stampz-coral)]"
+                        className="mt-1 h-5 w-5 accent-[var(--stampperk-coral)]"
                         disabled={!profile.pushConsent}
                         checked={profile[row.key] !== false}
                         onChange={(e) => setField(row.key, e.target.checked)}
@@ -433,25 +433,25 @@ export default function CustomerSettingsPage() {
                 </div>
               </div>
 
-              <label className="flex items-center gap-2 text-sm font-semibold text-[var(--stampz-ink)]">
+              <label className="flex items-center gap-2 text-sm font-semibold text-[var(--stampperk-ink)]">
                 <input
                   type="checkbox"
-                  className="h-4 w-4 accent-[var(--stampz-coral)]"
+                  className="h-4 w-4 accent-[var(--stampperk-coral)]"
                   checked={Boolean(profile.marketingConsent)}
                   onChange={(e) => setField('marketingConsent', e.target.checked)}
                 />
                 Also allow marketing emails (separate from push)
               </label>
 
-              <p className="rounded-xl bg-white/80 px-3 py-2 text-xs leading-relaxed text-[var(--stampz-muted)]">
+              <p className="rounded-xl bg-white/80 px-3 py-2 text-xs leading-relaxed text-[var(--stampperk-muted)]">
                 Essential account updates always stay in your inbox. The Push alerts switch still
                 controls whether they appear on your device.
               </p>
             </div>
           </div>
 
-          <div className="sticky bottom-4 z-10 flex flex-wrap items-center justify-between gap-3 rounded-2xl border border-[var(--stampz-line)] bg-white/95 px-4 py-3 shadow-lg backdrop-blur">
-            <div className="flex flex-wrap gap-4 text-sm font-semibold text-[var(--stampz-coral)]">
+          <div className="sticky bottom-4 z-10 flex flex-wrap items-center justify-between gap-3 rounded-2xl border border-[var(--stampperk-line)] bg-white/95 px-4 py-3 shadow-lg backdrop-blur">
+            <div className="flex flex-wrap gap-4 text-sm font-semibold text-[var(--stampperk-coral)]">
               <Link href="/dashboard/qr">Open My QR →</Link>
               <Link href="/dashboard/discover">Discover businesses →</Link>
               <Link href="/dashboard">My wallet →</Link>

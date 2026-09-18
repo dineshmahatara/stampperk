@@ -16,7 +16,7 @@ export class ZodExceptionFilter implements ExceptionFilter {
     const messages = exception.issues.map((issue) => {
       const path = issue.path.join('.') || 'input';
       if (path === 'customerQrToken' || path.endsWith('customerQrToken')) {
-        return 'Paste or scan a valid customer QR (stampz:customer:...)';
+        return 'Paste or scan a valid customer QR (stampperk:customer:...)';
       }
       return `${path}: ${issue.message}`;
     });

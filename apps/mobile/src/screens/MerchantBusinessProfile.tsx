@@ -8,7 +8,7 @@ import {
   View,
   StyleSheet,
 } from 'react-native';
-import { BUSINESS_INDUSTRIES, BUSINESS_TYPES, normalizeCountryCode, contactFormatError, type AddressFormValue } from '@stampz/shared';
+import { BUSINESS_INDUSTRIES, BUSINESS_TYPES, normalizeCountryCode, contactFormatError, type AddressFormValue } from '@stampperk/shared';
 import { api } from '../api';
 import { colors, styles as theme } from '../theme';
 import { Card, PrimaryButton } from '../ui';

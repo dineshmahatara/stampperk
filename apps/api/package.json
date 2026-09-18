@@ -1,5 +1,5 @@
 {
-  "name": "@stampz/api",
+  "name": "@stampperk/api",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -23,7 +23,7 @@
     "@nestjs/swagger": "^11.0.6",
     "@nestjs/throttler": "^6.4.0",
     "@prisma/client": "^6.5.0",
-    "@stampz/shared": "*",
+    "@stampperk/shared": "*",
     "bcryptjs": "^3.0.2",
     "class-transformer": "^0.5.1",
     "class-validator": "^0.14.1",

@@ -43,7 +43,7 @@
     },
     {
       "title": "Discover & Verified",
-      "body": "Customers find you on the map. Stampz Verified lifts trusted shops to the top."
+      "body": "Customers find you on the map. Stamp Perk Verified lifts trusted shops to the top."
     },
     {
       "title": "CRM segments",
@@ -74,18 +74,18 @@
   "audienceMerchantsCta": "Open business account",
   "audienceCustomersCta": "Explore Discover",
   "verifiedLabel": "Trust that converts",
-  "verifiedTitle": "Stampz Verified Badge",
+  "verifiedTitle": "Stamp Perk Verified Badge",
   "verifiedBody": "Apply with business docs, get admin review, then activate the add-on. Live checkmark on Discover and your public profile.",
   "verifiedCta": "View plans & Verified",
   "reviewsTitle": "Built for shops that live on repeat visits",
-  "resourcesLabel": "Why Stampz",
+  "resourcesLabel": "Why Stamp Perk",
   "resourcesTitle": "More than a punch card — a loyalty workspace.",
   "resourcesBody": "From first stamp to win-back offer, everything merchants need sits in one place.",
   "ctaTitle": "Ready to turn visits into loyalty?",
   "ctaBody": "Start free or begin a trial. Add Verified when you want the trust edge. Web and app stay in sync.",
   "footerTag": "Digital loyalty, Discover, CRM, automations, and Verified trust for growing businesses.",
   "faqLabel": "FAQ",
-  "faqTitle": "Questions about Stampz, answered.",
+  "faqTitle": "Questions about Stamp Perk, answered.",
   "readGuide": "Learn more",
   "appStore": "Download on the App Store",
   "playStore": "Get it on Google Play",
@@ -94,11 +94,11 @@
   "terms": "Terms",
   "faqs": [
     {
-      "q": "What is Stampz?",
-      "a": "Stampz is a digital loyalty workspace: merchants run stamp cards, QR scan, CRM segments, coupons, automations, leaflets, and analytics; customers collect stamps, discover nearby shops, refer friends, and redeem rewards."
+      "q": "What is Stamp Perk?",
+      "a": "Stamp Perk is a digital loyalty workspace: merchants run stamp cards, QR scan, CRM segments, coupons, automations, leaflets, and analytics; customers collect stamps, discover nearby shops, refer friends, and redeem rewards."
     },
     {
-      "q": "What is Stampz Verified?",
+      "q": "What is Stamp Perk Verified?",
       "a": "A paid trust badge. Merchants submit registration/PAN docs, admins review, then the business pays a Verified add-on. The badge boosts Discover ranking and shows on the public profile."
     },
     {
@@ -125,11 +125,11 @@
     },
     {
       "country": "India",
-      "quote": "Stampz replaced our paper punch cards in minutes. It needs no extra hardware, and offline QR scanning is lightning-fast."
+      "quote": "Stamp Perk replaced our paper punch cards in minutes. It needs no extra hardware, and offline QR scanning is lightning-fast."
     },
     {
       "country": "Indonesia",
-      "quote": "I switched to Stampz last month, and my regulars love it. The analytics dashboard makes rewards and repeat visits easy to track."
+      "quote": "I switched to Stamp Perk last month, and my regulars love it. The analytics dashboard makes rewards and repeat visits easy to track."
     },
     {
       "country": "Pakistan",
@@ -167,7 +167,7 @@
     "plans": {
       "free": {
         "label": "Free",
-        "title": "Explore Stampz",
+        "title": "Explore Stamp Perk",
         "description": "Start without a bank card and experience the essentials.",
         "features": [
           "Create 1 loyalty card",
@@ -316,7 +316,7 @@
       "inviteBtn": "Send invite",
       "name": "Name",
       "email": "Email",
-      "invited": "Staff invited (default password Stampz123! if new)",
+      "invited": "Staff invited (default password StampPerk123! if new)",
       "deactivate": "Deactivate",
       "empty": "No staff members yet."
     },

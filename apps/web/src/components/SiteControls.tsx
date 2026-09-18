@@ -25,7 +25,7 @@ export function SiteControls() {
       <button
         type="button"
         onClick={() => setOpen((v) => !v)}
-        className="inline-flex items-center gap-2 rounded-full border border-[var(--stampz-line)] bg-[var(--stampz-surface)] px-3 py-2 text-sm font-semibold text-[var(--stampz-ink)] shadow-sm"
+        className="inline-flex items-center gap-2 rounded-full border border-[var(--stampperk-line)] bg-[var(--stampperk-surface)] px-3 py-2 text-sm font-semibold text-[var(--stampperk-ink)] shadow-sm"
         aria-expanded={open}
         aria-label={t('preferences')}
       >
@@ -34,9 +34,9 @@ export function SiteControls() {
       </button>
 
       {open && (
-        <div className="absolute end-0 z-50 mt-2 w-[300px] rounded-2xl border border-[var(--stampz-line)] bg-[var(--stampz-surface)] p-4 shadow-xl">
+        <div className="absolute end-0 z-50 mt-2 w-[300px] rounded-2xl border border-[var(--stampperk-line)] bg-[var(--stampperk-surface)] p-4 shadow-xl">
           <div className="mb-3">
-            <div className="mb-2 text-xs font-bold uppercase tracking-wider text-[var(--stampz-muted)]">
+            <div className="mb-2 text-xs font-bold uppercase tracking-wider text-[var(--stampperk-muted)]">
               {t('theme')}
             </div>
             <div className="grid grid-cols-3 gap-2">
@@ -54,7 +54,7 @@ export function SiteControls() {
                   className={`rounded-xl px-2 py-2 text-sm font-semibold ${
                     theme === value
                       ? 'bg-[#e23d4a] text-white'
-                      : 'bg-[var(--stampz-chip)] text-[var(--stampz-ink)]'
+                      : 'bg-[var(--stampperk-chip)] text-[var(--stampperk-ink)]'
                   }`}
                 >
                   {label}
@@ -64,7 +64,7 @@ export function SiteControls() {
           </div>
 
           <div className="mb-3">
-            <div className="mb-2 text-xs font-bold uppercase tracking-wider text-[var(--stampz-muted)]">
+            <div className="mb-2 text-xs font-bold uppercase tracking-wider text-[var(--stampperk-muted)]">
               {t('language')}
             </div>
             <div className="grid max-h-48 grid-cols-2 gap-2 overflow-y-auto pe-1">
@@ -76,7 +76,7 @@ export function SiteControls() {
                   className={`rounded-xl px-2 py-2 text-start text-sm font-semibold ${
                     locale === lang.code
                       ? 'bg-[#e23d4a] text-white'
-                      : 'bg-[var(--stampz-chip)] text-[var(--stampz-ink)]'
+                      : 'bg-[var(--stampperk-chip)] text-[var(--stampperk-ink)]'
                   }`}
                   title={`${lang.label}${lang.dir === 'rtl' ? ' (RTL)' : ''}`}
                   dir={lang.dir}
@@ -84,7 +84,7 @@ export function SiteControls() {
                   <span className="block leading-tight">{lang.native}</span>
                   <span
                     className={`block text-[10px] font-medium ${
-                      locale === lang.code ? 'text-white/80' : 'text-[var(--stampz-muted)]'
+                      locale === lang.code ? 'text-white/80' : 'text-[var(--stampperk-muted)]'
                     }`}
                   >
                     {lang.label}
@@ -96,7 +96,7 @@ export function SiteControls() {
           </div>
 
           <div>
-            <div className="mb-2 text-xs font-bold uppercase tracking-wider text-[var(--stampz-muted)]">
+            <div className="mb-2 text-xs font-bold uppercase tracking-wider text-[var(--stampperk-muted)]">
               {t('textSize')}
             </div>
             <div className="grid grid-cols-3 gap-2">
@@ -114,7 +114,7 @@ export function SiteControls() {
                   className={`rounded-xl px-2 py-2 text-sm font-semibold ${
                     fontScale === value
                       ? 'bg-[#e23d4a] text-white'
-                      : 'bg-[var(--stampz-chip)] text-[var(--stampz-ink)]'
+                      : 'bg-[var(--stampperk-chip)] text-[var(--stampperk-ink)]'
                   }`}
                 >
                   {label}

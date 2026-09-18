@@ -15,7 +15,7 @@ import { Ionicons } from '@expo/vector-icons';
 import { captureRef } from 'react-native-view-shot';
 import * as FileSystem from 'expo-file-system/legacy';
 import * as Sharing from 'expo-sharing';
-import * as MediaLibrary from 'expo-media-library';
+import { Asset, requestPermissionsAsync } from 'expo-media-library';
 import { api } from '../api';
 import { colors } from '../theme';
 import { readCachedMerchant, cacheMerchant } from '../offline';
@@ -49,9 +49,9 @@ export function MerchantMyQrModal({
   const [busy, setBusy] = useState(false);
   const cardRef = useRef<View>(null);
 
-  const companyName = branding.companyName || 'Stampz';
+  const companyName = branding.companyName || 'Stamp Perk';
   const profileUrl = merchant?.slug ? `${WEB_BASE}/b/${merchant.slug}` : '';
-  const qrValue = profileUrl || (merchant?.slug ? `stampz:business:${merchant.slug}` : '');
+  const qrValue = profileUrl || (merchant?.slug ? `stampperk:business:${merchant.slug}` : '');
 
   useEffect(() => {
     if (!visible) return;
@@ -136,7 +136,7 @@ export function MerchantMyQrModal({
           if (base64) {
             const a = document.createElement('a');
             a.href = `data:image/png;base64,${base64}`;
-            a.download = `${merchant?.slug || 'stampz'}-qr-card.png`;
+            a.download = `${merchant?.slug || 'stampperk'}-qr-card.png`;
             a.click();
           } else {
             // Fallback: open captured file URL
@@ -146,12 +146,12 @@ export function MerchantMyQrModal({
         setMsg('Full QR card downloaded');
         return;
       }
-      const perm = await MediaLibrary.requestPermissionsAsync();
+      const perm = await requestPermissionsAsync();
       if (!perm.granted) {
         setMsg('Allow photo library access to download');
         return;
       }
-      await MediaLibrary.saveToLibraryAsync(path);
+      await Asset.create(path);
       setMsg('Full QR card saved to Photos / Gallery');
     } catch (e) {
       setMsg(e instanceof Error ? e.message : 'Download failed');

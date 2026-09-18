@@ -18,10 +18,10 @@ jobs:
           node-version: 22
           cache: npm
       - run: npm install
-      - run: npm run build -w @stampz/shared
-      - run: npm run prisma:generate -w @stampz/api
+      - run: npm run build -w @stampperk/shared
+      - run: npm run prisma:generate -w @stampperk/api
       - name: Apply schema
         working-directory: apps/api
         run: npx prisma db push
-      - run: npm run build -w @stampz/api
-      - run: npm run build -w @stampz/web
+      - run: npm run build -w @stampperk/api
+      - run: npm run build -w @stampperk/web

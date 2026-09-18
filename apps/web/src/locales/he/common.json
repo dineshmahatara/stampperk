@@ -21,12 +21,12 @@
   "heroTitleAccent": "נאמנות מתמשכת.",
   "heroBody": "צרו כרטיס חותמות דיגיטלי, תגמלו לקוחות חוזרים ונהלו את תוכנית הנאמנות מהנייד או מהמחשב.",
   "startHere": "התחל כאן",
-  "seeHow": "ראה איך Stampz עובד",
+  "seeHow": "ראה איך Stamp Perk עובד",
   "noCard": "ללא כרטיס אשראי",
   "mobileDesktop": "נייד + מחשב",
   "easySetup": "התקנה קלה",
   "howLabel": "How It Works",
-  "howTitle": "See How Stampz Works",
+  "howTitle": "See How Stamp Perk Works",
   "howBody": "Preview how merchants create digital cards, invite customers, issue secure stamps, and reward repeat visits from one connected workspace.",
   "steps": [
     "Create Your Card",
@@ -115,11 +115,11 @@
     },
     {
       "q": "How can I create a digital loyalty card for my business?",
-      "a": "Choose the action customers must complete, set the stamp count, define a reward your margins can support, and publish. In Stampz, you create the card, assign staff access, and use QR flows to record progress."
+      "a": "Choose the action customers must complete, set the stamp count, define a reward your margins can support, and publish. In Stamp Perk, you create the card, assign staff access, and use QR flows to record progress."
     },
     {
       "q": "Is there a free digital punch card plan?",
-      "a": "Yes. Stampz includes a free starter allowance for one loyalty card and limited stamps. Upgrade when you need unlimited cards, campaigns, and branches."
+      "a": "Yes. Stamp Perk includes a free starter allowance for one loyalty card and limited stamps. Upgrade when you need unlimited cards, campaigns, and branches."
     },
     {
       "q": "Do loyalty programs work for small businesses?",
@@ -141,11 +141,11 @@
     },
     {
       "country": "India",
-      "quote": "Stampz replaced our paper punch cards in minutes. It needs no extra hardware, and offline QR scanning is lightning-fast."
+      "quote": "Stamp Perk replaced our paper punch cards in minutes. It needs no extra hardware, and offline QR scanning is lightning-fast."
     },
     {
       "country": "Indonesia",
-      "quote": "I switched to Stampz last month, and my regulars love it. The analytics dashboard makes rewards and repeat visits easy to track."
+      "quote": "I switched to Stamp Perk last month, and my regulars love it. The analytics dashboard makes rewards and repeat visits easy to track."
     },
     {
       "country": "Pakistan",
@@ -183,7 +183,7 @@
     "plans": {
       "free": {
         "label": "Free Plan",
-        "title": "Explore Stampz",
+        "title": "Explore Stamp Perk",
         "description": "Start without a bank card and experience the essentials.",
         "features": [
           "Create 1 loyalty card",
@@ -198,7 +198,7 @@
       "monthly": {
         "label": "Monthly Plan",
         "title": "Try Everything",
-        "description": "Unlock every Stampz feature for 3 days, then continue month to month.",
+        "description": "Unlock every Stamp Perk feature for 3 days, then continue month to month.",
         "features": [
           "Full premium access",
           "Unlimited cards, stamps and offers",
@@ -332,7 +332,7 @@
       "inviteBtn": "Send invite",
       "name": "Name",
       "email": "Email",
-      "invited": "Staff invited (default password Stampz123! if new)",
+      "invited": "Staff invited (default password StampPerk123! if new)",
       "deactivate": "Deactivate",
       "empty": "No staff members yet."
     },

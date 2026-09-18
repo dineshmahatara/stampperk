@@ -1,7 +1,7 @@
 'use client';
 
 import { useCallback, useEffect, useMemo, useState } from 'react';
-import { BUSINESS_INDUSTRIES, countryName, searchPlaces } from '@stampz/shared';
+import { BUSINESS_INDUSTRIES, countryName, searchPlaces } from '@stampperk/shared';
 import {
   AdminBusinessGoogleMap,
   AdminBusinessLeafletMap,

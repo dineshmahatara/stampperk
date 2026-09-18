@@ -25,7 +25,7 @@ import { useAppBranding } from '../branding';
 import { clearMobileReferral, readMobileReferral, saveMobileReferral } from '../referral';
 import type { Session } from './LoginScreen';
 
-const FAV_KEY = 'stampz_favorite_slugs';
+const FAV_KEY = 'stampperk_favorite_slugs';
 const WEB_BASE =
   process.env.EXPO_PUBLIC_WEB_URL ||
   (process.env.EXPO_PUBLIC_API_URL || 'http://localhost:4000').replace(':4000', ':3000');
@@ -179,7 +179,7 @@ export function PublicMerchantScreen({
 }) {
   const offline = useOfflineOptional();
   const { branding } = useAppBranding(session?.token);
-  const companyName = branding.companyName || 'Stampz';
+  const companyName = branding.companyName || 'Stamp Perk';
   const [business, setBusiness] = useState<PublicMerchant | null>(null);
   const [error, setError] = useState('');
   const [msg, setMsg] = useState('');
@@ -440,7 +440,7 @@ export function PublicMerchantScreen({
           </View>
           {business.verified ? (
             <Text style={{ color: colors.coral, fontWeight: '700', fontSize: 12, marginBottom: 6 }}>
-              Stampz Verified
+              Stamp Perk Verified
             </Text>
           ) : null}
 

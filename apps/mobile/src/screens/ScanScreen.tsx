@@ -92,7 +92,7 @@ function AltAction({
 export function ScanScreen({ session }: { session: Session }) {
   const offline = useOffline();
   const { branding } = useAppBranding(session.token);
-  const companyName = branding.companyName || 'Stampz';
+  const companyName = branding.companyName || 'Stamp Perk';
   const [tokenInput, setTokenInput] = useState('');
   const [result, setResult] = useState('');
   const [cameraOn, setCameraOn] = useState(true);
@@ -410,7 +410,7 @@ export function ScanScreen({ session }: { session: Session }) {
             multiline
             value={tokenInput}
             onChangeText={setTokenInput}
-            placeholder="stampz:customer:…"
+            placeholder="stampperk:customer:…"
             placeholderTextColor="rgba(255,255,255,0.35)"
             autoCapitalize="none"
             onFocus={focusPasteField}
@@ -441,7 +441,7 @@ export function ScanScreen({ session }: { session: Session }) {
         token={session.token}
         onClose={() => setAssistMode(null)}
         onReadyToStamp={(customer) => {
-          const payload = customer.qrPayload || `stampz:customer:${customer.qrToken}`;
+          const payload = customer.qrPayload || `stampperk:customer:${customer.qrToken}`;
           setAssistMode(null);
           setTokenInput(payload);
           void stamp({ customerQrToken: payload });

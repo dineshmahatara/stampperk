@@ -1,4 +1,4 @@
-# Stampz MVP product scope
+# Stamp Perk MVP product scope
 
 ## In scope (Phases 0–1)
 

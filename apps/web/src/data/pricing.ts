@@ -2,7 +2,7 @@ import {
   BILLING_REGIONS,
   type BillingRegionCode,
   billingRegionFromCountry,
-} from '@stampz/shared';
+} from '@stampperk/shared';
 
 export type PricingRegionCode = BillingRegionCode;
 

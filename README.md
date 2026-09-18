@@ -1,10 +1,10 @@
-# Stampz
+# Stamp Perk
 
 Worldwide digital loyalty & rewards platform — **React Native (Expo)**, Next.js, NestJS.
 
 ## Stack
 
-- **Mobile:** Expo React Native SDK 54 (Android + iOS / Expo Go)
+- **Mobile:** Expo React Native SDK 57 (`expo@57.0.9`, Android + iOS / Expo Go)
 - **Web:** Next.js (marketing, merchant dashboard, admin)
 - **API:** NestJS + Prisma
 - **Local DB:** SQLite (`apps/api/prisma/dev.db`) so you can run without Docker
@@ -15,7 +15,7 @@ Worldwide digital loyalty & rewards platform — **React Native (Expo)**, Next.j
 
 ```bash
 npm install
-npm run build -w @stampz/shared
+npm run build -w @stampperk/shared
 npm run db:generate
 npm run db:migrate
 npm run db:seed
@@ -34,10 +34,10 @@ npm run dev:mobile
 
 | Role     | Email               | Password   |
 |----------|---------------------|------------|
-| Admin    | admin@stampz.app    | Stampz123! |
-| Merchant | merchant@stampz.app | Stampz123! |
-| Customer | customer@stampz.app | Stampz123! |
-| Staff    | staff@stampz.app    | Stampz123! |
+| Admin    | admin@stampperk.app    | StampPerk123! |
+| Merchant | merchant@stampperk.app | StampPerk123! |
+| Customer | customer@stampperk.app | StampPerk123! |
+| Staff    | staff@stampperk.app    | StampPerk123! |
 
 Public demo business: http://localhost:3000/b/brew-bliss
 

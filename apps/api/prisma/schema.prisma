@@ -979,7 +979,7 @@ model SupportTicket {
 /** Singleton platform branding / SEO (id = "default"). */
 model PlatformSettings {
   id                String   @id @default("default")
-  companyName       String   @default("Stampz")
+  companyName       String   @default("Stamp Perk")
   tagline           String?
   seoTitleTemplate  String?
   metaDescription   String?

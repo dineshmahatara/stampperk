@@ -4,14 +4,14 @@ import * as bcrypt from 'bcryptjs';
 const prisma = new PrismaClient();
 
 async function main() {
-  const passwordHash = await bcrypt.hash('Stampz123!', 10);
+  const passwordHash = await bcrypt.hash('StampPerk123!', 10);
 
   const admin = await prisma.user.upsert({
-    where: { email: 'admin@stampz.app' },
+    where: { email: 'admin@stampperk.app' },
     update: {},
     create: {
-      email: 'admin@stampz.app',
-      name: 'Stampz Admin',
+      email: 'admin@stampperk.app',
+      name: 'Stamp Perk Admin',
       passwordHash,
       role: UserRole.SUPER_ADMIN,
       language: 'en',
@@ -21,10 +21,10 @@ async function main() {
   });
 
   const merchantOwner = await prisma.user.upsert({
-    where: { email: 'merchant@stampz.app' },
+    where: { email: 'merchant@stampperk.app' },
     update: {},
     create: {
-      email: 'merchant@stampz.app',
+      email: 'merchant@stampperk.app',
       name: 'Brew Owner',
       passwordHash,
       role: UserRole.MERCHANT_OWNER,
@@ -36,10 +36,10 @@ async function main() {
   });
 
   const customer = await prisma.user.upsert({
-    where: { email: 'customer@stampz.app' },
+    where: { email: 'customer@stampperk.app' },
     update: {},
     create: {
-      email: 'customer@stampz.app',
+      email: 'customer@stampperk.app',
       name: 'Loyal Customer',
       passwordHash,
       role: UserRole.CUSTOMER,
@@ -50,10 +50,10 @@ async function main() {
   });
 
   const staffUser = await prisma.user.upsert({
-    where: { email: 'staff@stampz.app' },
+    where: { email: 'staff@stampperk.app' },
     update: {},
     create: {
-      email: 'staff@stampz.app',
+      email: 'staff@stampperk.app',
       name: 'Counter Staff',
       passwordHash,
       role: UserRole.STAFF,
@@ -159,7 +159,7 @@ async function main() {
         body: 'Camera freezes on Android when scanning loyalty codes at the counter.',
         status: 'OPEN',
         priority: 'HIGH',
-        requesterEmail: 'merchant@stampz.app',
+        requesterEmail: 'merchant@stampperk.app',
         requesterName: 'Brew Owner',
       },
       {
@@ -167,7 +167,7 @@ async function main() {
         body: 'We want to move from FREE to YEARLY — does the allowance reset immediately?',
         status: 'IN_PROGRESS',
         priority: 'NORMAL',
-        requesterEmail: 'merchant@stampz.app',
+        requesterEmail: 'merchant@stampperk.app',
         requesterName: 'Brew Owner',
       },
       {
@@ -175,7 +175,7 @@ async function main() {
         body: 'Customer sees 3 stamps but staff issued 4 yesterday evening.',
         status: 'RESOLVED',
         priority: 'URGENT',
-        requesterEmail: 'customer@stampz.app',
+        requesterEmail: 'customer@stampperk.app',
         requesterName: 'Loyal Customer',
       },
     ],
@@ -186,14 +186,14 @@ async function main() {
     update: {},
     create: {
       id: 'default',
-      companyName: 'Stampz',
+      companyName: 'Stamp Perk',
       tagline: 'Digital Loyalty Cards for Growing Businesses',
       seoTitleTemplate: '{companyName} | {tagline}',
       metaDescription:
         'Create a digital punch card, earn repeat customers, and manage your loyalty program from mobile and desktop. One account. Everything stays in sync.',
-      metaKeywords: 'loyalty, stamp card, digital punch card, rewards, Stampz',
-      contactEmail: 'hello@stampz.app',
-      supportEmail: 'support@stampz.app',
+      metaKeywords: 'loyalty, stamp card, digital punch card, rewards, Stamp Perk',
+      contactEmail: 'hello@stampperk.app',
+      supportEmail: 'support@stampperk.app',
     },
   });
 
@@ -243,7 +243,7 @@ async function main() {
   }
 
   // eslint-disable-next-line no-console
-  console.log('Seeded Stampz demo data', {
+  console.log('Seeded Stamp Perk demo data', {
     admin: admin.email,
     merchant: merchantOwner.email,
     customer: customer.email,

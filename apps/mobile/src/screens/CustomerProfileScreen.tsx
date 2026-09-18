@@ -37,7 +37,7 @@ import { KeyboardAwareScroll } from '../components/KeyboardAwareScroll';
 import { ReferEarnScreen } from './ReferEarnScreen';
 import { SecurityScreen } from './SecurityScreen';
 
-const FAV_KEY = 'stampz_favorite_slugs';
+const FAV_KEY = 'stampperk_favorite_slugs';
 const WEB_BASE =
   process.env.EXPO_PUBLIC_WEB_URL ||
   (process.env.EXPO_PUBLIC_API_URL || 'http://localhost:4000').replace(':4000', ':3000');
@@ -589,7 +589,7 @@ export function CustomerProfileScreen({
 
         {/* Activity */}
         <Text style={ps.blockTitle}>Your activity</Text>
-        <Text style={ps.blockSub}>A lifetime view across your Stampz cards.</Text>
+        <Text style={ps.blockSub}>A lifetime view across your Stamp Perk cards.</Text>
         <View style={ps.statsGrid}>
           {[
             { label: 'Stamps', value: String(stats.stamps), icon: 'pricetag' as const },
@@ -744,19 +744,19 @@ export function CustomerProfileScreen({
           <MenuRow
             icon="help-circle"
             title="Help & Support"
-            subtitle="Get help with your Stampz account."
-            onPress={() => Linking.openURL('mailto:support@stampz.app')}
+            subtitle="Get help with your Stamp Perk account."
+            onPress={() => Linking.openURL('mailto:support@stampperk.app')}
           />
           <MenuRow
             icon="megaphone"
             title="Give Feedback"
             subtitle="Share your suggestions with us."
-            onPress={() => Linking.openURL('mailto:feedback@stampz.app?subject=Stampz%20Feedback')}
+            onPress={() => Linking.openURL('mailto:feedback@stampperk.app?subject=Stamp Perk%20Feedback')}
           />
           <MenuRow
             icon="star"
             title="Rate This App"
-            subtitle="Love Stampz? Rate us on the App Store."
+            subtitle="Love Stamp Perk? Rate us on the App Store."
             onPress={() =>
               Alert.alert('Thanks!', 'Store rating links will open once the app is published.')
             }

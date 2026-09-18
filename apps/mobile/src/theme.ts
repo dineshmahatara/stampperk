@@ -1,6 +1,6 @@
 import { StyleSheet } from 'react-native';
 
-/** Stampza brand tokens from product screenshots */
+/** Stamp Perk brand tokens from product screenshots */
 export const colors = {
   coral: '#FF5A5F',
   coralDark: '#E8484D',

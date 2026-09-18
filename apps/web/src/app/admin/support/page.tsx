@@ -93,7 +93,7 @@ export default function AdminSupportPage() {
           body,
           priority,
           requesterName: 'Admin',
-          requesterEmail: 'admin@stampz.app',
+          requesterEmail: 'admin@stampperk.app',
         }),
       });
       setSubject('');

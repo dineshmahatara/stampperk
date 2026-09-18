@@ -113,7 +113,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
       <body>
         <script
           dangerouslySetInnerHTML={{
-            __html: `(function(){try{var p=JSON.parse(localStorage.getItem('stampz_prefs_v2')||'{}');var l=(p.locale||localStorage.getItem('stampz_i18nextLng')||'en').toString().split('-')[0].toLowerCase();var rtl=['ar','he','fa','ur'].indexOf(l)>=0;document.documentElement.lang=l;document.documentElement.dir=rtl?'rtl':'ltr';document.documentElement.dataset.dir=rtl?'rtl':'ltr';}catch(e){}})();`,
+            __html: `(function(){try{var p=JSON.parse(localStorage.getItem('stampperk_prefs_v2')||'{}');var l=(p.locale||localStorage.getItem('stampperk_i18nextLng')||'en').toString().split('-')[0].toLowerCase();var rtl=['ar','he','fa','ur'].indexOf(l)>=0;document.documentElement.lang=l;document.documentElement.dir=rtl?'rtl':'ltr';document.documentElement.dataset.dir=rtl?'rtl':'ltr';}catch(e){}})();`,
           }}
         />
         <I18nProvider>

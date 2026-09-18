@@ -223,7 +223,7 @@ export function AdminDashboardScreen({
           <View style={[styles.row, { justifyContent: 'space-between', marginBottom: 8 }]}>
             <View>
               <Text style={styles.sectionLabel}>Admin Panel</Text>
-              <Text style={[styles.muted, { marginBottom: 0 }]}>Stampza · Super Admin</Text>
+              <Text style={[styles.muted, { marginBottom: 0 }]}>Stamp Perk · Super Admin</Text>
             </View>
             <View style={[styles.iconTile, { width: 44, height: 44, borderRadius: 22 }]}>
               <Text style={{ fontWeight: '900', color: colors.coral, fontSize: 18 }}>

@@ -13,7 +13,7 @@ import { Ionicons } from '@expo/vector-icons';
 import { captureRef } from 'react-native-view-shot';
 import * as FileSystem from 'expo-file-system/legacy';
 import * as Sharing from 'expo-sharing';
-import * as MediaLibrary from 'expo-media-library';
+import { Asset, requestPermissionsAsync } from 'expo-media-library';
 import { colors } from '../theme';
 import { useAppBranding } from '../branding';
 
@@ -32,13 +32,13 @@ export function CustomerMyQrCard({
   token?: string;
 }) {
   const { branding } = useAppBranding(token);
-  const companyName = branding.companyName || 'Stampz';
+  const companyName = branding.companyName || 'Stamp Perk';
   const cardRef = useRef<View>(null);
   const [busy, setBusy] = useState(false);
   const [msg, setMsg] = useState('');
 
   const memberId =
-    qr.qrToken || String(qr.qrPayload || '').replace(/^stampz:customer:/i, '');
+    qr.qrToken || String(qr.qrPayload || '').replace(/^(stampperk|stampz):customer:/i, '');
 
   async function captureCardPng(): Promise<string> {
     if (!cardRef.current) throw new Error('Card not ready');
@@ -111,7 +111,7 @@ export function CustomerMyQrCard({
           if (base64) {
             const a = document.createElement('a');
             a.href = `data:image/png;base64,${base64}`;
-            a.download = `stampz-member-${memberId}-qr.png`;
+            a.download = `stampperk-member-${memberId}-qr.png`;
             a.click();
           } else {
             window.open(path, '_blank');
@@ -120,12 +120,12 @@ export function CustomerMyQrCard({
         setMsg('QR card downloaded');
         return;
       }
-      const perm = await MediaLibrary.requestPermissionsAsync();
+      const perm = await requestPermissionsAsync();
       if (!perm.granted) {
         setMsg('Allow photo library access to download');
         return;
       }
-      await MediaLibrary.saveToLibraryAsync(path);
+      await Asset.create(path);
       setMsg('QR card saved to Photos / Gallery');
     } catch (e) {
       setMsg(e instanceof Error ? e.message : 'Download failed');

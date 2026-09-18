@@ -21,12 +21,12 @@
   "heroTitleAccent": "स्थायी वफादारी।",
   "heroBody": "डिजिटल पंच कार्ड बनाएं, दोबारा आने वाले ग्राहकों को पुरस्कृत करें, और मोबाइल व डेस्कटॉप से अपना लॉयल्टी प्रोग्राम चलाएं। एक अकाउंट। सब सिंक।",
   "startHere": "यहाँ शुरू करें",
-  "seeHow": "Stampz कैसे काम करता है देखें",
+  "seeHow": "Stamp Perk कैसे काम करता है देखें",
   "noCard": "क्रेडिट कार्ड नहीं",
   "mobileDesktop": "मोबाइल + डेस्कटॉप",
   "easySetup": "आसान सेटअप",
   "howLabel": "कैसे काम करता है",
-  "howTitle": "Stampz कैसे काम करता है देखें",
+  "howTitle": "Stamp Perk कैसे काम करता है देखें",
   "howBody": "देखें कि व्यापारी डिजिटल कार्ड कैसे बनाते हैं, ग्राहकों को आमंत्रित करते हैं, सुरक्षित स्टैम्प देते हैं और पुरस्कार रिडीम करते हैं।",
   "steps": [
     "कार्ड बनाएं",
@@ -115,7 +115,7 @@
     },
     {
       "q": "डिजिटल लॉयल्टी कार्ड कैसे बनाएं?",
-      "a": "कार्रवाई चुनें, स्टैम्प संख्या तय करें, पुरस्कार परिभाषित करें और Stampz पर प्रकाशित करें।"
+      "a": "कार्रवाई चुनें, स्टैम्प संख्या तय करें, पुरस्कार परिभाषित करें और Stamp Perk पर प्रकाशित करें।"
     },
     {
       "q": "क्या मुफ़्त प्लान है?",
@@ -141,11 +141,11 @@
     },
     {
       "country": "भारत",
-      "quote": "Stampz ने मिनटों में कागज़ी पंच कार्ड बदल दिए। ऑफ़लाइन QR बहुत तेज़ है।"
+      "quote": "Stamp Perk ने मिनटों में कागज़ी पंच कार्ड बदल दिए। ऑफ़लाइन QR बहुत तेज़ है।"
     },
     {
       "country": "इंडोनेशिया",
-      "quote": "नियमित ग्राहक Stampz पसंद करते हैं। डैशबोर्ड ट्रैक करना आसान बनाता है।"
+      "quote": "नियमित ग्राहक Stamp Perk पसंद करते हैं। डैशबोर्ड ट्रैक करना आसान बनाता है।"
     },
     {
       "country": "पाकिस्तान",
@@ -183,7 +183,7 @@
     "plans": {
       "free": {
         "label": "Free Plan",
-        "title": "Explore Stampz",
+        "title": "Explore Stamp Perk",
         "description": "Start without a bank card and experience the essentials.",
         "features": [
           "Create 1 loyalty card",
@@ -198,7 +198,7 @@
       "monthly": {
         "label": "Monthly Plan",
         "title": "Try Everything",
-        "description": "Unlock every Stampz feature for 3 days, then continue month to month.",
+        "description": "Unlock every Stamp Perk feature for 3 days, then continue month to month.",
         "features": [
           "Full premium access",
           "Unlimited cards, stamps and offers",
@@ -332,7 +332,7 @@
       "inviteBtn": "Send invite",
       "name": "Name",
       "email": "Email",
-      "invited": "Staff invited (default password Stampz123! if new)",
+      "invited": "Staff invited (default password StampPerk123! if new)",
       "deactivate": "Deactivate",
       "empty": "No staff members yet."
     },

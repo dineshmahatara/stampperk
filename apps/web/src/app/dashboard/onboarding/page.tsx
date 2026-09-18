@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { merchantEssentialsReady } from '@stampz/shared';
+import { merchantEssentialsReady } from '@stampperk/shared';
 import { api } from '@/lib/api';
 import { useAuth } from '@/lib/auth';
 import { LoyaltyCardWizard } from '@/components/LoyaltyCardWizard';

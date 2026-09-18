@@ -103,14 +103,14 @@ export function ReferEarnScreen({
               <Text style={s.heroTitle}>Your invite code</Text>
               <Text style={s.code}>{data.referralCode}</Text>
               <Text style={s.heroSub}>
-                Friends join Stampz with your link. After their first stamp, you both get +
+                Friends join Stamp Perk with your link. After their first stamp, you both get +
                 {data.platformBonus.referrer} bonus stamps (applied on your next visit).
               </Text>
               <View style={s.row}>
                 <PrimaryButton
                   label="Share invite"
                   onPress={() =>
-                    void shareLink(data.shareUrl, 'Join me on Stampz and earn loyalty stamps!')
+                    void shareLink(data.shareUrl, 'Join me on Stamp Perk and earn loyalty stamps!')
                   }
                 />
                 <Pressable style={s.shareBtn} onPress={() => void copyLink(data.shareUrl)}>
@@ -173,7 +173,7 @@ export function ReferEarnScreen({
                   <View style={{ flex: 1 }}>
                     <Text style={s.bizName}>{r.friendName}</Text>
                     <Text style={s.muted}>
-                      {r.scope === 'MERCHANT' ? r.merchantName || 'Business' : 'Stampz'} ·{' '}
+                      {r.scope === 'MERCHANT' ? r.merchantName || 'Business' : 'Stamp Perk'} ·{' '}
                       {r.status === 'REWARDED'
                         ? 'Rewarded'
                         : r.status === 'PENDING'

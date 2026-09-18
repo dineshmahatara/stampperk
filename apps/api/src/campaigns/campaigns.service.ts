@@ -1,5 +1,5 @@
 import { ForbiddenException, Injectable, NotFoundException } from '@nestjs/common';
-import { createCampaignSchema, REWARD_CAMPAIGN_TYPES, updateCampaignSchema } from '@stampz/shared';
+import { createCampaignSchema, REWARD_CAMPAIGN_TYPES, updateCampaignSchema } from '@stampperk/shared';
 import { CampaignStatus, OfferType } from '@prisma/client';
 import { PrismaService } from '../prisma/prisma.service';
 import { NotificationsService } from '../notifications/notifications.service';

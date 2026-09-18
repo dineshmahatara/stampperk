@@ -3,7 +3,7 @@
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import { usePathname, useRouter } from 'next/navigation';
 import { useTranslation } from 'react-i18next';
-import { PLAN_LIMITS } from '@stampz/shared';
+import { PLAN_LIMITS } from '@stampperk/shared';
 import { useAuth } from '@/lib/auth';
 import { api, getActiveMerchantId, setActiveMerchantId } from '@/lib/api';
 import { PanelShell } from '@/components/PanelShell';
@@ -238,7 +238,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
   }, [user, loading, pathname, router, inCustomerExperience, inMerchantExperience]);
 
   if (loading || !token) {
-    return <div className="p-8 text-[var(--stampz-muted)]">{t('panel.loading')}</div>;
+    return <div className="p-8 text-[var(--stampperk-muted)]">{t('panel.loading')}</div>;
   }
 
   if (inCustomerExperience) {
@@ -294,7 +294,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
       >
         <div className="mb-4 flex flex-wrap items-center justify-between gap-2 rounded-2xl border border-black/5 bg-white px-4 py-3 shadow-sm">
           <div className="text-sm font-semibold text-[#5C5651]">
-            Also shop as a customer at other Stampz businesses.
+            Also shop as a customer at other Stamp Perk businesses.
           </div>
           <button
             type="button"
@@ -302,7 +302,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
               setAppMode('customer');
               router.push('/dashboard');
             }}
-            className="rounded-full border border-[var(--stampz-coral)] px-4 py-2 text-xs font-bold text-[var(--stampz-coral)]"
+            className="rounded-full border border-[var(--stampperk-coral)] px-4 py-2 text-xs font-bold text-[var(--stampperk-coral)]"
           >
             Switch to Customer mode
           </button>

@@ -1,6 +1,6 @@
 'use client';
 
-/** Stampz Verified checkmark — not related to campaign badgeText. */
+/** Stamp Perk Verified checkmark — not related to campaign badgeText. */
 export function VerifiedBadge({
   size = 'md',
   className = '',
@@ -14,7 +14,7 @@ export function VerifiedBadge({
   return (
     <span
       className={`inline-flex items-center gap-1 ${className}`}
-      title="Stampz Verified business"
+      title="Stamp Perk Verified business"
     >
       <svg width={dim} height={dim} viewBox="0 0 24 24" aria-hidden className="shrink-0">
         <circle cx="12" cy="12" r="11" fill="#FF5A5F" />
@@ -30,7 +30,7 @@ export function VerifiedBadge({
       {showLabel && (
         <span className="text-xs font-bold text-[#FF5A5F]">Verified</span>
       )}
-      <span className="sr-only">Stampz Verified</span>
+      <span className="sr-only">Stamp Perk Verified</span>
     </span>
   );
 }

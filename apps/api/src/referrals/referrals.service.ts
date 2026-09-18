@@ -3,7 +3,7 @@ import {
   Injectable,
   NotFoundException,
 } from '@nestjs/common';
-import { PLATFORM_REFERRAL_BONUS } from '@stampz/shared';
+import { PLATFORM_REFERRAL_BONUS } from '@stampperk/shared';
 import { Prisma, ReferralScope, ReferralStatus } from '@prisma/client';
 import { PrismaService } from '../prisma/prisma.service';
 import { NotificationsService } from '../notifications/notifications.service';

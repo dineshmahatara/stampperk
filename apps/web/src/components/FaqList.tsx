@@ -19,14 +19,14 @@ export function FaqList() {
             key={`${item.q}-${i}`}
             type="button"
             onClick={() => setOpen(active ? -1 : i)}
-            className="w-full rounded-2xl border border-[var(--stampz-line)] bg-[var(--stampz-surface)] px-5 py-4 text-left text-base transition hover:border-[#e23d4a]/30"
+            className="w-full rounded-2xl border border-[var(--stampperk-line)] bg-[var(--stampperk-surface)] px-5 py-4 text-left text-base transition hover:border-[#e23d4a]/30"
           >
             <div className="flex items-start justify-between gap-4">
               <span className="text-lg font-semibold">{item.q}</span>
               <span className="text-xl text-[#e23d4a]">{active ? '−' : '+'}</span>
             </div>
             {active && (
-              <p className="mt-3 text-base leading-relaxed text-[var(--stampz-muted)]">{item.a}</p>
+              <p className="mt-3 text-base leading-relaxed text-[var(--stampperk-muted)]">{item.a}</p>
             )}
           </button>
         );

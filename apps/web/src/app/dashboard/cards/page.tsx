@@ -7,7 +7,7 @@ import { useAuth } from '@/lib/auth';
 import { MerchantPageHeader, MerchantSurface } from '@/components/MerchantPage';
 import { LoyaltyCardWizard } from '@/components/LoyaltyCardWizard';
 import { StampCardPreview, type ProfileContact } from '@/components/StampCardPreview';
-import { categoryLabelFromSlug, merchantEssentialsReady } from '@stampz/shared';
+import { categoryLabelFromSlug, merchantEssentialsReady } from '@stampperk/shared';
 
 type Program = {
   id: string;

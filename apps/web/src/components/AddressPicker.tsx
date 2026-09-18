@@ -23,12 +23,12 @@ import {
   showsLocalAdminFields,
   stateName,
   type NominatimHit,
-} from '@stampz/shared';
+} from '@stampperk/shared';
 
 const inputClass =
-  'w-full rounded-xl border border-[var(--stampz-line,#e5e5e5)] bg-white px-3 py-2.5 text-sm outline-none focus:ring-2 focus:ring-[var(--stampz-coral,#FF5A5F)]/30';
+  'w-full rounded-xl border border-[var(--stampperk-line,#e5e5e5)] bg-white px-3 py-2.5 text-sm outline-none focus:ring-2 focus:ring-[var(--stampperk-coral,#FF5A5F)]/30';
 const labelClass =
-  'mb-1 block text-xs font-bold uppercase tracking-wide text-[var(--stampz-muted,#8E8E93)]';
+  'mb-1 block text-xs font-bold uppercase tracking-wide text-[var(--stampperk-muted,#8E8E93)]';
 
 function Field({ label, children }: { label: string; children: React.ReactNode }) {
   return (
@@ -76,13 +76,13 @@ function SearchSelect({
             onClick={() => setOpen((v) => !v)}
             className={`${inputClass} text-left disabled:opacity-50`}
           >
-            {displayValue || <span className="text-[var(--stampz-muted)]">{placeholder}</span>}
+            {displayValue || <span className="text-[var(--stampperk-muted)]">{placeholder}</span>}
           </button>
           {!!value && onClear && (
             <button
               type="button"
               onClick={onClear}
-              className="rounded-xl border border-[var(--stampz-line)] px-3 text-xs font-bold text-[var(--stampz-muted)]"
+              className="rounded-xl border border-[var(--stampperk-line)] px-3 text-xs font-bold text-[var(--stampperk-muted)]"
             >
               Clear
             </button>
@@ -90,10 +90,10 @@ function SearchSelect({
         </div>
       </Field>
       {open && !disabled && (
-        <div className="absolute z-30 mt-1 max-h-56 w-full overflow-hidden rounded-xl border border-[var(--stampz-line)] bg-white shadow-lg">
+        <div className="absolute z-30 mt-1 max-h-56 w-full overflow-hidden rounded-xl border border-[var(--stampperk-line)] bg-white shadow-lg">
           <input
             autoFocus
-            className="w-full border-b border-[var(--stampz-line)] px-3 py-2 text-sm outline-none"
+            className="w-full border-b border-[var(--stampperk-line)] px-3 py-2 text-sm outline-none"
             placeholder="Search…"
             value={q}
             onChange={(e) => setQ(e.target.value)}
@@ -103,7 +103,7 @@ function SearchSelect({
               <button
                 key={`${opt.value}-${opt.label}`}
                 type="button"
-                className="block w-full px-3 py-2 text-left text-sm hover:bg-[var(--stampz-pink,#FFF0F1)]"
+                className="block w-full px-3 py-2 text-left text-sm hover:bg-[var(--stampperk-pink,#FFF0F1)]"
                 onClick={() => {
                   onPick(opt);
                   setOpen(false);
@@ -111,12 +111,12 @@ function SearchSelect({
               >
                 <span className="font-semibold">{opt.label}</span>
                 {opt.meta && opt.meta !== opt.value && (
-                  <span className="ml-2 text-xs text-[var(--stampz-muted)]">{opt.meta}</span>
+                  <span className="ml-2 text-xs text-[var(--stampperk-muted)]">{opt.meta}</span>
                 )}
               </button>
             ))}
             {!filtered.length && (
-              <div className="px-3 py-3 text-sm text-[var(--stampz-muted)]">No matches</div>
+              <div className="px-3 py-3 text-sm text-[var(--stampperk-muted)]">No matches</div>
             )}
           </div>
         </div>
@@ -228,7 +228,7 @@ export function AddressPicker({
 
   return (
     <div className="space-y-3">
-      <div className="rounded-2xl border border-[var(--stampz-coral)]/15 bg-[var(--stampz-pink,#FFF8F7)] p-3">
+      <div className="rounded-2xl border border-[var(--stampperk-coral)]/15 bg-[var(--stampperk-pink,#FFF8F7)] p-3">
         <Field label="Search address (worldwide)">
           <input
             className={inputClass}
@@ -238,15 +238,15 @@ export function AddressPicker({
           />
         </Field>
         {searching && (
-          <p className="mt-1 text-xs font-semibold text-[var(--stampz-muted)]">Searching…</p>
+          <p className="mt-1 text-xs font-semibold text-[var(--stampperk-muted)]">Searching…</p>
         )}
         {!!hits.length && (
-          <div className="mt-2 overflow-hidden rounded-xl border border-[var(--stampz-line)] bg-white">
+          <div className="mt-2 overflow-hidden rounded-xl border border-[var(--stampperk-line)] bg-white">
             {hits.map((h) => (
               <button
                 key={h.display_name}
                 type="button"
-                className="block w-full border-b border-[var(--stampz-line)] px-3 py-2 text-left text-sm last:border-b-0 hover:bg-[var(--stampz-pink)]"
+                className="block w-full border-b border-[var(--stampperk-line)] px-3 py-2 text-left text-sm last:border-b-0 hover:bg-[var(--stampperk-pink)]"
                 onClick={() => applyHit(h)}
               >
                 {h.display_name}
@@ -254,7 +254,7 @@ export function AddressPicker({
             ))}
           </div>
         )}
-        <p className="mt-2 text-[11px] text-[var(--stampz-muted)]">
+        <p className="mt-2 text-[11px] text-[var(--stampperk-muted)]">
           {nepal
             ? 'Nepal: Province → District → Local level → Ward. Search can autofill when possible.'
             : 'Pick a suggestion to autofill, or use the dependent dropdowns below.'}

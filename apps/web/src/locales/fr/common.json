@@ -21,12 +21,12 @@
   "heroTitleAccent": "fidélité durable.",
   "heroBody": "Créez une carte digitale, récompensez les clients fidèles et gérez votre programme sur mobile et bureau. Un compte. Tout synchronisé.",
   "startHere": "Commencer",
-  "seeHow": "Voir comment Stampz fonctionne",
+  "seeHow": "Voir comment Stamp Perk fonctionne",
   "noCard": "Sans carte bancaire",
   "mobileDesktop": "Mobile + Bureau",
   "easySetup": "Installation facile",
   "howLabel": "Comment ça marche",
-  "howTitle": "Découvrez Stampz",
+  "howTitle": "Découvrez Stamp Perk",
   "howBody": "Voyez comment les commerçants créent des cartes, invitent des clients, donnent des tampons et échangent des récompenses.",
   "steps": [
     "Créez votre carte",
@@ -115,7 +115,7 @@
     },
     {
       "q": "Comment créer une carte de fidélité ?",
-      "a": "Choisissez l’action, le nombre de tampons, la récompense, puis publiez sur Stampz."
+      "a": "Choisissez l’action, le nombre de tampons, la récompense, puis publiez sur Stamp Perk."
     },
     {
       "q": "Y a-t-il une offre gratuite ?",
@@ -141,7 +141,7 @@
     },
     {
       "country": "Inde",
-      "quote": "Stampz a remplacé nos cartes papier en minutes. Le QR hors ligne est ultra rapide."
+      "quote": "Stamp Perk a remplacé nos cartes papier en minutes. Le QR hors ligne est ultra rapide."
     },
     {
       "country": "Indonésie",
@@ -183,7 +183,7 @@
     "plans": {
       "free": {
         "label": "Free Plan",
-        "title": "Explore Stampz",
+        "title": "Explore Stamp Perk",
         "description": "Start without a bank card and experience the essentials.",
         "features": [
           "Create 1 loyalty card",
@@ -198,7 +198,7 @@
       "monthly": {
         "label": "Monthly Plan",
         "title": "Try Everything",
-        "description": "Unlock every Stampz feature for 3 days, then continue month to month.",
+        "description": "Unlock every Stamp Perk feature for 3 days, then continue month to month.",
         "features": [
           "Full premium access",
           "Unlimited cards, stamps and offers",
@@ -332,7 +332,7 @@
       "inviteBtn": "Send invite",
       "name": "Name",
       "email": "Email",
-      "invited": "Staff invited (default password Stampz123! if new)",
+      "invited": "Staff invited (default password StampPerk123! if new)",
       "deactivate": "Deactivate",
       "empty": "No staff members yet."
     },

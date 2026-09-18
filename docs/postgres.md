@@ -22,7 +22,7 @@ datasource db {
 3. Set env:
 
 ```
-DATABASE_URL=postgresql://stampz:stampz@localhost:5432/stampz?schema=public
+DATABASE_URL=postgresql://stampperk:stampperk@localhost:5432/stampperk?schema=public
 ```
 
 4. Optional: store staff permissions as a native enum array again:
@@ -37,7 +37,7 @@ permissions StaffPermission[]
 
 ```bash
 npm run db:generate
-npx prisma migrate dev --name postgres_init -w @stampz/api
+npx prisma migrate dev --name postgres_init -w @stampperk/api
 npm run db:seed
 ```
 

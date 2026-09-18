@@ -1,4 +1,4 @@
-﻿'use client';
+'use client';
 
 import { useMemo, useState } from 'react';
 import { api } from '@/lib/api';
@@ -56,7 +56,7 @@ export default function ExportPage() {
       const res = await api<{ csv: string; count: number }>(`/merchants/me/reports/${key}?${qs}`, {
         token,
       });
-      downloadCsv(`stampz-export-${key}-${from}-to-${to}.csv`, res.csv);
+      downloadCsv(`stampperk-export-${key}-${from}-to-${to}.csv`, res.csv);
       setMsg(`Exported ${res.count} row(s)`);
     } catch (e) {
       setError(e instanceof Error ? e.message : 'Export failed');

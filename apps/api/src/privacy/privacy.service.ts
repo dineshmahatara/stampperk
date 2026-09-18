@@ -41,7 +41,7 @@ export class PrivacyService {
         where: { id: userId },
         data: {
           deletedAt: new Date(),
-          email: `deleted-${userId}@stampz.invalid`,
+          email: `deleted-${userId}@stampperk.invalid`,
           name: 'Deleted User',
           phone: null,
           alternatePhone: null,

@@ -18,7 +18,7 @@ const pricingPageEn = {
   plans: {
     free: {
       label: 'Free Plan',
-      title: 'Explore Stampz',
+      title: 'Explore Stamp Perk',
       description: 'Start without a bank card and experience the essentials.',
       features: [
         'Create 1 loyalty card',
@@ -33,7 +33,7 @@ const pricingPageEn = {
     monthly: {
       label: 'Monthly Plan',
       title: 'Try Everything',
-      description: 'Unlock every Stampz feature for 3 days, then continue month to month.',
+      description: 'Unlock every Stamp Perk feature for 3 days, then continue month to month.',
       features: [
         'Full premium access',
         'Unlimited cards, stamps and offers',
@@ -87,7 +87,7 @@ const pricingPageNe = {
   plans: {
     free: {
       label: 'निःशुल्क योजना',
-      title: 'Stampz अन्वेषण गर्नुहोस्',
+      title: 'Stamp Perk अन्वेषण गर्नुहोस्',
       description: 'बैंक कार्डबिना सुरु गर्नुहोस् र आवश्यक सुविधा अनुभव गर्नुहोस्।',
       features: [
         '१ लोयल्टी कार्ड बनाउनुहोस्',
@@ -103,7 +103,7 @@ const pricingPageNe = {
       label: 'मासिक योजना',
       title: 'सबै कुरा प्रयास गर्नुहोस्',
       description:
-        '३ दिनका लागि सबै Stampz सुविधा अनलक गर्नुहोस्, त्यसपछि महिना–महिना जारी राख्नुहोस्।',
+        '३ दिनका लागि सबै Stamp Perk सुविधा अनलक गर्नुहोस्, त्यसपछि महिना–महिना जारी राख्नुहोस्।',
       features: [
         'पूर्ण प्रिमियम पहुँच',
         'असीमित कार्ड, स्ट्याम्प र अफर',

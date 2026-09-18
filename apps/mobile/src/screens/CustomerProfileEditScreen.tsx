@@ -15,8 +15,8 @@ import { colors, radii } from '../theme';
 import { PrimaryButton } from '../ui';
 import { AddressPicker } from '../components/AddressPicker';
 import { KeyboardAwareScroll } from '../components/KeyboardAwareScroll';
-import type { AddressFormValue } from '@stampz/shared';
-import { normalizeCountryCode } from '@stampz/shared';
+import type { AddressFormValue } from '@stampperk/shared';
+import { normalizeCountryCode } from '@stampperk/shared';
 import type { Session } from './LoginScreen';
 
 export type ProfileFields = {

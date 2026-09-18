@@ -28,7 +28,7 @@ type Preferences = {
 
 const PreferencesContext = createContext<Preferences | null>(null);
 
-const STORAGE_KEY = 'stampz_prefs_v2';
+const STORAGE_KEY = 'stampperk_prefs_v2';
 
 function applyDom(theme: ThemeMode, locale: string, fontScale: FontScale) {
   const root = document.documentElement;

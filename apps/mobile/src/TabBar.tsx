@@ -40,7 +40,7 @@ const TAB_META: Record<string, TabMeta> = {
   Billing: { label: 'Billing', icon: 'card-outline', iconFocused: 'card' },
 };
 
-export function StampzTabBar({ state, descriptors, navigation }: BottomTabBarProps) {
+export function StampPerkTabBar({ state, descriptors, navigation }: BottomTabBarProps) {
   const insets = useSafeAreaInsets();
 
   return (

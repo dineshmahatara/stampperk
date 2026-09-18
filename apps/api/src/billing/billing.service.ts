@@ -6,7 +6,7 @@ import {
   stripePriceIdForPlan,
   stripeVerifiedPriceId,
   type BillingRegion,
-} from '@stampz/shared';
+} from '@stampperk/shared';
 import { PrismaService } from '../prisma/prisma.service';
 import { NotificationsService } from '../notifications/notifications.service';
 import { PricingCatalogService } from '../pricing/pricing-catalog.service';
@@ -509,7 +509,7 @@ export class BillingService {
           merchantId,
           amount,
           currency: (session.currency || 'usd').toUpperCase(),
-          description: `Stampz Verified (${interval})`,
+          description: `Stamp Perk Verified (${interval})`,
           stripeInvoiceId: session.invoice ? String(session.invoice) : null,
         });
       } else {

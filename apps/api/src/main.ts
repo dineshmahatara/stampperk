@@ -48,7 +48,7 @@ async function bootstrap() {
   );
 
   const config = new DocumentBuilder()
-    .setTitle('Stampz API')
+    .setTitle('Stamp Perk API')
     .setDescription('Digital loyalty & rewards platform API')
     .setVersion('1.0')
     .addBearerAuth()
@@ -58,7 +58,7 @@ async function bootstrap() {
   const port = Number(process.env.PORT || 4000);
   await app.listen(port);
   // eslint-disable-next-line no-console
-  console.log(`Stampz API listening on http://localhost:${port}`);
+  console.log(`Stamp Perk API listening on http://localhost:${port}`);
 }
 
 bootstrap();

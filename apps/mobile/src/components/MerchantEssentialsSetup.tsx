@@ -8,7 +8,7 @@ import {
   StyleSheet,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { BUSINESS_INDUSTRIES, merchantEssentialsReady, contactFormatError, phoneNationalLength, sanitizeLocalPhoneInput } from '@stampz/shared';
+import { BUSINESS_INDUSTRIES, merchantEssentialsReady, contactFormatError, phoneNationalLength, sanitizeLocalPhoneInput } from '@stampperk/shared';
 import { api } from '../api';
 import { colors, styles as theme } from '../theme';
 import { PrimaryButton, ScreenHeader } from '../ui';

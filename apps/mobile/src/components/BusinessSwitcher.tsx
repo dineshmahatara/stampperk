@@ -11,7 +11,7 @@ import {
   View,
   StyleSheet,
 } from 'react-native';
-import { PLAN_LIMITS } from '@stampz/shared';
+import { PLAN_LIMITS } from '@stampperk/shared';
 import { api, getActiveMerchantId, setActiveMerchantId } from '../api';
 import { colors } from '../theme';
 import { PrimaryButton } from '../ui';

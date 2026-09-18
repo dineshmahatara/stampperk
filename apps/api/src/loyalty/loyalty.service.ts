@@ -11,7 +11,7 @@ import {
   redeemSchema,
   STAMP_TRANSFER_OFFER_HOURS,
   updateLoyaltyProgramSchema,
-} from '@stampz/shared';
+} from '@stampperk/shared';
 import { NotificationType, Prisma, StampTransferStatus } from '@prisma/client';
 import { PrismaService } from '../prisma/prisma.service';
 import { NotificationsService } from '../notifications/notifications.service';

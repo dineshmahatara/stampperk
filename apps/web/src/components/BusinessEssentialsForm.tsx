@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { BUSINESS_INDUSTRIES, merchantEssentialsReady, contactFormatError, phoneNationalLength, sanitizeLocalPhoneInput } from '@stampz/shared';
+import { BUSINESS_INDUSTRIES, merchantEssentialsReady, contactFormatError, phoneNationalLength, sanitizeLocalPhoneInput } from '@stampperk/shared';
 import { LogoPicker } from '@/components/LogoPicker';
 import { api } from '@/lib/api';
 import { useAuth } from '@/lib/auth';

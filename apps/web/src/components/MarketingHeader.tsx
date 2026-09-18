@@ -41,8 +41,8 @@ export function MarketingHeader({ active = '' }: { active?: string }) {
   const linkClass = (id: string) =>
     `text-sm font-semibold transition md:text-base ${
       active === id
-        ? 'text-[var(--stampz-coral)]'
-        : 'text-[var(--stampz-muted)] hover:text-[var(--stampz-ink)]'
+        ? 'text-[var(--stampperk-coral)]'
+        : 'text-[var(--stampperk-muted)] hover:text-[var(--stampperk-ink)]'
     }`;
 
   const onSectionClick = (e: React.MouseEvent, id: string) => {
@@ -68,8 +68,8 @@ export function MarketingHeader({ active = '' }: { active?: string }) {
     <header
       className={`sticky top-0 z-50 w-full transition-all duration-300 ${
         scrolled
-          ? 'border-b border-[var(--stampz-line)] bg-[var(--stampz-surface)]/95 shadow-[0_8px_30px_rgba(28,25,23,0.08)] backdrop-blur-xl'
-          : 'border-b border-transparent bg-[var(--stampz-cream)]/80 backdrop-blur-md'
+          ? 'border-b border-[var(--stampperk-line)] bg-[var(--stampperk-surface)]/95 shadow-[0_8px_30px_rgba(28,25,23,0.08)] backdrop-blur-xl'
+          : 'border-b border-transparent bg-[var(--stampperk-cream)]/80 backdrop-blur-md'
       }`}
     >
       <div className="mx-auto flex max-w-6xl items-center justify-between gap-3 px-5 py-3.5 md:px-6 md:py-4">
@@ -94,7 +94,7 @@ export function MarketingHeader({ active = '' }: { active?: string }) {
           <SiteControls />
           <Link
             href="/login"
-            className="hidden rounded-full border border-[var(--stampz-line)] bg-[var(--stampz-surface)] px-4 py-2.5 text-sm font-semibold text-[var(--stampz-ink)] sm:inline-flex"
+            className="hidden rounded-full border border-[var(--stampperk-line)] bg-[var(--stampperk-surface)] px-4 py-2.5 text-sm font-semibold text-[var(--stampperk-ink)] sm:inline-flex"
           >
             {t('login')}
           </Link>
@@ -103,7 +103,7 @@ export function MarketingHeader({ active = '' }: { active?: string }) {
           </Link>
           <button
             type="button"
-            className="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-[var(--stampz-line)] bg-[var(--stampz-surface)] text-lg lg:hidden"
+            className="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-[var(--stampperk-line)] bg-[var(--stampperk-surface)] text-lg lg:hidden"
             aria-label="Menu"
             aria-expanded={menuOpen}
             onClick={() => setMenuOpen((v) => !v)}
@@ -114,7 +114,7 @@ export function MarketingHeader({ active = '' }: { active?: string }) {
       </div>
 
       {menuOpen && (
-        <nav className="border-t border-[var(--stampz-line)] bg-[var(--stampz-surface)] px-5 py-4 lg:hidden">
+        <nav className="border-t border-[var(--stampperk-line)] bg-[var(--stampperk-surface)] px-5 py-4 lg:hidden">
           <div className="mx-auto flex max-w-6xl flex-col gap-3">
             {navItems.map((item) => (
               <Link

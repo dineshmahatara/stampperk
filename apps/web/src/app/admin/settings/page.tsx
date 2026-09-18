@@ -412,7 +412,7 @@ export default function AdminSettingsPage() {
                   )}
                 </div>
                 <div>
-                  <div className="text-lg font-extrabold">{form.companyName || 'Stampz'}</div>
+                  <div className="text-lg font-extrabold">{form.companyName || 'Stamp Perk'}</div>
                   <div className="text-xs text-[#8E8E93]">{form.tagline || '—'}</div>
                 </div>
               </div>

@@ -11,7 +11,7 @@ import {
 } from '@nestjs/common';
 import { FileInterceptor } from '@nestjs/platform-express';
 import { memoryStorage } from 'multer';
-import { mediaLibraryForCategory, mediaLibraryGroupLabel } from '@stampz/shared';
+import { mediaLibraryForCategory, mediaLibraryGroupLabel } from '@stampperk/shared';
 import { Public } from '../auth/public.decorator';
 import { MediaService } from './media.service';
 

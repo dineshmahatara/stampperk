@@ -1,9 +1,9 @@
 import { useCallback, useEffect, useState } from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { DEFAULT_PLATFORM_BRANDING } from '@stampz/shared';
+import { DEFAULT_PLATFORM_BRANDING } from '@stampperk/shared';
 import { api } from './api';
 
-const CACHE_KEY = 'stampz_platform_branding';
+const CACHE_KEY = 'stampperk_platform_branding';
 
 export type AppBranding = {
   companyName: string;

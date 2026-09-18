@@ -22,7 +22,7 @@ import { api } from './src/api';
 import { Locale, strings, applyLocaleDirection, reloadForRtlIfNeeded, LOCALE_OPTIONS, localeLabel, isRtlLocale } from './src/i18n';
 import { colors, styles } from './src/theme';
 import { Card, PrimaryButton, ScreenHeader, SettingRow, StatCard } from './src/ui';
-import { StampzTabBar } from './src/TabBar';
+import { StampPerkTabBar } from './src/TabBar';
 import { LoginScreen, Session } from './src/screens/LoginScreen';
 import { ScanScreen } from './src/screens/ScanScreen';
 import {
@@ -47,7 +47,7 @@ import { SecurityScreen } from './src/screens/SecurityScreen';
 import { VerifiedBadgeScreen } from './src/screens/VerifiedBadgeScreen';
 import { LogoImage } from './src/components/LogoImage';
 import { usePushRegistration } from './src/push';
-import { REWARD_CAMPAIGN_TYPES, categoryLabelFromSlug, merchantEssentialsReady } from '@stampz/shared';
+import { REWARD_CAMPAIGN_TYPES, categoryLabelFromSlug, merchantEssentialsReady } from '@stampperk/shared';
 import { setActiveMerchantId } from './src/api';
 import { AppMode, canUseBusinessMode, getAppMode, setAppMode } from './src/appMode';
 import {
@@ -633,7 +633,7 @@ function MyQrScreen({ session }: { session: Session }) {
           setQr(cached.data);
           setFromCache(true);
         } else if (!cancelled && session.user.qrToken) {
-          setQr({ qrPayload: `stampz:customer:${session.user.qrToken}` });
+          setQr({ qrPayload: `stampperk:customer:${session.user.qrToken}` });
           setFromCache(true);
         }
       }
@@ -1407,7 +1407,7 @@ function ProfileScreen({
           {showBilling && (
             <SettingRow
               icon="checkmark-circle-outline"
-              title="Stampz Verified"
+              title="Stamp Perk Verified"
               subtitle="Trust badge · Discover boost"
               onPress={() => setVerifiedOpen(true)}
             />
@@ -1528,7 +1528,7 @@ function RoleTabs({
 
   if (role === 'SUPER_ADMIN') {
     return (
-      <Tab.Navigator tabBar={(props) => <StampzTabBar {...props} />} screenOptions={screenOptions}>
+      <Tab.Navigator tabBar={(props) => <StampPerkTabBar {...props} />} screenOptions={screenOptions}>
         <Tab.Screen name="Dashboard" options={{ title: t.dashboard }}>
           {({ navigation }) => (
             <AdminDashboardScreen
@@ -1559,7 +1559,7 @@ function RoleTabs({
     return (
       <Tab.Navigator
         key={`customer-${appMode}`}
-        tabBar={(props) => <StampzTabBar {...props} />}
+        tabBar={(props) => <StampPerkTabBar {...props} />}
         screenOptions={screenOptions}
       >
         <Tab.Screen name="Home" options={{ title: 'Home' }}>
@@ -1601,7 +1601,7 @@ function RoleTabs({
   return (
     <Tab.Navigator
       key="business"
-      tabBar={(props) => <StampzTabBar {...props} />}
+      tabBar={(props) => <StampPerkTabBar {...props} />}
       screenOptions={screenOptions}
     >
       <Tab.Screen name="Dashboard" options={{ title: t.dashboard }}>
@@ -1663,8 +1663,8 @@ export default function App() {
 
   useEffect(() => {
     (async () => {
-      const raw = await AsyncStorage.getItem('stampz_session');
-      const loc = await AsyncStorage.getItem('stampz_locale');
+      const raw = await AsyncStorage.getItem('stampperk_session');
+      const loc = await AsyncStorage.getItem('stampperk_locale');
       if (raw) setSession(JSON.parse(raw));
       if (loc && loc in strings) {
         setLocale(loc as Locale);
@@ -1676,9 +1676,9 @@ export default function App() {
 
   async function persist(s: Session | null) {
     setSession(s);
-    if (s) await AsyncStorage.setItem('stampz_session', JSON.stringify(s));
+    if (s) await AsyncStorage.setItem('stampperk_session', JSON.stringify(s));
     else {
-      await AsyncStorage.removeItem('stampz_session');
+      await AsyncStorage.removeItem('stampperk_session');
       await setActiveMerchantId(null);
     }
   }
@@ -1689,7 +1689,7 @@ export default function App() {
 
   async function changeLocale(l: Locale) {
     setLocale(l);
-    await AsyncStorage.setItem('stampz_locale', l);
+    await AsyncStorage.setItem('stampperk_locale', l);
     const needsReload = applyLocaleDirection(l);
     if (session) {
       try {

@@ -10,7 +10,7 @@ import { useBranding } from '@/components/BrandingProvider';
 export default function PricingPage() {
   const { t } = useTranslation('common');
   const branding = useBranding();
-  const companyName = branding.companyName || 'Stampz';
+  const companyName = branding.companyName || 'Stamp Perk';
 
   return (
     <main className="landing-shell min-h-screen">
@@ -18,7 +18,7 @@ export default function PricingPage() {
       <div className="pb-8 pt-4 md:pt-8">
         <PricingTable />
       </div>
-      <footer className="border-t border-[var(--stampz-line)] bg-[var(--stampz-surface)]/70 px-5 py-10 text-base text-[var(--stampz-muted)] md:px-6">
+      <footer className="border-t border-[var(--stampperk-line)] bg-[var(--stampperk-surface)]/70 px-5 py-10 text-base text-[var(--stampperk-muted)] md:px-6">
         <div className="mx-auto flex max-w-6xl flex-col gap-4 md:flex-row md:items-center md:justify-between">
           <BrandMark href="/" />
           <div className="flex flex-wrap gap-x-6 gap-y-2">

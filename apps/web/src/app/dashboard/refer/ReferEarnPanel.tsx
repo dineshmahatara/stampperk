@@ -69,7 +69,7 @@ export function ReferEarnPanel() {
         <h2 className="text-lg font-extrabold tracking-tight">Refer &amp; Earn</h2>
         <p className="mt-1 text-sm text-[#8E8E93]">
           Share your code. When a friend joins and gets their first stamp, you both earn bonus stamps
-          (+{data.platformBonus.referrer} each on Stampz). Merchant programs may add extra rewards.
+          (+{data.platformBonus.referrer} each on Stamp Perk). Merchant programs may add extra rewards.
         </p>
         <div className="mt-4 flex flex-wrap items-center gap-3">
           <div className="rounded-xl bg-white px-4 py-3 font-mono text-xl font-extrabold tracking-widest text-[#1C1C1E] shadow-sm">
@@ -151,7 +151,7 @@ export function ReferEarnPanel() {
               <div>
                 <div className="font-bold">{r.friendName}</div>
                 <div className="text-xs text-[#8E8E93]">
-                  {r.scope === 'MERCHANT' ? r.merchantName || 'Business' : 'Stampz'} ·{' '}
+                  {r.scope === 'MERCHANT' ? r.merchantName || 'Business' : 'Stamp Perk'} ·{' '}
                   {r.status === 'REWARDED'
                     ? 'Rewarded'
                     : r.status === 'PENDING'

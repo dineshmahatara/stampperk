@@ -104,7 +104,7 @@ export default function AdminReportsPage() {
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
     a.href = url;
-    a.download = `stampza-report-${new Date().toISOString().slice(0, 10)}.json`;
+    a.download = `stampperka-report-${new Date().toISOString().slice(0, 10)}.json`;
     a.click();
     URL.revokeObjectURL(url);
   }
@@ -126,7 +126,7 @@ export default function AdminReportsPage() {
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
     a.href = url;
-    a.download = `stampza-summary-${new Date().toISOString().slice(0, 10)}.csv`;
+    a.download = `stampperka-summary-${new Date().toISOString().slice(0, 10)}.csv`;
     a.click();
     URL.revokeObjectURL(url);
   }

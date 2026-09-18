@@ -6,7 +6,7 @@ import {
   billingRegionFromCountry,
   type BillingRegion,
   type BillingRegionCode,
-} from '@stampz/shared';
+} from '@stampperk/shared';
 import { PrismaService } from '../prisma/prisma.service';
 import {
   DEFAULT_PLAN_COPY,

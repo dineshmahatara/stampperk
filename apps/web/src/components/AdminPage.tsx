@@ -162,7 +162,7 @@ export function AdminComingSoon({
         </div>
         <h2 className="text-lg font-extrabold">Coming soon</h2>
         <p className="mx-auto mt-2 max-w-md text-sm text-[#8E8E93]">
-          This section is wired into the Stampza Admin Panel navigation.
+          This section is wired into the Stamp Perk Admin Panel navigation.
         </p>
         <Link
           href="/admin"

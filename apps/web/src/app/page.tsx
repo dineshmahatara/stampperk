@@ -127,7 +127,7 @@ function HeroVisual({ company }: { company: string }) {
 export default function HomePage() {
   const { t, i18n } = useTranslation('common');
   const branding = useBranding();
-  const companyName = branding.companyName || 'Stampz';
+  const companyName = branding.companyName || 'Stamp Perk';
   const steps = t('steps', { returnObjects: true }) as string[];
   const features = t('features', { returnObjects: true }) as Feature[];
   const reviews = t('reviews', { returnObjects: true }) as Review[];
@@ -158,22 +158,22 @@ export default function HomePage() {
         <div className="relative mx-auto grid max-w-6xl items-center gap-10 px-5 pb-16 pt-6 md:grid-cols-2 md:gap-14 md:px-6 md:pb-24 md:pt-10">
           <div className="fade-up">
             <p
-              className="mb-4 text-4xl font-extrabold tracking-tight text-[var(--stampz-ink)] sm:text-5xl md:text-[3.25rem]"
+              className="mb-4 text-4xl font-extrabold tracking-tight text-[var(--stampperk-ink)] sm:text-5xl md:text-[3.25rem]"
               style={{ fontFamily: 'var(--font-fraunces), Georgia, serif' }}
             >
               {companyName}
             </p>
-            <h1 className="mb-5 max-w-xl text-3xl font-extrabold leading-[1.12] tracking-tight text-[var(--stampz-ink)] md:text-4xl lg:text-[2.65rem]">
+            <h1 className="mb-5 max-w-xl text-3xl font-extrabold leading-[1.12] tracking-tight text-[var(--stampperk-ink)] md:text-4xl lg:text-[2.65rem]">
               {heroBefore ? (
                 <>
                   {heroBefore}{' '}
-                  <span className="hero-underline text-[var(--stampz-coral)]">{t('heroTitleAccent')}</span>
+                  <span className="hero-underline text-[var(--stampperk-coral)]">{t('heroTitleAccent')}</span>
                 </>
               ) : (
-                <span className="hero-underline text-[var(--stampz-coral)]">{t('heroTitleAccent')}</span>
+                <span className="hero-underline text-[var(--stampperk-coral)]">{t('heroTitleAccent')}</span>
               )}
             </h1>
-            <p className="mb-8 max-w-lg text-lg leading-relaxed text-[var(--stampz-muted)]">{t('heroBody')}</p>
+            <p className="mb-8 max-w-lg text-lg leading-relaxed text-[var(--stampperk-muted)]">{t('heroBody')}</p>
             <div className="flex flex-wrap gap-3">
               <Link href="/register" className="btn-primary">
                 {t('startHere')} →
@@ -189,11 +189,11 @@ export default function HomePage() {
                 {t('seeHow')}
               </a>
             </div>
-            <p className="mt-6 text-sm font-semibold text-[var(--stampz-muted)]">
-              <span className="text-[var(--stampz-coral)]">✓</span> {t('noCard')}
-              <span className="mx-2 text-[var(--stampz-line)]">·</span>
+            <p className="mt-6 text-sm font-semibold text-[var(--stampperk-muted)]">
+              <span className="text-[var(--stampperk-coral)]">✓</span> {t('noCard')}
+              <span className="mx-2 text-[var(--stampperk-line)]">·</span>
               {t('mobileDesktop')}
-              <span className="mx-2 text-[var(--stampz-line)]">·</span>
+              <span className="mx-2 text-[var(--stampperk-line)]">·</span>
               {t('easySetup')}
             </p>
           </div>
@@ -204,15 +204,15 @@ export default function HomePage() {
       {/* Audience — one job each */}
       <section className="mx-auto max-w-6xl px-5 py-8 md:px-6 md:py-12">
         <div className="grid gap-4 md:grid-cols-2">
-          <div className="reveal-on-scroll rounded-[1.75rem] border border-[var(--stampz-line)] bg-[var(--stampz-surface)]/90 p-7 md:p-8">
-            <p className="text-xs font-bold uppercase tracking-widest text-[var(--stampz-coral)]">Merchants</p>
+          <div className="reveal-on-scroll rounded-[1.75rem] border border-[var(--stampperk-line)] bg-[var(--stampperk-surface)]/90 p-7 md:p-8">
+            <p className="text-xs font-bold uppercase tracking-widest text-[var(--stampperk-coral)]">Merchants</p>
             <h2
               className="mt-2 text-2xl font-extrabold tracking-tight md:text-3xl"
               style={{ fontFamily: 'var(--font-fraunces), Georgia, serif' }}
             >
               {t('audienceMerchantsTitle')}
             </h2>
-            <p className="mt-3 text-[var(--stampz-muted)]">{t('audienceMerchantsBody')}</p>
+            <p className="mt-3 text-[var(--stampperk-muted)]">{t('audienceMerchantsBody')}</p>
             <Link href="/register" className="btn-primary mt-6 !text-sm">
               {t('audienceMerchantsCta')} →
             </Link>
@@ -239,19 +239,19 @@ export default function HomePage() {
       {/* How */}
       <section id="how" className="mx-auto max-w-6xl px-5 py-14 md:px-6 md:py-20">
         <div className="mb-10 max-w-2xl">
-          <p className="mb-2 text-sm font-bold uppercase tracking-widest text-[var(--stampz-coral)]">{t('howLabel')}</p>
+          <p className="mb-2 text-sm font-bold uppercase tracking-widest text-[var(--stampperk-coral)]">{t('howLabel')}</p>
           <h2
             className="text-3xl font-extrabold tracking-tight md:text-5xl"
             style={{ fontFamily: 'var(--font-fraunces), Georgia, serif' }}
           >
             {t('howTitle')}
           </h2>
-          <p className="mt-3 text-lg text-[var(--stampz-muted)]">{t('howBody')}</p>
+          <p className="mt-3 text-lg text-[var(--stampperk-muted)]">{t('howBody')}</p>
         </div>
-        <ol className="grid gap-px overflow-hidden rounded-[1.75rem] border border-[var(--stampz-line)] bg-[var(--stampz-line)] sm:grid-cols-2 lg:grid-cols-4">
+        <ol className="grid gap-px overflow-hidden rounded-[1.75rem] border border-[var(--stampperk-line)] bg-[var(--stampperk-line)] sm:grid-cols-2 lg:grid-cols-4">
           {(Array.isArray(steps) ? steps : []).map((step, i) => (
-            <li key={step} className="bg-[var(--stampz-surface)] p-5 md:p-6">
-              <div className="mb-3 text-sm font-black text-[var(--stampz-coral)]">0{i + 1}</div>
+            <li key={step} className="bg-[var(--stampperk-surface)] p-5 md:p-6">
+              <div className="mb-3 text-sm font-black text-[var(--stampperk-coral)]">0{i + 1}</div>
               <div className="text-lg font-bold leading-snug">{step}</div>
             </li>
           ))}
@@ -261,7 +261,7 @@ export default function HomePage() {
       {/* Product */}
       <section id="product" className="mx-auto max-w-6xl px-5 py-10 md:px-6 md:py-16">
         <div className="mb-10 max-w-2xl">
-          <p className="mb-2 text-sm font-bold uppercase tracking-widest text-[var(--stampz-coral)]">
+          <p className="mb-2 text-sm font-bold uppercase tracking-widest text-[var(--stampperk-coral)]">
             {t('resourcesLabel')}
           </p>
           <h2
@@ -270,16 +270,16 @@ export default function HomePage() {
           >
             {t('resourcesTitle')}
           </h2>
-          <p className="mt-3 text-lg text-[var(--stampz-muted)]">{t('resourcesBody')}</p>
+          <p className="mt-3 text-lg text-[var(--stampperk-muted)]">{t('resourcesBody')}</p>
         </div>
         <div className="grid gap-x-10 gap-y-10 sm:grid-cols-2 lg:grid-cols-3">
           {(Array.isArray(features) ? features : []).map((f, i) => (
-            <div key={f.title} className="reveal-on-scroll border-t border-[var(--stampz-line)] pt-5">
-              <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-xl bg-[var(--stampz-pink)] text-[var(--stampz-coral)]">
+            <div key={f.title} className="reveal-on-scroll border-t border-[var(--stampperk-line)] pt-5">
+              <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-xl bg-[var(--stampperk-pink)] text-[var(--stampperk-coral)]">
                 <FeatureIcon index={i} />
               </div>
               <h3 className="mb-2 text-lg font-bold">{f.title}</h3>
-              <p className="text-sm leading-relaxed text-[var(--stampz-muted)]">{f.body}</p>
+              <p className="text-sm leading-relaxed text-[var(--stampperk-muted)]">{f.body}</p>
             </div>
           ))}
         </div>
@@ -338,12 +338,12 @@ export default function HomePage() {
             ].map((r, i) => (
               <article
                 key={`${r.country}-${i}`}
-                className="w-[300px] shrink-0 border-l-2 border-[var(--stampz-coral)] bg-[var(--stampz-surface)]/80 px-5 py-4"
+                className="w-[300px] shrink-0 border-l-2 border-[var(--stampperk-coral)] bg-[var(--stampperk-surface)]/80 px-5 py-4"
               >
-                <div className="mb-2 text-xs font-bold uppercase tracking-wider text-[var(--stampz-coral)]">
+                <div className="mb-2 text-xs font-bold uppercase tracking-wider text-[var(--stampperk-coral)]">
                   {r.country}
                 </div>
-                <p className="text-sm leading-relaxed text-[var(--stampz-ink)]">“{r.quote}”</p>
+                <p className="text-sm leading-relaxed text-[var(--stampperk-ink)]">“{r.quote}”</p>
               </article>
             ))}
           </div>
@@ -352,7 +352,7 @@ export default function HomePage() {
 
       <section id="faq" className="mx-auto max-w-3xl px-5 py-16 md:px-6 md:py-20">
         <div className="mb-8 text-center">
-          <p className="mb-2 text-sm font-bold uppercase tracking-widest text-[var(--stampz-coral)]">{t('faqLabel')}</p>
+          <p className="mb-2 text-sm font-bold uppercase tracking-widest text-[var(--stampperk-coral)]">{t('faqLabel')}</p>
           <h2
             className="text-3xl font-extrabold tracking-tight md:text-4xl"
             style={{ fontFamily: 'var(--font-fraunces), Georgia, serif' }}
@@ -377,7 +377,7 @@ export default function HomePage() {
             <Link
               href="/register"
               className="inline-flex items-center gap-2 rounded-full bg-white px-7 py-3.5 text-base font-bold shadow-lg transition hover:-translate-y-0.5"
-              style={{ color: 'var(--stampz-coral-dark)' }}
+              style={{ color: 'var(--stampperk-coral-dark)' }}
             >
               {t('startCreating')} →
             </Link>
@@ -391,7 +391,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <footer className="border-t border-[var(--stampz-line)] bg-[var(--stampz-surface)]/80 px-5 py-10 text-sm text-[var(--stampz-muted)] md:px-6">
+      <footer className="border-t border-[var(--stampperk-line)] bg-[var(--stampperk-surface)]/80 px-5 py-10 text-sm text-[var(--stampperk-muted)] md:px-6">
         <div className="mx-auto flex max-w-6xl flex-col gap-6 md:flex-row md:items-start md:justify-between">
           <div>
             <BrandMark href="/" />

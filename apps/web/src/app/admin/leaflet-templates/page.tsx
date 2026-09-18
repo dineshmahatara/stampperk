@@ -1,7 +1,7 @@
 'use client';
 
 import { FormEvent, useEffect, useState } from 'react';
-import { LEAFLET_LAYOUTS } from '@stampz/shared';
+import { LEAFLET_LAYOUTS } from '@stampperk/shared';
 import { api } from '@/lib/api';
 import { useAuth } from '@/lib/auth';
 import { AdminEmpty, AdminError, AdminPageHeader, AdminSurface } from '@/components/AdminPage';
@@ -243,7 +243,7 @@ export default function AdminLeafletTemplatesPage() {
                 businessName="Sample Cafe"
                 headline="Welcome offer"
                 offerText="Buy 5 get 1 free"
-                qrTarget="https://stampz.app"
+                qrTarget="https://stampperk.app"
                 compact
               />
             </div>

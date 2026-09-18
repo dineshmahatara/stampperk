@@ -11,7 +11,7 @@ import {
   updateMerchantLeafletSchema,
   LEAFLET_LAYOUT_IDS,
   UserRole,
-} from '@stampz/shared';
+} from '@stampperk/shared';
 import { randomBytes } from 'crypto';
 import { PrismaService } from '../prisma/prisma.service';
 

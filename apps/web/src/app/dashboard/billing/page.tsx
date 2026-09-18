@@ -4,7 +4,7 @@ import { FormEvent, useCallback, useEffect, useMemo, useState } from 'react';
 import { api, uploadMedia } from '@/lib/api';
 import { useAuth } from '@/lib/auth';
 import { VerifiedBadge } from '@/components/VerifiedBadge';
-import { PLAN_DISPLAY_NAMES, VERIFIED_ADDON_PRICES } from '@stampz/shared';
+import { PLAN_DISPLAY_NAMES, VERIFIED_ADDON_PRICES } from '@stampperk/shared';
 
 type VerificationState = {
   verificationStatus: string;
@@ -194,7 +194,7 @@ export default function BillingPage() {
       token,
       body: JSON.stringify({
         originalTransactionId: `demo-apple-${Date.now()}`,
-        productId: 'stampz_yearly',
+        productId: 'stampperk_yearly',
       }),
     });
     setMsg('Apple IAP verified (demo)');
@@ -242,7 +242,7 @@ export default function BillingPage() {
       <div className="mb-8 rounded-2xl border-2 border-[#FF5A5F]/25 bg-[#FFF5F5] p-5">
         <div className="mb-2 flex items-center gap-2">
           <VerifiedBadge size="lg" />
-          <h2 className="text-xl font-extrabold">Stampz Verified</h2>
+          <h2 className="text-xl font-extrabold">Stamp Perk Verified</h2>
         </div>
         <p className="mb-4 text-sm text-[#6B7280]">
           Stand out on Discover, earn customer trust with a Verified checkmark, and get ranking boost —

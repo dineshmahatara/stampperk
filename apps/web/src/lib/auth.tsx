@@ -52,8 +52,8 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const [appMode, setAppModeState] = useState<AppMode>('customer');
 
   useEffect(() => {
-    const t = localStorage.getItem('stampz_token');
-    const u = localStorage.getItem('stampz_user');
+    const t = localStorage.getItem('stampperk_token');
+    const u = localStorage.getItem('stampperk_user');
     if (t) setToken(t);
     if (u) {
       const parsed = JSON.parse(u) as AuthUser;
@@ -73,7 +73,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
             emailVerified: me.emailVerified,
             photoUrl: me.photoUrl,
           };
-          localStorage.setItem('stampz_user', JSON.stringify(next));
+          localStorage.setItem('stampperk_user', JSON.stringify(next));
           setUser(next);
         })
         .catch(() => undefined);
@@ -120,8 +120,8 @@ export function AuthProvider({ children }: { children: ReactNode }) {
             captchaAnswer: extras?.captchaAnswer,
           }),
         });
-        localStorage.setItem('stampz_token', res.accessToken);
-        localStorage.setItem('stampz_user', JSON.stringify(res.user));
+        localStorage.setItem('stampperk_token', res.accessToken);
+        localStorage.setItem('stampperk_user', JSON.stringify(res.user));
         setToken(res.accessToken);
         setUser(res.user);
         setAppModeState(getStoredAppMode(res.user.role));
@@ -142,8 +142,8 @@ export function AuthProvider({ children }: { children: ReactNode }) {
             deviceType: payload.deviceType || 'web',
           }),
         });
-        localStorage.setItem('stampz_token', res.accessToken);
-        localStorage.setItem('stampz_user', JSON.stringify(res.user));
+        localStorage.setItem('stampperk_token', res.accessToken);
+        localStorage.setItem('stampperk_user', JSON.stringify(res.user));
         setToken(res.accessToken);
         setUser(res.user);
         setAppModeState(getStoredAppMode(res.user.role));
@@ -160,8 +160,8 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         };
       },
       logout() {
-        localStorage.removeItem('stampz_token');
-        localStorage.removeItem('stampz_user');
+        localStorage.removeItem('stampperk_token');
+        localStorage.removeItem('stampperk_user');
         setToken(null);
         setUser(null);
         setAppModeState('customer');

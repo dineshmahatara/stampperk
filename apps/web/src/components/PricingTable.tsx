@@ -53,7 +53,7 @@ type PlansApi = {
 
 function CheckIcon() {
   return (
-    <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[var(--stampz-pink)] text-[11px] font-bold text-[var(--stampz-coral)]">
+    <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[var(--stampperk-pink)] text-[11px] font-bold text-[var(--stampperk-coral)]">
       ✓
     </span>
   );
@@ -63,9 +63,9 @@ function PlanArt({ id, badge }: { id: PlanId; badge: string }) {
   if (id === 'free') {
     return (
       <div className="relative mx-auto mb-5 flex h-28 w-full max-w-[200px] items-center justify-center">
-        <div className="absolute h-20 w-28 -rotate-6 rounded-2xl bg-gradient-to-br from-[#ff8a95] to-[var(--stampz-coral)] shadow-lg" />
-        <div className="absolute h-16 w-16 translate-x-8 translate-y-2 rounded-full bg-[var(--stampz-surface)] shadow-md ring-4 ring-[var(--stampz-coral)]/20" />
-        <div className="relative z-10 rounded-xl bg-[var(--stampz-surface)] px-3 py-2 text-xs font-bold text-[var(--stampz-coral)] shadow">
+        <div className="absolute h-20 w-28 -rotate-6 rounded-2xl bg-gradient-to-br from-[#ff8a95] to-[var(--stampperk-coral)] shadow-lg" />
+        <div className="absolute h-16 w-16 translate-x-8 translate-y-2 rounded-full bg-[var(--stampperk-surface)] shadow-md ring-4 ring-[var(--stampperk-coral)]/20" />
+        <div className="relative z-10 rounded-xl bg-[var(--stampperk-surface)] px-3 py-2 text-xs font-bold text-[var(--stampperk-coral)] shadow">
           {badge}
         </div>
       </div>
@@ -75,7 +75,7 @@ function PlanArt({ id, badge }: { id: PlanId; badge: string }) {
     return (
       <div className="relative mx-auto mb-5 flex h-28 w-full max-w-[200px] items-center justify-center">
         <div className="absolute h-20 w-24 rounded-2xl bg-gradient-to-br from-[#ffe4e8] to-[#ffb3bc] shadow-inner" />
-        <div className="relative z-10 rounded-2xl bg-[var(--stampz-coral)] px-3 py-2 text-center text-xs font-extrabold leading-tight text-white shadow-lg">
+        <div className="relative z-10 rounded-2xl bg-[var(--stampperk-coral)] px-3 py-2 text-center text-xs font-extrabold leading-tight text-white shadow-lg">
           {badge}
         </div>
       </div>
@@ -84,7 +84,7 @@ function PlanArt({ id, badge }: { id: PlanId; badge: string }) {
   return (
     <div className="relative mx-auto mb-5 flex h-28 w-full max-w-[200px] items-center justify-center">
       <div className="absolute h-20 w-24 rounded-2xl bg-gradient-to-br from-[#fff1f2] to-[#ffd0d6] shadow" />
-      <div className="relative z-10 flex h-14 w-14 items-center justify-center rounded-full bg-[var(--stampz-coral)] text-sm font-black text-white shadow-lg">
+      <div className="relative z-10 flex h-14 w-14 items-center justify-center rounded-full bg-[var(--stampperk-coral)] text-sm font-black text-white shadow-lg">
         {badge.slice(0, 3)}
       </div>
     </div>
@@ -103,7 +103,7 @@ function priceBlock(
         <div className="text-3xl font-extrabold tracking-tight md:text-4xl">
           {formatMoney(region.freePrice, region)}
         </div>
-        <p className="mt-1 text-sm text-[var(--stampz-muted)]">
+        <p className="mt-1 text-sm text-[var(--stampperk-muted)]">
           {cms?.priceNote || t('pricingPage.plans.free.priceNote')}
         </p>
       </>
@@ -124,7 +124,7 @@ function priceBlock(
             price: formatMoney(region.monthlyPrice, region),
           })}
         </p>
-        <p className="mt-1 text-sm text-[var(--stampz-muted)]">
+        <p className="mt-1 text-sm text-[var(--stampperk-muted)]">
           {cms?.priceNote || t('pricingPage.plans.monthly.priceNote')}
         </p>
       </>
@@ -137,21 +137,21 @@ function priceBlock(
     <>
       <div className="text-3xl font-extrabold tracking-tight md:text-4xl">
         {formatMoney(region.yearlyPrice, region)}
-        <span className="text-base font-semibold text-[var(--stampz-muted)]">
+        <span className="text-base font-semibold text-[var(--stampperk-muted)]">
           {' '}
           {t('pricingPage.perYear')}
         </span>
       </div>
-      <p className="mt-1 text-sm font-semibold text-[var(--stampz-coral)]">
+      <p className="mt-1 text-sm font-semibold text-[var(--stampperk-coral)]">
         {t('pricingPage.plans.yearly.perMonth', {
           price: formatMoney(Number(perMonth.toFixed(2)), region),
         })}
       </p>
       <div className="mt-2 flex flex-wrap items-center gap-2">
-        <span className="text-sm text-[var(--stampz-muted)] line-through">
+        <span className="text-sm text-[var(--stampperk-muted)] line-through">
           {formatMoney(region.yearlyWasPrice, region)} {t('pricingPage.perYear')}
         </span>
-        <span className="rounded-full bg-[var(--stampz-pink)] px-2 py-0.5 text-xs font-bold text-[var(--stampz-coral)]">
+        <span className="rounded-full bg-[var(--stampperk-pink)] px-2 py-0.5 text-xs font-bold text-[var(--stampperk-coral)]">
           {t('pricingPage.bestValueBadge')} · {save}%
         </span>
       </div>
@@ -236,7 +236,7 @@ export function PricingTable({ compact = false, className = '' }: PricingTablePr
     <section className={className} id="pricing">
       <div className={`mx-auto max-w-6xl ${compact ? '' : 'px-5 md:px-6'}`}>
         <div className="mx-auto mb-8 max-w-3xl text-center md:mb-10">
-          <div className="mb-4 inline-flex rounded-full border border-[var(--stampz-coral)]/25 bg-[var(--stampz-pink)] px-4 py-1.5 text-xs font-bold uppercase tracking-[0.14em] text-[var(--stampz-coral)]">
+          <div className="mb-4 inline-flex rounded-full border border-[var(--stampperk-coral)]/25 bg-[var(--stampperk-pink)] px-4 py-1.5 text-xs font-bold uppercase tracking-[0.14em] text-[var(--stampperk-coral)]">
             {t('pricingPage.badge')}
           </div>
           <h1
@@ -244,13 +244,13 @@ export function PricingTable({ compact = false, className = '' }: PricingTablePr
             style={{ fontFamily: 'var(--font-fraunces), Georgia, serif' }}
           >
             {t('pricingPage.titleBefore')}{' '}
-            <span className="text-[var(--stampz-coral)]">{t('pricingPage.titleAccent')}</span>{' '}
+            <span className="text-[var(--stampperk-coral)]">{t('pricingPage.titleAccent')}</span>{' '}
             {t('pricingPage.titleAfter')}
           </h1>
-          <p className="mx-auto mt-4 max-w-2xl text-base text-[var(--stampz-muted)] md:text-lg">
+          <p className="mx-auto mt-4 max-w-2xl text-base text-[var(--stampperk-muted)] md:text-lg">
             {t('pricingPage.subtitle')}
           </p>
-          <p className="mt-3 flex items-center justify-center gap-2 text-sm font-medium text-[var(--stampz-muted)]">
+          <p className="mt-3 flex items-center justify-center gap-2 text-sm font-medium text-[var(--stampperk-muted)]">
             <span className="text-base" aria-hidden>
               {region.flag}
             </span>
@@ -275,8 +275,8 @@ export function PricingTable({ compact = false, className = '' }: PricingTablePr
                   onClick={() => setRegionCode(code)}
                   className={`inline-flex items-center gap-1.5 rounded-full border px-3 py-1.5 text-xs font-bold transition sm:text-sm ${
                     active
-                      ? 'border-[var(--stampz-coral)] bg-[var(--stampz-pink)] text-[var(--stampz-coral)]'
-                      : 'border-[var(--stampz-line)] bg-[var(--stampz-surface)] text-[var(--stampz-muted)] hover:border-[var(--stampz-coral)]/40 hover:text-[var(--stampz-ink)]'
+                      ? 'border-[var(--stampperk-coral)] bg-[var(--stampperk-pink)] text-[var(--stampperk-coral)]'
+                      : 'border-[var(--stampperk-line)] bg-[var(--stampperk-surface)] text-[var(--stampperk-muted)] hover:border-[var(--stampperk-coral)]/40 hover:text-[var(--stampperk-ink)]'
                   }`}
                 >
                   <span aria-hidden>{r.flag}</span>
@@ -290,15 +290,15 @@ export function PricingTable({ compact = false, className = '' }: PricingTablePr
             <div
               role="group"
               aria-label={t('pricingPage.billingToggle')}
-              className="inline-flex items-center rounded-full border border-[var(--stampz-line)] bg-[var(--stampz-surface)] p-1.5 shadow-[0_10px_30px_rgba(226,61,74,0.08)]"
+              className="inline-flex items-center rounded-full border border-[var(--stampperk-line)] bg-[var(--stampperk-surface)] p-1.5 shadow-[0_10px_30px_rgba(226,61,74,0.08)]"
             >
               <button
                 type="button"
                 onClick={() => setBilling('monthly')}
                 className={`rounded-full px-5 py-2.5 text-sm font-bold transition ${
                   billing === 'monthly'
-                    ? 'bg-[var(--stampz-coral)] text-white shadow-md shadow-[#e23d4a]/25'
-                    : 'text-[var(--stampz-muted)] hover:text-[var(--stampz-ink)]'
+                    ? 'bg-[var(--stampperk-coral)] text-white shadow-md shadow-[#e23d4a]/25'
+                    : 'text-[var(--stampperk-muted)] hover:text-[var(--stampperk-ink)]'
                 }`}
               >
                 {t('pricingPage.monthly')}
@@ -308,8 +308,8 @@ export function PricingTable({ compact = false, className = '' }: PricingTablePr
                 onClick={() => setBilling('yearly')}
                 className={`rounded-full px-5 py-2.5 text-sm font-bold transition ${
                   billing === 'yearly'
-                    ? 'bg-[var(--stampz-coral)] text-white shadow-md shadow-[#e23d4a]/25'
-                    : 'text-[var(--stampz-muted)] hover:text-[var(--stampz-ink)]'
+                    ? 'bg-[var(--stampperk-coral)] text-white shadow-md shadow-[#e23d4a]/25'
+                    : 'text-[var(--stampperk-muted)] hover:text-[var(--stampperk-ink)]'
                 }`}
               >
                 {t('pricingPage.yearly')}
@@ -337,32 +337,32 @@ export function PricingTable({ compact = false, className = '' }: PricingTablePr
             return (
               <article
                 key={plan.id}
-                className={`relative flex flex-col rounded-[1.75rem] border bg-[var(--stampz-surface)] p-5 pt-7 shadow-[0_18px_50px_rgba(226,61,74,0.08)] transition duration-300 sm:p-6 sm:pt-8 md:p-7 md:pt-9 ${
+                className={`relative flex flex-col rounded-[1.75rem] border bg-[var(--stampperk-surface)] p-5 pt-7 shadow-[0_18px_50px_rgba(226,61,74,0.08)] transition duration-300 sm:p-6 sm:pt-8 md:p-7 md:pt-9 ${
                   isFeatured
-                    ? 'border-2 border-[var(--stampz-coral)] ring-4 ring-[var(--stampz-coral)]/10 lg:-translate-y-2 lg:shadow-[0_24px_60px_rgba(226,61,74,0.16)]'
-                    : 'border-[var(--stampz-line)] hover:-translate-y-0.5'
+                    ? 'border-2 border-[var(--stampperk-coral)] ring-4 ring-[var(--stampperk-coral)]/10 lg:-translate-y-2 lg:shadow-[0_24px_60px_rgba(226,61,74,0.16)]'
+                    : 'border-[var(--stampperk-line)] hover:-translate-y-0.5'
                 }`}
               >
                 {plan.id === 'yearly' && (
                   <div className="pointer-events-none absolute inset-0 overflow-hidden rounded-[1.75rem]">
-                    <div className="absolute -right-11 top-6 z-10 rotate-45 bg-[var(--stampz-coral)] px-12 py-1 text-xs font-extrabold text-white shadow">
+                    <div className="absolute -right-11 top-6 z-10 rotate-45 bg-[var(--stampperk-coral)] px-12 py-1 text-xs font-extrabold text-white shadow">
                       {t('pricingPage.saveRibbon', { percent: savePercent })}
                     </div>
                   </div>
                 )}
                 {isFeatured && (
-                  <div className="absolute left-1/2 top-0 z-20 -translate-x-1/2 -translate-y-1/2 whitespace-nowrap rounded-full bg-[var(--stampz-coral)] px-4 py-1 text-xs font-extrabold tracking-wide text-white shadow-md">
+                  <div className="absolute left-1/2 top-0 z-20 -translate-x-1/2 -translate-y-1/2 whitespace-nowrap rounded-full bg-[var(--stampperk-coral)] px-4 py-1 text-xs font-extrabold tracking-wide text-white shadow-md">
                     ★ {t('pricingPage.mostPopular')}
                   </div>
                 )}
 
-                <div className="text-xs font-extrabold uppercase tracking-[0.16em] text-[var(--stampz-coral)]">
+                <div className="text-xs font-extrabold uppercase tracking-[0.16em] text-[var(--stampperk-coral)]">
                   {text(plan.id, 'label', `pricingPage.plans.${plan.id}.label`)}
                 </div>
                 <h2 className="mt-2 text-xl font-extrabold tracking-tight sm:text-2xl">
                   {text(plan.id, 'title', `pricingPage.plans.${plan.id}.title`)}
                 </h2>
-                <p className="mt-2 min-h-[2.5rem] text-sm text-[var(--stampz-muted)] sm:min-h-[3rem] sm:text-base">
+                <p className="mt-2 min-h-[2.5rem] text-sm text-[var(--stampperk-muted)] sm:min-h-[3rem] sm:text-base">
                   {text(plan.id, 'description', `pricingPage.plans.${plan.id}.description`)}
                 </p>
 
@@ -370,35 +370,35 @@ export function PricingTable({ compact = false, className = '' }: PricingTablePr
 
                 <ul className="mb-6 space-y-3">
                   {features.map((item) => (
-                    <li key={item} className="flex items-start gap-3 text-sm text-[var(--stampz-ink)] sm:text-base">
+                    <li key={item} className="flex items-start gap-3 text-sm text-[var(--stampperk-ink)] sm:text-base">
                       <CheckIcon />
                       <span>{item}</span>
                     </li>
                   ))}
                 </ul>
 
-                <div className="mt-auto border-t border-[var(--stampz-line)] pt-5">
+                <div className="mt-auto border-t border-[var(--stampperk-line)] pt-5">
                   {priceBlock(plan.id, region, t as (k: string, o?: Record<string, unknown>) => string, cms)}
 
                   <Link
                     href={ctaHref}
                     className={`mt-5 flex w-full items-center justify-center rounded-full px-5 py-3.5 text-sm font-bold transition sm:text-base ${
                       plan.id === 'free'
-                        ? 'border-2 border-[var(--stampz-coral)] bg-[var(--stampz-surface)] text-[var(--stampz-coral)] hover:bg-[var(--stampz-pink)]'
+                        ? 'border-2 border-[var(--stampperk-coral)] bg-[var(--stampperk-surface)] text-[var(--stampperk-coral)] hover:bg-[var(--stampperk-pink)]'
                         : isFeatured
-                          ? 'bg-[var(--stampz-coral)] text-white shadow-lg shadow-[#e23d4a]/25 hover:brightness-105'
-                          : 'border-2 border-[var(--stampz-coral)] bg-[var(--stampz-surface)] text-[var(--stampz-coral)] hover:bg-[var(--stampz-pink)]'
+                          ? 'bg-[var(--stampperk-coral)] text-white shadow-lg shadow-[#e23d4a]/25 hover:brightness-105'
+                          : 'border-2 border-[var(--stampperk-coral)] bg-[var(--stampperk-surface)] text-[var(--stampperk-coral)] hover:bg-[var(--stampperk-pink)]'
                     }`}
                   >
                     {text(plan.id, 'cta', `pricingPage.plans.${plan.id}.cta`)} →
                   </Link>
 
-                  <p className="mt-3 text-center text-xs text-[var(--stampz-muted)] sm:text-sm">
+                  <p className="mt-3 text-center text-xs text-[var(--stampperk-muted)] sm:text-sm">
                     {text(plan.id, 'footer', `pricingPage.plans.${plan.id}.footer`)}
                   </p>
 
                   {plan.id === 'monthly' && (
-                    <p className="mt-3 flex items-center justify-center gap-2 text-sm font-medium text-[var(--stampz-ink)]">
+                    <p className="mt-3 flex items-center justify-center gap-2 text-sm font-medium text-[var(--stampperk-ink)]">
                       <span aria-hidden>🔔</span>
                       {t('pricingPage.trialReminder')}
                     </p>
@@ -412,17 +412,17 @@ export function PricingTable({ compact = false, className = '' }: PricingTablePr
         <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:mt-12 lg:grid-cols-4">
           {(['secure', 'cancel', 'data', 'support'] as const).map((key) => (
             <div key={key} className="text-center sm:text-left">
-              <div className="mx-auto mb-3 flex h-11 w-11 items-center justify-center rounded-2xl bg-[var(--stampz-pink)] text-lg text-[var(--stampz-coral)] sm:mx-0">
+              <div className="mx-auto mb-3 flex h-11 w-11 items-center justify-center rounded-2xl bg-[var(--stampperk-pink)] text-lg text-[var(--stampperk-coral)] sm:mx-0">
                 {{ secure: '🛡', cancel: '↺', data: '🔒', support: '🎧' }[key]}
               </div>
               <div className="font-bold">{t(`pricingPage.trust.${key}.title`)}</div>
-              <p className="mt-1 text-sm text-[var(--stampz-muted)]">
+              <p className="mt-1 text-sm text-[var(--stampperk-muted)]">
                 {t(`pricingPage.trust.${key}.body`)}
               </p>
             </div>
           ))}
         </div>
-        <p className="mt-8 text-center text-sm text-[var(--stampz-muted)]">
+        <p className="mt-8 text-center text-sm text-[var(--stampperk-muted)]">
           {t('pricingPage.allPlansInclude')}
         </p>
       </div>

@@ -15,7 +15,7 @@ export function LanguageSwitcher({ className = '' }: { className?: string }) {
       <select
         value={locale}
         onChange={(e) => setLocale(e.target.value as AppLocale)}
-        className="rounded-full border border-[var(--stampz-line)] bg-[var(--stampz-surface)] px-3 py-2 text-sm font-semibold text-[var(--stampz-ink)] shadow-sm outline-none focus:ring-2 focus:ring-[var(--stampz-coral)]/30"
+        className="rounded-full border border-[var(--stampperk-line)] bg-[var(--stampperk-surface)] px-3 py-2 text-sm font-semibold text-[var(--stampperk-ink)] shadow-sm outline-none focus:ring-2 focus:ring-[var(--stampperk-coral)]/30"
         aria-label={t('language')}
       >
         {languages.map((lang) => (

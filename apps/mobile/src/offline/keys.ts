@@ -1,8 +1,8 @@
 export const OFFLINE_KEYS = {
-  scans: 'stampz_offline_scans',
-  actions: 'stampz_offline_actions',
-  cacheQr: 'stampz_cache_qr',
-  cacheWallet: 'stampz_cache_wallet',
-  cachePrograms: 'stampz_cache_programs',
-  cacheMerchant: 'stampz_cache_merchant',
+  scans: 'stampperk_offline_scans',
+  actions: 'stampperk_offline_actions',
+  cacheQr: 'stampperk_cache_qr',
+  cacheWallet: 'stampperk_cache_wallet',
+  cachePrograms: 'stampperk_cache_programs',
+  cacheMerchant: 'stampperk_cache_merchant',
 } as const;

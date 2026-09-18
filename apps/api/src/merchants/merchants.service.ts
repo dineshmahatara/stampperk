@@ -17,7 +17,7 @@ import {
   createCouponSchema,
   updateCouponSchema,
   redeemCouponSchema,
-} from '@stampz/shared';
+} from '@stampperk/shared';
 import { CouponType, CustomerSegment, Prisma, UserRole } from '@prisma/client';
 import * as bcrypt from 'bcryptjs';
 import { PrismaService } from '../prisma/prisma.service';
@@ -541,7 +541,7 @@ export class MerchantsService {
 
     let user = await this.prisma.user.findUnique({ where: { email: data.email.toLowerCase() } });
     if (!user) {
-      const passwordHash = await bcrypt.hash('Stampz123!', 10);
+      const passwordHash = await bcrypt.hash('StampPerk123!', 10);
       const qrToken = await allocateUniqueQrToken(this.prisma);
       user = await this.prisma.user.create({
         data: {
@@ -1410,7 +1410,7 @@ export class MerchantsService {
       email: u.email,
       phone: u.phone,
       qrToken: u.qrToken,
-      qrPayload: `stampz:customer:${u.qrToken}`,
+      qrPayload: `stampperk:customer:${u.qrToken}`,
     };
   }
 
@@ -1511,11 +1511,11 @@ export class MerchantsService {
     }
 
     const digits = (phone || '').replace(/\D/g, '') || String(Date.now());
-    const finalEmail = email || `p${digits}@phone.stampz.app`;
+    const finalEmail = email || `p${digits}@phone.stampperk.app`;
     const name =
       data.name?.trim() ||
       (email ? email.split('@')[0] : `Customer ${digits.slice(-4)}`);
-    const passwordHash = await bcrypt.hash('Stampz123!', 10);
+    const passwordHash = await bcrypt.hash('StampPerk123!', 10);
     const qrToken = await allocateUniqueQrToken(this.prisma);
 
     try {
