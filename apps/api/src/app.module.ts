@@ -1,3 +1,4 @@
+import { join } from 'path';
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { ThrottlerGuard, ThrottlerModule } from '@nestjs/throttler';
@@ -24,7 +25,15 @@ import { JwtAuthGuard } from './auth/jwt-auth.guard';
 
 @Module({
   imports: [
-    ConfigModule.forRoot({ isGlobal: true }),
+    ConfigModule.forRoot({
+      isGlobal: true,
+      // Monorepo may start from repo root; always load apps/api/.env too.
+      envFilePath: [
+        join(__dirname, '..', '.env'),
+        join(process.cwd(), 'apps', 'api', '.env'),
+        join(process.cwd(), '.env'),
+      ],
+    }),
     ThrottlerModule.forRoot([{ ttl: 60_000, limit: 120 }]),
     PrismaModule,
     PricingModule,

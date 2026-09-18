@@ -4,61 +4,64 @@ import { useEffect, useRef, useState } from 'react';
 import { googleMapsLink } from '@/lib/geo';
 import type { MapMerchantPin } from './AdminBusinessLeafletMap';
 
-declare global {
-  interface Window {
-    google?: {
-      maps: {
-        Map: new (
-          el: HTMLElement,
-          opts: {
-            center: { lat: number; lng: number };
-            zoom: number;
-            mapTypeControl?: boolean;
-            streetViewControl?: boolean;
-            fullscreenControl?: boolean;
-          },
-        ) => {
-          fitBounds: (b: unknown) => void;
-          setCenter: (c: { lat: number; lng: number }) => void;
-          setZoom: (z: number) => void;
-        };
-        LatLngBounds: new () => {
-          extend: (c: { lat: number; lng: number }) => void;
-          isEmpty: () => boolean;
-        };
-        Marker: new (opts: {
-          position: { lat: number; lng: number };
-          map: unknown;
-          title?: string;
-          icon?: {
-            path: unknown;
-            fillColor: string;
-            fillOpacity: number;
-            strokeWeight: number;
-            strokeColor: string;
-            scale: number;
-          };
-        }) => {
-          setMap: (m: unknown) => void;
-          addListener: (event: string, fn: () => void) => void;
-        };
-        InfoWindow: new (opts: { content: string }) => {
-          open: (opts: { map: unknown; anchor: unknown }) => void;
-          close: () => void;
-        };
-        SymbolPath: { CIRCLE: unknown };
-        event: { clearInstanceListeners: (t: unknown) => void };
-      };
+type GoogleMapsApi = {
+  Map: new (
+    el: HTMLElement,
+    opts: {
+      center: { lat: number; lng: number };
+      zoom: number;
+      mapTypeControl?: boolean;
+      streetViewControl?: boolean;
+      fullscreenControl?: boolean;
+    },
+  ) => {
+    fitBounds: (b: unknown) => void;
+    setCenter: (c: { lat: number; lng: number }) => void;
+    setZoom: (z: number) => void;
+  };
+  LatLngBounds: new () => {
+    extend: (c: { lat: number; lng: number }) => void;
+    isEmpty: () => boolean;
+  };
+  Marker: new (opts: {
+    position: { lat: number; lng: number };
+    map: unknown;
+    title?: string;
+    icon?: {
+      path: unknown;
+      fillColor: string;
+      fillOpacity: number;
+      strokeWeight: number;
+      strokeColor: string;
+      scale: number;
     };
-    __stampperkGoogleMapsPromise?: Promise<void>;
-  }
+  }) => {
+    setMap: (m: unknown) => void;
+    addListener: (event: string, fn: () => void) => void;
+  };
+  InfoWindow: new (opts: { content: string }) => {
+    open: (opts: { map: unknown; anchor: unknown }) => void;
+    close: () => void;
+  };
+  SymbolPath: { CIRCLE: unknown };
+  event: { clearInstanceListeners: (t: unknown) => void };
+};
+
+type MapsWindow = Window & {
+  google?: { maps?: GoogleMapsApi };
+  __stampperkGoogleMapsPromise?: Promise<void>;
+};
+
+function mapsWindow(): MapsWindow {
+  return window as MapsWindow;
 }
 
 function loadGoogleMaps(apiKey: string): Promise<void> {
   if (typeof window === 'undefined') return Promise.reject(new Error('no window'));
-  if (window.google?.maps) return Promise.resolve();
-  if (window.__stampperkGoogleMapsPromise) return window.__stampperkGoogleMapsPromise;
-  window.__stampperkGoogleMapsPromise = new Promise((resolve, reject) => {
+  const w = mapsWindow();
+  if (w.google?.maps) return Promise.resolve();
+  if (w.__stampperkGoogleMapsPromise) return w.__stampperkGoogleMapsPromise;
+  w.__stampperkGoogleMapsPromise = new Promise((resolve, reject) => {
     const existing = document.querySelector<HTMLScriptElement>('script[data-stampperk-gmaps]');
     if (existing) {
       existing.addEventListener('load', () => resolve());
@@ -74,7 +77,7 @@ function loadGoogleMaps(apiKey: string): Promise<void> {
     script.onerror = () => reject(new Error('Google Maps failed to load'));
     document.head.appendChild(script);
   });
-  return window.__stampperkGoogleMapsPromise;
+  return w.__stampperkGoogleMapsPromise;
 }
 
 export function AdminBusinessGoogleMap({
@@ -114,8 +117,8 @@ export function AdminBusinessGoogleMap({
     let cancelled = false;
     loadGoogleMaps(apiKey)
       .then(() => {
-        if (cancelled || !hostRef.current || !window.google?.maps) return;
-        const g = window.google.maps;
+        const g = mapsWindow().google?.maps;
+        if (cancelled || !hostRef.current || !g) return;
         const center = pins[0]
           ? { lat: pins[0].latitude, lng: pins[0].longitude }
           : { lat: 27.7172, lng: 85.324 };
@@ -140,7 +143,7 @@ export function AdminBusinessGoogleMap({
 
   useEffect(() => {
     if (!ready) return;
-    const g = window.google?.maps;
+    const g = mapsWindow().google?.maps;
     const map = mapRef.current;
     if (!g || !map) return;
 

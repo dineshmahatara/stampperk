@@ -263,34 +263,62 @@ export const adminVerificationActionSchema = z.object({
   note: z.string().max(500).optional(),
 });
 
-export const registerSchema = z.object({
-  email: z.string().email(),
-  password: z.string().min(8),
-  name: z.string().min(2).max(80),
-  role: z.enum(['CUSTOMER', 'MERCHANT_OWNER']).default('CUSTOMER'),
-  phone: z.string().optional(),
-  language: z.string().default('en'),
-  timezone: z.string().default('Asia/Kathmandu'),
-  currency: z.string().default('NPR'),
-  /** Invite code from Refer & Earn share link. */
-  referralCode: z.preprocess(
-    (v) => {
-      if (typeof v !== 'string') return undefined;
-      const t = v.trim().toUpperCase();
-      return t.length ? t : undefined;
-    },
-    z.string().min(4).max(16).optional(),
-  ),
-  /** When set with referralCode, creates a merchant-scoped referral. */
-  referralMerchantId: z.preprocess(
-    (v) => (typeof v === 'string' && v.trim() ? v.trim() : undefined),
-    z.string().min(1).optional(),
-  ),
-  referralProgramId: z.preprocess(
-    (v) => (typeof v === 'string' && v.trim() ? v.trim() : undefined),
-    z.string().min(1).optional(),
-  ),
-});
+export const registerSchema = z
+  .object({
+    email: z.string().email(),
+    password: z.string().min(8),
+    name: z.string().min(2).max(80),
+    role: z.enum(['CUSTOMER', 'MERCHANT_OWNER']).default('CUSTOMER'),
+    /** Required when role is MERCHANT_OWNER — creates the Merchant row at signup. */
+    businessName: z.preprocess(
+      (v) => (typeof v === 'string' && v.trim() ? v.trim() : undefined),
+      z.string().min(2).max(100).optional(),
+    ),
+    /** Industry / business type (same as merchant category). */
+    category: z.preprocess(
+      (v) => (typeof v === 'string' && v.trim() ? v.trim() : undefined),
+      z.string().min(2).max(60).optional(),
+    ),
+    phone: z.string().optional(),
+    language: z.string().default('en'),
+    timezone: z.string().default('Asia/Kathmandu'),
+    currency: z.string().default('NPR'),
+    /** Invite code from Refer & Earn share link. */
+    referralCode: z.preprocess(
+      (v) => {
+        if (typeof v !== 'string') return undefined;
+        const t = v.trim().toUpperCase();
+        return t.length ? t : undefined;
+      },
+      z.string().min(4).max(16).optional(),
+    ),
+    /** When set with referralCode, creates a merchant-scoped referral. */
+    referralMerchantId: z.preprocess(
+      (v) => (typeof v === 'string' && v.trim() ? v.trim() : undefined),
+      z.string().min(1).optional(),
+    ),
+    referralProgramId: z.preprocess(
+      (v) => (typeof v === 'string' && v.trim() ? v.trim() : undefined),
+      z.string().min(1).optional(),
+    ),
+  })
+  .superRefine((data, ctx) => {
+    if (data.role !== 'MERCHANT_OWNER') return;
+    if (!data.businessName) {
+      ctx.addIssue({
+        code: z.ZodIssueCode.custom,
+        message: 'Business name is required for business owners',
+        path: ['businessName'],
+      });
+    }
+    if (!data.category) {
+      ctx.addIssue({
+        code: z.ZodIssueCode.custom,
+        message: 'Business type is required for business owners',
+        path: ['category'],
+      });
+    }
+  });
 
 export const loginSchema = z.object({
   email: z.string().email(),

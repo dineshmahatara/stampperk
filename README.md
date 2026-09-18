@@ -39,6 +39,18 @@ npm run dev:mobile
 | Customer | customer@stampperk.app | StampPerk123! |
 | Staff    | staff@stampperk.app    | StampPerk123! |
 
+## Google Sign-In
+
+1. Google Cloud Console → OAuth consent screen + **Web** OAuth client.
+2. Authorized JavaScript origins: `http://localhost:3000`
+3. For Expo Go / mobile, add the Expo auth redirect URI Google shows when using the Web client (or create iOS/Android clients for store builds).
+4. Put the Web client ID in:
+   - `apps/api/.env` → `GOOGLE_CLIENT_ID` (and optionally `GOOGLE_CLIENT_IDS` for web+iOS+Android)
+   - `apps/web/.env.local` → `NEXT_PUBLIC_GOOGLE_CLIENT_ID`
+   - `apps/mobile/.env` → `EXPO_PUBLIC_GOOGLE_WEB_CLIENT_ID`
+5. Keep `OAUTH_DEMO_MODE=false`. When `GOOGLE_CLIENT_ID` is set, Google tokens are always verified (demo Google tokens are rejected).
+6. Restart API, web, and mobile after changing env, then use **Continue with Google**.
+
 Public demo business: http://localhost:3000/b/brew-bliss
 
 ## Phase 5

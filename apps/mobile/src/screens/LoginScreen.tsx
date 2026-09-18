@@ -13,8 +13,9 @@ import {
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
+import * as AuthSession from 'expo-auth-session';
 import * as WebBrowser from 'expo-web-browser';
-import { passwordStrength } from '@stampperk/shared';
+import { passwordStrength, BUSINESS_INDUSTRIES } from '@stampperk/shared';
 import { api, ApiError, AuthUser } from '../api';
 import { Locale } from '../i18n';
 import { colors, radii } from '../theme';
@@ -23,6 +24,11 @@ import { KeyboardAwareScroll } from '../components/KeyboardAwareScroll';
 import { clearMobileReferral, readMobileReferral } from '../referral';
 
 WebBrowser.maybeCompleteAuthSession();
+
+function parseIdTokenFromRedirect(url: string): string | null {
+  const m = url.match(/[?#&]id_token=([^&#]+)/);
+  return m?.[1] ? decodeURIComponent(m[1]) : null;
+}
 
 export type Session = { token: string; user: AuthUser };
 
@@ -62,6 +68,8 @@ export function LoginScreen({
   const [mode, setMode] = useState<AuthMode>('login');
   const [role, setRole] = useState<RegisterRole>('CUSTOMER');
   const [name, setName] = useState('');
+  const [businessName, setBusinessName] = useState('');
+  const [category, setCategory] = useState<string>(BUSINESS_INDUSTRIES[0]);
   const [email, setEmail] = useState('merchant@stampperk.app');
   const [password, setPassword] = useState('StampPerk123!');
   const [confirmPassword, setConfirmPassword] = useState('');
@@ -73,12 +81,58 @@ export function LoginScreen({
   const [captchaAnswer, setCaptchaAnswer] = useState('');
   const [verifyHint, setVerifyHint] = useState('');
 
+  // Expo Go cannot complete native Google OAuth redirects — use the web GIS bridge instead.
+  const googleWebClientId = process.env.EXPO_PUBLIC_GOOGLE_WEB_CLIENT_ID || '';
+  const webAppUrl = (
+    process.env.EXPO_PUBLIC_WEB_URL ||
+    process.env.EXPO_PUBLIC_API_URL?.replace(/:4000$/, ':3000') ||
+    'http://localhost:3000'
+  ).replace(/\/$/, '');
+
   useEffect(() => {
     if (mode !== 'register') return;
     void readMobileReferral().then((stored) => {
       if (stored?.referralCode) setInviteCode(stored.referralCode);
     });
   }, [mode]);
+
+  async function completeGoogleLogin(idToken: string) {
+    setBusy(true);
+    setError('');
+    try {
+      const stored = mode === 'register' ? await readMobileReferral() : null;
+      const res = await api<{ accessToken: string; user: AuthUser }>('/auth/oauth', {
+        method: 'POST',
+        body: JSON.stringify({
+          provider: 'google',
+          idToken,
+          role: mode === 'register' ? role : 'CUSTOMER',
+          ...devicePayload(),
+        }),
+      });
+      if (stored?.referralCode) {
+        try {
+          await api('/referrals/claim', {
+            method: 'POST',
+            token: res.accessToken,
+            body: JSON.stringify({
+              referralCode: stored.referralCode,
+              referralMerchantId: stored.referralMerchantId,
+              referralProgramId: stored.referralProgramId,
+            }),
+          });
+          await clearMobileReferral();
+        } catch {
+          /* ignore */
+        }
+      }
+      onLoggedIn({ token: res.accessToken, user: res.user });
+    } catch (e) {
+      setError(e instanceof Error ? e.message : 'Google sign-in failed');
+    } finally {
+      setBusy(false);
+    }
+  }
 
   function switchMode(next: AuthMode) {
     setMode(next);
@@ -149,6 +203,16 @@ export function LoginScreen({
       setError('Passwords do not match');
       return;
     }
+    if (role === 'MERCHANT_OWNER') {
+      if (businessName.trim().length < 2) {
+        setError('Enter your business name');
+        return;
+      }
+      if (!category.trim()) {
+        setError('Select a business type');
+        return;
+      }
+    }
 
     setBusy(true);
     setError('');
@@ -167,6 +231,8 @@ export function LoginScreen({
           email: trimmedEmail,
           password,
           role,
+          businessName: role === 'MERCHANT_OWNER' ? businessName.trim() : undefined,
+          category: role === 'MERCHANT_OWNER' ? category : undefined,
           referralCode: code,
           referralMerchantId: code ? stored?.referralMerchantId : undefined,
           referralProgramId: code ? stored?.referralProgramId : undefined,
@@ -185,46 +251,36 @@ export function LoginScreen({
     }
   }
 
-  async function oauth(provider: 'google' | 'apple' | 'microsoft') {
-    setBusy(true);
+  async function oauthGoogle() {
     setError('');
+    if (!googleWebClientId) {
+      setError(
+        'Google Sign-In is not configured. Set EXPO_PUBLIC_GOOGLE_WEB_CLIENT_ID in apps/mobile/.env',
+      );
+      return;
+    }
+    setBusy(true);
     try {
-      const stored = mode === 'register' ? await readMobileReferral() : null;
-      const nameByProvider =
-        provider === 'google' ? 'Google Demo' : provider === 'apple' ? 'Apple Demo' : 'Microsoft Demo';
-      const res = await api<{ accessToken: string; user: AuthUser }>('/auth/oauth', {
-        method: 'POST',
-        body: JSON.stringify({
-          provider,
-          idToken: `demo-${provider}-${Date.now()}`,
-          email: `${provider}.demo@stampperk.app`,
-          name: nameByProvider,
-          sub: `${provider}-demo-sub`,
-          role: mode === 'register' ? role : 'CUSTOMER',
-          ...devicePayload(),
-        }),
-      });
-      if (stored?.referralCode) {
-        try {
-          await api('/referrals/claim', {
-            method: 'POST',
-            token: res.accessToken,
-            body: JSON.stringify({
-              referralCode: stored.referralCode,
-              referralMerchantId: stored.referralMerchantId,
-              referralProgramId: stored.referralProgramId,
-            }),
-          });
-          await clearMobileReferral();
-        } catch {
-          /* ignore */
-        }
+      // Expo Go cannot customize OAuth schemes — open web GIS, then return via exp:// redirect.
+      const redirectUri = AuthSession.makeRedirectUri({ path: 'google-auth' });
+      const authUrl = `${webAppUrl}/auth/google-bridge?redirect_uri=${encodeURIComponent(redirectUri)}`;
+      const result = await WebBrowser.openAuthSessionAsync(authUrl, redirectUri);
+      if (result.type !== 'success' || !('url' in result) || !result.url) {
+        setBusy(false);
+        if (result.type === 'cancel' || result.type === 'dismiss') return;
+        setError('Google sign-in was not completed');
+        return;
       }
-      onLoggedIn({ token: res.accessToken, user: res.user });
+      const idToken = parseIdTokenFromRedirect(result.url);
+      if (!idToken) {
+        setBusy(false);
+        setError('Google did not return an ID token');
+        return;
+      }
+      await completeGoogleLogin(idToken);
     } catch (e) {
-      setError(e instanceof Error ? e.message : 'OAuth failed');
-    } finally {
       setBusy(false);
+      setError(e instanceof Error ? e.message : 'Google sign-in failed');
     }
   }
 
@@ -281,6 +337,34 @@ export function LoginScreen({
             placeholder="Your name"
             autoCapitalize="words"
           />
+        )}
+
+        {!isLogin && role === 'MERCHANT_OWNER' && (
+          <>
+            <Field
+              label="Business name"
+              icon="storefront-outline"
+              value={businessName}
+              onChangeText={setBusinessName}
+              placeholder="e.g. Himalayan Cafe"
+              autoCapitalize="words"
+            />
+            <Text style={s.fieldLabel}>Business type</Text>
+            <View style={s.categoryWrap}>
+              {BUSINESS_INDUSTRIES.map((ind) => {
+                const on = category === ind;
+                return (
+                  <Pressable
+                    key={ind}
+                    style={[s.categoryChip, on && s.categoryChipOn]}
+                    onPress={() => setCategory(ind)}
+                  >
+                    <Text style={[s.categoryText, on && s.categoryTextOn]}>{ind}</Text>
+                  </Pressable>
+                );
+              })}
+            </View>
+          </>
         )}
 
         <Field
@@ -407,21 +491,11 @@ export function LoginScreen({
 
         <SocialButton
           label="Continue with Google"
-          onPress={() => oauth('google')}
-          disabled={busy}
-          leading={<Text style={s.socialGlyph}>G</Text>}
-        />
-        <SocialButton
-          label="Continue with Microsoft"
-          onPress={() => oauth('microsoft')}
-          disabled={busy}
-          leading={<Text style={s.socialGlyph}>⬚</Text>}
-        />
-        <SocialButton
-          label="Continue with Apple"
-          onPress={() => oauth('apple')}
-          disabled={busy}
-          leading={<Ionicons name="logo-apple" size={18} color="#1C1C1E" />}
+          onPress={() => oauthGoogle()}
+          disabled={busy || !googleWebClientId}
+          leading={
+            <Ionicons name="logo-google" size={18} color="#EA4335" />
+          }
         />
 
         <View style={s.footer}>
@@ -577,6 +651,18 @@ const s = StyleSheet.create({
   roleChipOn: { borderColor: CORAL, backgroundColor: '#FFF5F5' },
   roleText: { fontWeight: '700', color: colors.muted, fontSize: 13 },
   roleTextOn: { color: CORAL, fontWeight: '800' },
+  categoryWrap: { flexDirection: 'row', flexWrap: 'wrap', gap: 8, marginBottom: 14 },
+  categoryChip: {
+    borderWidth: 1,
+    borderColor: '#E5E7EB',
+    borderRadius: 999,
+    paddingHorizontal: 12,
+    paddingVertical: 8,
+    backgroundColor: '#FAFAFA',
+  },
+  categoryChipOn: { borderColor: CORAL, backgroundColor: '#FFF5F5' },
+  categoryText: { fontSize: 12, fontWeight: '600', color: colors.muted },
+  categoryTextOn: { color: CORAL, fontWeight: '800' },
   field: { marginBottom: 14 },
   fieldLabel: { marginBottom: 8, fontSize: 13, fontWeight: '600', color: '#6B7280' },
   inputRow: {

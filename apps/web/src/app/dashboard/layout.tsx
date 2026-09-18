@@ -238,7 +238,12 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
   }, [user, loading, pathname, router, inCustomerExperience, inMerchantExperience]);
 
   if (loading || !token) {
-    return <div className="p-8 text-[var(--stampperk-muted)]">{t('panel.loading')}</div>;
+    // Plain text: avoid SSR/client locale mismatch (ne vs en) during auth bootstrap.
+    return (
+      <div className="p-8 text-[var(--stampperk-muted)]" suppressHydrationWarning>
+        Loading…
+      </div>
+    );
   }
 
   if (inCustomerExperience) {

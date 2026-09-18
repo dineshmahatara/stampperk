@@ -19,6 +19,7 @@ import { PrismaService } from '../prisma/prisma.service';
 import { allocateUniqueQrToken } from '../common/qr-token';
 import { ReferralsService } from '../referrals/referrals.service';
 import { NotificationsService } from '../notifications/notifications.service';
+import { MerchantsService } from '../merchants/merchants.service';
 
 const CAPTCHA_AFTER = 3;
 const LOCK_AFTER = 5;
@@ -28,6 +29,15 @@ const WEB_PUBLIC = (process.env.PUBLIC_WEB_URL || process.env.WEB_PUBLIC_URL || 
   /\/$/,
   '',
 );
+
+function googleAllowedAudiences(): string[] {
+  const fromList = (process.env.GOOGLE_CLIENT_IDS || '')
+    .split(',')
+    .map((s) => s.trim())
+    .filter(Boolean);
+  const single = (process.env.GOOGLE_CLIENT_ID || '').trim();
+  return Array.from(new Set([...fromList, ...(single ? [single] : [])]));
+}
 
 export type ClientMeta = {
   ip?: string | null;
@@ -43,6 +53,7 @@ export class AuthService {
     private jwt: JwtService,
     private referrals: ReferralsService,
     private notifications: NotificationsService,
+    private merchants: MerchantsService,
   ) {}
 
   async register(raw: unknown, meta: ClientMeta = {}) {
@@ -66,6 +77,18 @@ export class AuthService {
         emailVerifiedAt: null,
       },
     });
+
+    if (data.role === 'MERCHANT_OWNER' && data.businessName && data.category) {
+      await this.merchants.create(user.id, {
+        businessName: data.businessName,
+        category: data.category,
+        phone: data.phone,
+        email: data.email.toLowerCase(),
+        timezone: data.timezone,
+        currency: data.currency,
+        country: 'NP',
+      });
+    }
 
     await this.referrals.ensureReferralCode(user.id);
     if (data.referralCode) {
@@ -229,30 +252,51 @@ export class AuthService {
     meta: ClientMeta = {},
   ) {
     const data = oauthLoginSchema.parse(body);
-    const demo = process.env.OAUTH_DEMO_MODE !== 'false';
+    // Explicit opt-in for fake tokens. If Google client IDs are configured, Google is always verified.
+    const demo = process.env.OAUTH_DEMO_MODE === 'true';
+    const googleAudiences = googleAllowedAudiences();
     let email = data.email?.toLowerCase();
     let name = data.name || 'Stamp Perk User';
     let sub = data.sub || data.idToken.slice(0, 32);
 
-    if (!demo) {
-      if (data.provider === 'google') {
-        const res = await fetch(`https://oauth2.googleapis.com/tokeninfo?id_token=${data.idToken}`);
-        if (!res.ok) throw new UnauthorizedException('Invalid Google token');
-        const info = (await res.json()) as { email?: string; name?: string; sub?: string; aud?: string };
-        if (process.env.GOOGLE_CLIENT_ID && info.aud !== process.env.GOOGLE_CLIENT_ID) {
-          throw new UnauthorizedException('Google audience mismatch');
-        }
-        email = info.email?.toLowerCase();
-        name = info.name || name;
-        sub = info.sub || sub;
-      } else if (data.provider === 'microsoft') {
-        // Production: validate against Microsoft JWKS / Graph. Demo mode bypasses.
+    if (data.provider === 'google' && (!demo || googleAudiences.length > 0)) {
+      if (!googleAudiences.length) {
+        throw new BadRequestException(
+          'Google Sign-In is not configured. Set GOOGLE_CLIENT_ID (or GOOGLE_CLIENT_IDS) on the API.',
+        );
+      }
+      const res = await fetch(
+        `https://oauth2.googleapis.com/tokeninfo?id_token=${encodeURIComponent(data.idToken)}`,
+      );
+      if (!res.ok) throw new UnauthorizedException('Invalid Google token');
+      const info = (await res.json()) as {
+        email?: string;
+        name?: string;
+        sub?: string;
+        aud?: string;
+        email_verified?: string | boolean;
+      };
+      if (!info.aud || !googleAudiences.includes(info.aud)) {
+        throw new UnauthorizedException('Google audience mismatch');
+      }
+      if (info.email_verified === false || info.email_verified === 'false') {
+        throw new UnauthorizedException('Google email is not verified');
+      }
+      email = info.email?.toLowerCase();
+      name = info.name || name;
+      sub = info.sub || sub;
+    } else if (!demo) {
+      if (data.provider === 'microsoft') {
         if (!data.email || !data.sub) {
-          throw new BadRequestException('Microsoft Sign-In requires verified email and sub in production');
+          throw new BadRequestException(
+            'Microsoft Sign-In requires verified email and sub in production',
+          );
         }
-      } else {
+      } else if (data.provider === 'apple') {
         if (!data.email || !data.sub) {
-          throw new BadRequestException('Apple Sign-In requires verified email and sub in production');
+          throw new BadRequestException(
+            'Apple Sign-In requires verified email and sub in production',
+          );
         }
       }
     }

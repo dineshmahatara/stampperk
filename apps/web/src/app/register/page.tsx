@@ -8,6 +8,7 @@ import { BrandMark } from '@/components/BrandMark';
 import { useBranding } from '@/components/BrandingProvider';
 import { captureReferralFromSearch, readReferral } from '@/lib/referral';
 import { PasswordStrength } from '@/components/PasswordStrength';
+import { BUSINESS_INDUSTRIES } from '@stampperk/shared';
 
 function RegisterForm() {
   const { register } = useAuth();
@@ -19,6 +20,8 @@ function RegisterForm() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [role, setRole] = useState<'CUSTOMER' | 'MERCHANT_OWNER'>('CUSTOMER');
+  const [businessName, setBusinessName] = useState('');
+  const [category, setCategory] = useState<string>(BUSINESS_INDUSTRIES[0]);
   const [error, setError] = useState('');
   const [info, setInfo] = useState('');
   const [busy, setBusy] = useState(false);
@@ -42,6 +45,8 @@ function RegisterForm() {
         email,
         password,
         role,
+        businessName: role === 'MERCHANT_OWNER' ? businessName.trim() : undefined,
+        category: role === 'MERCHANT_OWNER' ? category : undefined,
         referralCode: stored?.referralCode || refCode || undefined,
         referralMerchantId: stored?.referralMerchantId,
         referralProgramId: stored?.referralProgramId,
@@ -55,6 +60,7 @@ function RegisterForm() {
       if (res.verifyUrl) {
         setInfo(`Verify your email (dev): ${res.verifyUrl}`);
       }
+      // Merchant row is created at signup; onboarding can still fill logo/phone/city.
       router.push(role === 'MERCHANT_OWNER' ? '/dashboard/onboarding' : '/dashboard');
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Registration failed');
@@ -118,6 +124,36 @@ function RegisterForm() {
               <option value="MERCHANT_OWNER">Business owner</option>
             </select>
           </label>
+          {role === 'MERCHANT_OWNER' && (
+            <>
+              <label className="block text-sm font-medium">
+                Business name
+                <input
+                  className="mt-1 w-full rounded-xl border border-black/10 px-3 py-2"
+                  value={businessName}
+                  onChange={(e) => setBusinessName(e.target.value)}
+                  placeholder="e.g. Himalayan Cafe"
+                  minLength={2}
+                  required
+                />
+              </label>
+              <label className="block text-sm font-medium">
+                Business type
+                <select
+                  className="mt-1 w-full rounded-xl border border-black/10 px-3 py-2"
+                  value={category}
+                  onChange={(e) => setCategory(e.target.value)}
+                  required
+                >
+                  {BUSINESS_INDUSTRIES.map((ind) => (
+                    <option key={ind} value={ind}>
+                      {ind}
+                    </option>
+                  ))}
+                </select>
+              </label>
+            </>
+          )}
           {error && <p className="text-sm text-red-600">{error}</p>}
           {info && <p className="text-sm text-emerald-700">{info}</p>}
           <button className="btn-primary w-full" disabled={busy}>

@@ -3,6 +3,7 @@
     "name": "Stamp Perk",
     "slug": "stampperk",
     "version": "1.0.0",
+    "scheme": "stampperk",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",

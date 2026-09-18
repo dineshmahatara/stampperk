@@ -34,6 +34,8 @@ type AuthState = {
     password: string;
     name: string;
     role?: 'CUSTOMER' | 'MERCHANT_OWNER';
+    businessName?: string;
+    category?: string;
     referralCode?: string;
     referralMerchantId?: string;
     referralProgramId?: string;

@@ -6,6 +6,7 @@ import { AuthController } from './auth.controller';
 import { JwtStrategy } from './jwt.strategy';
 import { ReferralsModule } from '../referrals/referrals.module';
 import { NotificationsModule } from '../notifications/notifications.module';
+import { MerchantsModule } from '../merchants/merchants.module';
 
 @Module({
   imports: [
@@ -16,6 +17,7 @@ import { NotificationsModule } from '../notifications/notifications.module';
     }),
     forwardRef(() => ReferralsModule),
     forwardRef(() => NotificationsModule),
+    forwardRef(() => MerchantsModule),
   ],
   providers: [AuthService, JwtStrategy],
   controllers: [AuthController],
