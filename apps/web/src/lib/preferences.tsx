@@ -23,7 +23,7 @@ type Preferences = {
   setLocale: (l: AppLocale) => void;
   setFontScale: (s: FontScale) => void;
   ready: boolean;
-  languages: typeof SUPPORTED_LOCALES;
+  languages: typeof SUPPORTED_LOCALES | Array<(typeof SUPPORTED_LOCALES)[number]>;
 };
 
 const PreferencesContext = createContext<Preferences | null>(null);

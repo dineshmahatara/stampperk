@@ -59,10 +59,19 @@ export function LogoPicker({
     }
   }, [open, load]);
 
-  const groups = useMemo(
-    () => groupMediaLibrary(items, { search, groupId: groupFilter }),
-    [items, search, groupFilter],
-  );
+  const groups = useMemo(() => {
+    const mapped = items.map((i) => ({
+      id: i.id,
+      categoryGroup: i.categoryGroup,
+      categorySlug: i.categorySlug,
+      label: i.label,
+      path: i.url,
+    }));
+    return groupMediaLibrary(mapped, { search, groupId: groupFilter }).map((g) => ({
+      ...g,
+      items: g.items.map((item) => ({ ...item, url: item.path })),
+    }));
+  }, [items, search, groupFilter]);
 
   const allGroups = useMemo(() => {
     const seen = new Map<string, string>();

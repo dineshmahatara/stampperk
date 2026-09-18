@@ -42,6 +42,17 @@ type Dashboard = {
     progress: number;
     totalStamps: number;
   }[];
+  /** API alias of programPerformance (loyalty programs with progress). */
+  activePrograms?: {
+    id: string;
+    title: string;
+    rewardTitle: string;
+    cards: number;
+    stamps: number;
+    percent: number;
+    progress: number;
+    totalStamps: number;
+  }[];
   topCustomers?: {
     id: string;
     name: string;

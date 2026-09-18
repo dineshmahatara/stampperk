@@ -16,16 +16,21 @@ import ar from '@/locales/ar/common.json';
 import he from '@/locales/he/common.json';
 
 export const SUPPORTED_LOCALES = [
-  { code: 'en', label: 'English', native: 'English', dir: 'ltr' as TextDirection },
-  { code: 'ne', label: 'Nepali', native: 'नेपाली', dir: 'ltr' as TextDirection },
-  { code: 'hi', label: 'Hindi', native: 'हिन्दी', dir: 'ltr' as TextDirection },
-  { code: 'es', label: 'Spanish', native: 'Español', dir: 'ltr' as TextDirection },
-  { code: 'fr', label: 'French', native: 'Français', dir: 'ltr' as TextDirection },
-  { code: 'de', label: 'German', native: 'Deutsch', dir: 'ltr' as TextDirection },
-  { code: 'zh', label: 'Chinese', native: '中文', dir: 'ltr' as TextDirection },
-  { code: 'ar', label: 'Arabic', native: 'العربية', dir: 'rtl' as TextDirection },
-  { code: 'he', label: 'Hebrew', native: 'עברית', dir: 'rtl' as TextDirection },
-] as const;
+  { code: 'en', label: 'English', native: 'English', dir: 'ltr' },
+  { code: 'ne', label: 'Nepali', native: 'नेपाली', dir: 'ltr' },
+  { code: 'hi', label: 'Hindi', native: 'हिन्दी', dir: 'ltr' },
+  { code: 'es', label: 'Spanish', native: 'Español', dir: 'ltr' },
+  { code: 'fr', label: 'French', native: 'Français', dir: 'ltr' },
+  { code: 'de', label: 'German', native: 'Deutsch', dir: 'ltr' },
+  { code: 'zh', label: 'Chinese', native: '中文', dir: 'ltr' },
+  { code: 'ar', label: 'Arabic', native: 'العربية', dir: 'rtl' },
+  { code: 'he', label: 'Hebrew', native: 'עברית', dir: 'rtl' },
+] as const satisfies ReadonlyArray<{
+  code: string;
+  label: string;
+  native: string;
+  dir: TextDirection;
+}>;
 
 export type AppLocale = (typeof SUPPORTED_LOCALES)[number]['code'];
 

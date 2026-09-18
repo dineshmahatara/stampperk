@@ -424,10 +424,10 @@ export default function ProfilePage() {
                   {t}
                 </option>
               ))}
-              {merchant.category &&
-                !(BUSINESS_INDUSTRIES as readonly string[]).includes(String(merchant.category)) && (
-                  <option value={String(merchant.category)}>{String(merchant.category)}</option>
-                )}
+              {!!merchant.category &&
+              !(BUSINESS_INDUSTRIES as readonly string[]).includes(String(merchant.category)) ? (
+                <option value={String(merchant.category)}>{String(merchant.category)}</option>
+              ) : null}
             </select>
           </Field>
           <Field label="Year Established">
